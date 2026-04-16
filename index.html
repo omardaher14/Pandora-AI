@@ -3,1144 +3,1361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pandora AI — Cabinet de Conseil IA Premium | Paris</title>
-<meta name="description" content="Pandora AI transforme l'IA en levier de croissance mesurable pour les entreprises ambitieuses. Audit, formation, gouvernance et déploiement éthique. ROI garanti en 90 jours.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjMGEwYTBmIi8+PHRleHQgeD0iMzIiIHk9IjQ0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZmlsbD0iI2Q0YWY3NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5QPC90ZXh0Pjwvc3ZnPg==">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Pandora AI | Cabinet de Conseil en Intelligence Artificielle à Paris</title>
+<meta name="description" content="Pandora AI — Cabinet de conseil IA premium à Paris. Transformation, adoption et audit IA pour grands comptes. Engagement contractuel de performance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0a0a0f;--bg2:#0f0f18;--bg3:#161622;--bg4:#1c1c2e;
-  --gold:#d4af77;--gold-light:#f0d5a0;--gold-dim:rgba(212,175,119,0.1);--gold-border:rgba(212,175,119,0.2);
-  --purple:#a020f0;--purple-light:#c060ff;--purple-dim:rgba(160,32,240,0.12);
-  --white:#f2efe9;--off:#c8c4bc;--muted:#6e6a7c;--border:rgba(212,175,119,0.15);
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-pale: #F9F4E8;
+  --ink: #0E0D0B;
+  --ink-soft: #2A2823;
+  --ink-muted: #5A5750;
+  --paper: #FDFBF7;
+  --paper-warm: #F5F0E8;
+  --paper-card: #FAF8F3;
+  --border: rgba(201,168,76,0.2);
+  --border-strong: rgba(201,168,76,0.45);
+  --radius: 2px;
+  --radius-lg: 4px;
+  --shadow: 0 2px 24px rgba(14,13,11,0.08);
+  --shadow-gold: 0 4px 32px rgba(201,168,76,0.15);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:'DM Mono',monospace;font-weight:300;overflow-x:hidden;cursor:none;}
 
-/* PAGE SYSTEM */
-.page{display:none;min-height:100vh;}
-.page.active{display:block;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* CURSOR */
-.cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
-.cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(212,175,119,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;}
+html { scroll-behavior: smooth; font-size: 16px; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;transition:all .4s;}
-nav.scrolled{background:rgba(10,10,15,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;cursor:none;}
-.nav-logo-icon{width:38px;height:38px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-style:italic;}
-.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);letter-spacing:.06em;}
-.nav-logo-text span{color:var(--gold);}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
-.nav-links a{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none;}
-.nav-links a:hover,.nav-links a.active-link{color:var(--gold);}
-.nav-btn{background:var(--gold)!important;color:var(--bg)!important;padding:.55rem 1.4rem;font-size:.65rem!important;letter-spacing:.12em!important;cursor:none!important;}
-.nav-btn:hover{background:var(--gold-light)!important;}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: none;
+  overflow-x: hidden;
+}
 
-/* UNIVERSAL HERO */
-.page-hero{min-height:60vh;display:flex;align-items:center;padding:10rem 5rem 6rem;position:relative;overflow:hidden;}
-.page-hero-full{min-height:100vh;padding-top:8rem;}
-.hero-bg-glow{position:absolute;inset:0;pointer-events:none;}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,119,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,119,0.04) 1px,transparent 1px);background-size:60px 60px;}
+/* Custom cursor */
+#cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.15s ease, width 0.2s, height 0.2s; }
+#cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), opacity 0.3s; opacity: 0.6; }
+body:hover #cursor { opacity: 1; }
 
-/* BTN */
-.btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.2rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:none;transition:all .3s;}
-.btn-gold{background:var(--gold);color:var(--bg);}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 36px rgba(212,175,119,0.25);}
-.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border);}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-.btn-purple{background:var(--purple);color:var(--white);}
-.btn-purple:hover{background:var(--purple-light);transform:translateY(-2px);}
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,251,247,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 3rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow); }
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-mark { width: 28px; height: 28px; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none;
+  transition: color 0.2s; padding-bottom: 2px;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.25s ease;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--ink); color: var(--gold) !important;
+  padding: 8px 20px !important; border-radius: var(--radius);
+  letter-spacing: 0.1em !important;
+  transition: background 0.2s, transform 0.15s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--ink) !important; }
 
-/* SECTION COMMONS */
-section{padding:8rem 5rem;}
-.section-label{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
-.section-label::before{content:'';width:24px;height:1px;background:var(--gold);}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,6rem);font-weight:300;line-height:1.05;margin-bottom:1.5rem;}
-h1 em,h2 em{font-style:italic;color:var(--gold-light);}
-h1 .outline{-webkit-text-stroke:1px var(--gold);color:transparent;}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;line-height:1.15;margin-bottom:1.2rem;}
-h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;}
-.lead{font-family:'Syne',sans-serif;font-size:.95rem;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:3rem;}
-.text-center{text-align:center;}
-.text-center .lead,.text-center .section-label{margin-left:auto;margin-right:auto;justify-content:center;}
-.gold{color:var(--gold);}
+/* Pages */
+.page { display: none; }
+.page.active { display: block; }
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:.1s;}
-.reveal-delay-2{transition-delay:.2s;}
-.reveal-delay-3{transition-delay:.3s;}
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 3rem 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-line {
+  position: absolute; top: 0; left: 50%; bottom: 0;
+  width: 0.5px; background: linear-gradient(to bottom, transparent, var(--border), transparent);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 820px;
+  margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-subtitle {
+  font-size: 1.05rem; font-weight: 300; line-height: 1.7; color: var(--ink-muted);
+  max-width: 520px; margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+}
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.65s forwards; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--ink); color: var(--gold);
+  padding: 14px 32px; border-radius: var(--radius);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--ink-muted); font-size: 0.82rem; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding-bottom: 2px; border-bottom: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s; cursor: none;
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+.hero-metrics {
+  display: flex; gap: 3rem; margin-top: 5rem; padding-top: 2.5rem;
+  border-top: 0.5px solid var(--border);
+  opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+}
+.metric-item { display: flex; flex-direction: column; gap: 4px; }
+.metric-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 300; color: var(--ink); line-height: 1;
+}
+.metric-num span { color: var(--gold); }
+.metric-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-muted); }
 
-/* DIVIDER */
-.divider{width:60px;height:1px;background:var(--gold);opacity:.4;margin:0 auto 3rem;}
+/* Clients strip */
+.clients-strip {
+  padding: 40px 3rem;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  background: var(--paper-warm);
+}
+.clients-label {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 1.5rem; text-align: center;
+}
+.clients-logos {
+  display: flex; align-items: center; justify-content: center;
+  gap: 3rem; flex-wrap: wrap;
+}
+.client-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 400; letter-spacing: 0.06em;
+  color: var(--ink-muted); opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+}
+.client-name:hover { opacity: 1; color: var(--gold); }
 
-/* BADGE */
-.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--border);background:var(--gold-dim);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
-.badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+/* Sections */
+section { padding: 100px 3rem; }
+.section-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 300; line-height: 1.1; color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-lead { font-size: 1rem; font-weight: 300; line-height: 1.75; color: var(--ink-muted); max-width: 580px; margin-bottom: 3.5rem; }
 
-/* LOGOS BAR */
-.logos-bar{padding:2.5rem 5rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);}
-.logos-bar-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:1.8rem;}
-.logos-track{display:flex;justify-content:center;align-items:center;gap:3.5rem;flex-wrap:wrap;}
-.logo-item{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;color:rgba(255,255,255,0.18);letter-spacing:.14em;text-transform:uppercase;transition:color .3s;cursor:none;}
-.logo-item:hover{color:rgba(212,175,119,0.5);}
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+.card {
+  background: var(--paper-card); padding: 2.5rem;
+  border-right: 1px solid var(--border);
+  transition: background 0.25s;
+}
+.card:hover { background: var(--paper-warm); }
+.card:last-child { border-right: none; }
+.card-icon { width: 40px; height: 40px; margin-bottom: 1.5rem; opacity: 0.7; }
+.card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.8rem; color: var(--ink); }
+.card-text { font-size: 0.88rem; line-height: 1.7; color: var(--ink-muted); margin-bottom: 1.2rem; }
+.card-detail { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; }
 
-/* CARDS */
-.card{border:1px solid var(--border);background:var(--bg2);transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
-.card:hover{border-color:rgba(212,175,119,0.4);transform:translateY(-4px);}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),var(--purple));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
-.card:hover::before{transform:scaleX(1);}
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.pricing-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.pricing-card:hover { box-shadow: var(--shadow-gold); transform: translateY(-3px); }
+.pricing-card.featured {
+  border-color: var(--gold);
+  background: var(--ink);
+}
+.pricing-card.featured * { color: var(--gold-light) !important; }
+.pricing-card.featured .pricing-price { color: var(--gold) !important; }
+.pricing-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--ink);
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; font-weight: 500;
+}
+.pricing-name { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.8rem; }
+.pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: 0.4rem; }
+.pricing-note { font-size: 0.78rem; color: var(--ink-muted); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border); }
+.pricing-features { list-style: none; margin-bottom: 2rem; }
+.pricing-features li { font-size: 0.84rem; padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.pricing-features li::before { content: '—'; color: var(--gold); font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+.btn-pricing {
+  display: block; text-align: center; width: 100%;
+  padding: 12px; border: 1px solid var(--border-strong);
+  border-radius: var(--radius); font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  color: var(--ink); transition: all 0.2s; cursor: none;
+}
+.btn-pricing:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.pricing-card.featured .btn-pricing { border-color: var(--gold); color: var(--gold); }
+.pricing-card.featured .btn-pricing:hover { background: var(--gold); color: var(--ink); }
 
-/* ================================
-   HOME PAGE
-================================ */
-#page-home .hero-content{position:relative;z-index:2;max-width:820px;}
-#page-home h1{opacity:0;animation:fadeUp .9s .2s forwards;}
-.hero-sub{font-family:'Syne',sans-serif;font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:3rem;opacity:0;animation:fadeUp .9s .4s forwards;}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .55s forwards;}
-.hero-stats{display:flex;gap:4rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp .9s .7s forwards;flex-wrap:wrap;}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--gold);line-height:1;}
-.stat-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+/* Timeline */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--border), var(--border-strong), var(--border)); }
+.timeline-item { position: relative; margin-bottom: 3rem; }
+.timeline-dot { position: absolute; left: -40px; top: 4px; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); border: 2px solid var(--paper); box-shadow: 0 0 0 1px var(--gold); }
+.timeline-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.4rem; }
+.timeline-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
+.timeline-text { font-size: 0.86rem; line-height: 1.7; color: var(--ink-muted); }
 
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);}
-.service-card{background:var(--bg2);padding:2.5rem;cursor:none;transition:background .3s;position:relative;overflow:hidden;}
-.service-card:hover{background:var(--bg3);}
-.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),var(--purple));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
-.service-card:hover::after{transform:scaleX(1);}
-.service-num{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold-dim);line-height:1;margin-bottom:1rem;}
-.service-icon{font-size:1.8rem;margin-bottom:1rem;}
-.service-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.7rem;}
-.service-desc{font-size:.76rem;color:var(--muted);line-height:1.75;}
-.service-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);transition:gap .2s;cursor:none;}
-.service-card:hover .service-more{gap:.8rem;}
+/* Testimonials */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.testimonial {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2rem;
+  transition: box-shadow 0.25s;
+}
+.testimonial:hover { box-shadow: var(--shadow); }
+.quote { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; font-weight: 300; line-height: 1.7; color: var(--ink); margin-bottom: 1.5rem; }
+.quote::before { content: '"'; font-size: 2rem; color: var(--gold); line-height: 0.5; display: block; margin-bottom: 0.5rem; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--paper-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); }
+.author-name { font-size: 0.84rem; font-weight: 500; color: var(--ink); }
+.author-role { font-size: 0.74rem; color: var(--ink-muted); }
 
-.process-strip{display:grid;grid-template-columns:repeat(4,1fr);}
-.process-item{padding:2.5rem;border-left:1px solid var(--border);position:relative;}
-.process-item:first-child{border-left:none;}
-.process-step-num{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold-dim);line-height:.9;margin-bottom:1rem;}
-.process-step-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.6rem;}
-.process-step-desc{font-size:.75rem;color:var(--muted);line-height:1.7;}
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.team-card {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.team-card:hover { box-shadow: var(--shadow-gold); transform: translateY(-3px); }
+.team-photo {
+  height: 200px; background: var(--paper-warm);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.team-initials { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); }
+.team-info { padding: 1.5rem; }
+.team-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; }
+.team-role { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.team-bio { font-size: 0.83rem; line-height: 1.65; color: var(--ink-muted); margin-bottom: 1rem; }
+.team-exp { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--ink-muted); padding-top: 1rem; border-top: 0.5px solid var(--border); }
 
-.results-split{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
-.kpi-box{border:1px solid var(--border);padding:1.8rem;background:var(--bg);transition:border-color .3s;}
-.kpi-box:hover{border-color:var(--gold);}
-.kpi-val{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);line-height:1;}
-.kpi-label{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
-.kpi-sub{font-size:.7rem;color:rgba(255,255,255,0.3);margin-top:.2rem;}
+/* Case studies */
+.case-grid { display: grid; gap: 1.5rem; }
+.case-card {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2rem;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: start;
+  transition: box-shadow 0.25s;
+}
+.case-card:hover { box-shadow: var(--shadow); }
+.case-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.case-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
+.case-desc { font-size: 0.86rem; line-height: 1.7; color: var(--ink-muted); }
+.case-metrics { display: flex; flex-direction: column; gap: 1rem; min-width: 140px; }
+.case-metric { text-align: center; padding: 1rem; background: var(--paper-warm); border-radius: var(--radius); border: 1px solid var(--border); }
+.case-metric-value { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.case-metric-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-top: 4px; }
 
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.testi-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);transition:border-color .3s;}
-.testi-card:hover{border-color:rgba(212,175,119,0.4);}
-.testi-stars{color:var(--gold);font-size:.7rem;letter-spacing:.1em;margin-bottom:.8rem;}
-.testi-quote-mark{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold);opacity:.2;line-height:.8;margin-bottom:-.5rem;}
-.testi-text{font-size:.8rem;color:var(--off);line-height:1.8;font-style:italic;margin-bottom:1.5rem;}
-.testi-author{display:flex;align-items:center;gap:.8rem;}
-.testi-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:var(--bg);flex-shrink:0;}
-.testi-name{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;}
-.testi-role{font-size:.65rem;color:var(--muted);}
+/* FAQ */
+.faq-list { max-width: 720px; }
+.faq-item { border-bottom: 0.5px solid var(--border); }
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.3rem 0; cursor: none;
+  font-size: 0.95rem; font-weight: 400; color: var(--ink);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--gold); }
+.faq-icon { width: 20px; height: 20px; position: relative; flex-shrink: 0; }
+.faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; transition: transform 0.3s; }
+.faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.faq-icon::after { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-answer-inner { font-size: 0.88rem; line-height: 1.75; color: var(--ink-muted); padding-bottom: 1.2rem; }
+.faq-item.open .faq-answer { max-height: 300px; }
 
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.pricing-card{border:1px solid var(--border);padding:2.5rem;background:var(--bg);transition:transform .3s,border-color .3s;position:relative;}
-.pricing-card:hover{transform:translateY(-6px);border-color:rgba(212,175,119,0.4);}
-.pricing-card.featured{border-color:var(--gold);background:linear-gradient(160deg,rgba(212,175,119,0.06),var(--bg));}
-.pricing-badge{position:absolute;top:1.2rem;right:1.2rem;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;background:var(--gold);color:var(--bg);font-weight:700;}
-.pricing-name{font-family:'Syne',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;}
-.pricing-price{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--white);line-height:1;margin-bottom:.3rem;}
-.pricing-price sub{font-size:1.1rem;color:var(--muted);}
-.pricing-period{font-size:.66rem;color:var(--muted);margin-bottom:2rem;}
-.pricing-features{list-style:none;margin-bottom:2.5rem;}
-.pricing-features li{font-size:.75rem;color:var(--off);padding:.55rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem;}
-.pricing-features li::before{content:'◆';color:var(--gold);font-size:.4rem;flex-shrink:0;}
-.pricing-btn{display:block;text-align:center;padding:.85rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .25s;cursor:none;}
-.pricing-btn-outline{border:1px solid var(--border);color:var(--muted);}
-.pricing-btn-outline:hover{border-color:var(--gold);color:var(--gold);}
-.pricing-btn-gold{background:var(--gold);color:var(--bg);}
-.pricing-btn-gold:hover{background:var(--gold-light);}
+/* ROI Guarantee block */
+.guarantee-block {
+  background: var(--ink); border-radius: var(--radius-lg);
+  padding: 4rem; margin: 4rem 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.guarantee-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 300; line-height: 1.15;
+  color: var(--gold-light);
+}
+.guarantee-sub { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; }
+.guarantee-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+.g-step { display: flex; gap: 1.2rem; }
+.g-step-num { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--gold); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+.g-step-text { font-size: 0.88rem; line-height: 1.6; color: var(--gold-light); opacity: 0.8; }
+.g-step-title { font-size: 0.9rem; font-weight: 500; color: var(--gold-light); margin-bottom: 0.3rem; }
 
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.faq-item{border:1px solid var(--border);padding:1.5rem;cursor:none;transition:border-color .25s;}
-.faq-item:hover,.faq-item.open{border-color:rgba(212,175,119,0.4);}
-.faq-q{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
-.faq-icon{color:var(--gold);font-size:.9rem;transition:transform .3s;flex-shrink:0;}
-.faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-a{font-size:.76rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .4s ease,margin .3s;}
-.faq-item.open .faq-a{max-height:200px;margin-top:.8rem;}
+/* Approach steps */
+.approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); }
+.approach-step {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.25s;
+}
+.approach-step:last-child { border-right: none; }
+.approach-step:hover { background: var(--paper-warm); }
+.approach-num {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.15em; color: var(--gold); margin-bottom: 1.5rem;
+}
+.approach-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
+.approach-text { font-size: 0.82rem; line-height: 1.7; color: var(--ink-muted); }
+.approach-arrow {
+  position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+  width: 20px; height: 20px;
+  background: var(--paper); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: var(--gold);
+  z-index: 1;
+}
+.approach-step:last-child .approach-arrow { display: none; }
 
-.cta-strip{background:var(--bg2);padding:8rem 5rem;text-align:center;position:relative;overflow:hidden;}
-.cta-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(160,32,240,0.1),transparent 70%);pointer-events:none;}
-.cta-strip h2{position:relative;}
-.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+/* Insights */
+.insights-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+.insight-card {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.2s;
+}
+.insight-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.insight-card.featured { grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; }
+.insight-img { height: 180px; background: linear-gradient(135deg, var(--paper-warm), var(--gold-pale)); display: flex; align-items: center; justify-content: center; }
+.insight-card.featured .insight-img { height: 100%; min-height: 220px; }
+.insight-img-text { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--gold); opacity: 0.4; }
+.insight-body { padding: 1.5rem; }
+.insight-cat { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.insight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.4; }
+.insight-card.featured .insight-title { font-size: 1.7rem; }
+.insight-excerpt { font-size: 0.82rem; line-height: 1.65; color: var(--ink-muted); }
+.insight-meta { font-size: 0.72rem; color: var(--ink-muted); margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--border); display: flex; gap: 1rem; }
 
-/* ================================
-   ABOUT PAGE
-================================ */
-.about-hero-content{max-width:700px;}
-.timeline-v{position:relative;padding-left:3rem;}
-.timeline-v::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);}
-.timeline-item{position:relative;margin-bottom:3.5rem;}
-.timeline-item::before{content:'';position:absolute;left:-3rem;top:.4rem;width:10px;height:10px;background:var(--gold);transform:rotate(45deg);}
-.timeline-year{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
-.timeline-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
-.timeline-desc{font-size:.78rem;color:var(--muted);line-height:1.75;}
+/* Careers */
+.job-card {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2rem;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem;
+  transition: box-shadow 0.25s;
+}
+.job-card:hover { box-shadow: var(--shadow); }
+.job-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+.job-meta { font-size: 0.75rem; color: var(--ink-muted); display: flex; gap: 1rem; }
+.job-tag { background: var(--paper-warm); border: 0.5px solid var(--border); padding: 2px 10px; border-radius: 20px; }
 
-.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.value-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);transition:border-color .3s,transform .3s;cursor:none;}
-.value-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.value-icon{font-size:2rem;margin-bottom:1rem;}
-.value-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.6rem;}
-.value-desc{font-size:.76rem;color:var(--muted);line-height:1.7;}
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+.form-input, .form-textarea, .form-select {
+  width: 100%; background: var(--paper-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus, .form-textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+.form-textarea { height: 140px; resize: vertical; }
 
-.compare-table{width:100%;border-collapse:collapse;}
-.compare-table th,.compare-table td{padding:1rem 1.5rem;text-align:left;border-bottom:1px solid var(--border);font-size:.78rem;}
-.compare-table th{font-family:'Syne',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-.compare-table .col-pandora{color:var(--gold);font-weight:700;}
-.compare-table .col-other{color:rgba(255,255,255,0.3);}
-.compare-table tr:hover td{background:rgba(212,175,119,0.03);}
-.check{color:var(--gold);}
-.cross{color:rgba(255,255,255,0.2);}
+/* Footer */
+footer {
+  background: var(--ink); padding: 5rem 3rem 2.5rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+.footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.08em; color: var(--gold-light); }
+.footer-tagline { font-size: 0.83rem; line-height: 1.6; color: rgba(201,168,76,0.5); max-width: 260px; }
+.footer-col-title { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links a { font-size: 0.84rem; color: rgba(201,168,76,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; border-top: 0.5px solid rgba(201,168,76,0.1); }
+.footer-copy { font-size: 0.74rem; color: rgba(201,168,76,0.3); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.74rem; color: rgba(201,168,76,0.3); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
 
-/* ================================
-   TEAM PAGE
-================================ */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
-.team-card{border:1px solid var(--border);background:var(--bg2);overflow:hidden;transition:border-color .3s,transform .3s;cursor:none;}
-.team-card:hover{border-color:var(--gold);transform:translateY(-6px);}
-.team-photo{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--bg3),var(--bg4));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold);font-style:italic;position:relative;overflow:hidden;}
-.team-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--bg2));pointer-events:none;}
-.team-photo-badge{position:absolute;bottom:1rem;left:1rem;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .7rem;background:var(--gold);color:var(--bg);z-index:1;}
-.team-info{padding:1.5rem;}
-.team-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.2rem;}
-.team-role{font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;}
-.team-bio{font-size:.75rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
-.team-stat{font-size:.7rem;color:var(--off);border-top:1px solid var(--border);padding-top:.8rem;}
-.team-stat span{color:var(--gold);font-weight:700;}
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
 
-/* ================================
-   SERVICES PAGE
-================================ */
-.services-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-.service-full-card{border:1px solid var(--border);padding:3rem;background:var(--bg2);transition:border-color .3s;cursor:none;position:relative;overflow:hidden;}
-.service-full-card:hover{border-color:rgba(212,175,119,0.5);}
-.service-full-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--purple));transform:scaleX(0);transform-origin:left;transition:transform .5s;}
-.service-full-card:hover::before{transform:scaleX(1);}
-.sfcard-num{position:absolute;top:1.5rem;right:2rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold-dim);line-height:1;}
-.sfcard-icon{font-size:2.2rem;margin-bottom:1.5rem;}
-.sfcard-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.8rem;}
-.sfcard-desc{font-size:.78rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
-.sfcard-benefits{list-style:none;margin-bottom:1.5rem;}
-.sfcard-benefits li{font-size:.74rem;color:var(--off);padding:.4rem 0;display:flex;align-items:flex-start;gap:.7rem;}
-.sfcard-benefits li::before{content:'→';color:var(--gold);flex-shrink:0;}
-.sfcard-result{font-size:.72rem;color:var(--gold);padding:.6rem 1rem;border:1px solid var(--gold-border);display:inline-block;margin-top:.5rem;}
+/* Divider */
+.divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
 
-/* ================================
-   SECTORS PAGE
-================================ */
-.sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.sector-card{border:1px solid var(--border);background:var(--bg2);overflow:hidden;cursor:none;transition:border-color .3s,transform .3s;position:relative;}
-.sector-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.sector-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;}
-.sector-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(--bg2));}
-.sector-body{padding:1.5rem;}
-.sector-name{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.5rem;}
-.sector-desc{font-size:.74rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
-.sector-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
-.sector-tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border:1px solid var(--border);color:var(--muted);}
+/* CTA band */
+.cta-band {
+  background: var(--gold-pale); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 80px 3rem; text-align: center;
+}
+.cta-band .section-title { margin-bottom: 1rem; }
 
-/* ================================
-   CASE STUDIES PAGE
-================================ */
-.cases-filter{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:3rem;}
-.filter-btn{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.45rem 1rem;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:none;transition:all .2s;}
-.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
-.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-.case-card{border:1px solid var(--border);background:var(--bg2);overflow:hidden;cursor:none;transition:border-color .3s;}
-.case-card:hover{border-color:rgba(212,175,119,0.5);}
-.case-header{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--border);}
-.case-sector-tag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
-.case-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.5rem;}
-.case-subtitle{font-size:.74rem;color:var(--muted);}
-.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--border);}
-.case-metric{padding:1.2rem;border-right:1px solid var(--border);text-align:center;}
-.case-metric:last-child{border-right:none;}
-.case-metric-val{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;}
-.case-metric-label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;}
-.case-body{padding:1.5rem 2rem 2rem;}
-.case-quote{font-size:.78rem;color:var(--off);font-style:italic;line-height:1.7;border-left:2px solid var(--gold);padding-left:1rem;margin-bottom:1.2rem;}
-.case-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
-.case-tag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .6rem;border:1px solid var(--border);color:var(--muted);}
+/* Tag pill */
+.pill {
+  display: inline-flex; align-items: center;
+  background: var(--paper-warm); border: 0.5px solid var(--border);
+  border-radius: 20px; padding: 4px 14px;
+  font-size: 0.74rem; color: var(--ink-muted); margin: 3px;
+}
 
-/* ================================
-   APPROACH PAGE
-================================ */
-.approach-timeline{display:grid;grid-template-columns:1fr;gap:0;}
-.approach-step{display:grid;grid-template-columns:200px 1fr;gap:4rem;padding:4rem 0;border-bottom:1px solid var(--border);align-items:start;}
-.approach-step:last-child{border-bottom:none;}
-.approach-step-left{text-align:right;}
-.approach-step-num{font-family:'Cormorant Garamond',serif;font-size:6rem;color:var(--gold-dim);line-height:.9;}
-.approach-step-name{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
-.approach-step-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.8rem;}
-.approach-step-desc{font-size:.78rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
-.approach-deliverables{list-style:none;}
-.approach-deliverables li{font-size:.74rem;color:var(--off);padding:.35rem 0;display:flex;align-items:center;gap:.6rem;}
-.approach-deliverables li::before{content:'◆';color:var(--gold);font-size:.4rem;}
-.guarantee-box{border:1px solid var(--gold);padding:3rem;background:linear-gradient(135deg,rgba(212,175,119,0.05),var(--bg2));text-align:center;margin-top:4rem;}
-.guarantee-icon{font-size:3rem;margin-bottom:1rem;}
-.guarantee-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;margin-bottom:1rem;}
-.guarantee-desc{font-size:.82rem;color:var(--muted);line-height:1.8;max-width:500px;margin:0 auto;}
+/* Two-col layout */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.two-col-text { display: flex; flex-direction: column; }
 
-/* ================================
-   INSIGHTS PAGE
-================================ */
-.insights-hero-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.insights-featured{border:1px solid var(--border);background:var(--bg2);overflow:hidden;cursor:none;transition:border-color .3s;}
-.insights-featured:hover{border-color:rgba(212,175,119,0.4);}
-.insights-featured-img{height:280px;background:linear-gradient(135deg,var(--bg3),var(--bg4));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;}
-.insights-featured-img::after{content:'FEATURED';position:absolute;top:1rem;left:1rem;font-size:.55rem;letter-spacing:.2em;background:var(--gold);color:var(--bg);padding:.25rem .7rem;}
-.insights-featured-body{padding:2rem;}
-.insights-cat{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
-.insights-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;line-height:1.4;}
-.insights-excerpt{font-size:.74rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
-.insights-meta{font-size:.62rem;color:rgba(255,255,255,0.3);display:flex;gap:1rem;}
-.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.insight-card{border:1px solid var(--border);background:var(--bg2);overflow:hidden;cursor:none;transition:border-color .3s,transform .3s;}
-.insight-card:hover{border-color:rgba(212,175,119,0.4);transform:translateY(-3px);}
-.insight-card-img{height:160px;background:linear-gradient(135deg,var(--bg3),var(--bg4));display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
-.insight-card-body{padding:1.5rem;}
-.newsletter-box{background:var(--bg2);border:1px solid var(--border);padding:3rem;text-align:center;margin-top:4rem;}
-.newsletter-input-row{display:flex;gap:1rem;max-width:500px;margin:1.5rem auto 0;}
-.newsletter-input{flex:1;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:.85rem 1rem;font-family:'DM Mono',monospace;font-size:.74rem;outline:none;}
-.newsletter-input:focus{border-color:var(--gold);}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
-/* ================================
-   ACADEMY PAGE
-================================ */
-.academy-hero-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.countdown-box{border:1px solid var(--gold);padding:2rem;background:var(--gold-dim);text-align:center;}
-.countdown-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.countdown-nums{display:flex;justify-content:center;gap:1.5rem;}
-.countdown-unit{text-align:center;}
-.countdown-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--white);line-height:1;}
-.countdown-unit-label{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-.webinars-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.webinar-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s;cursor:none;}
-.webinar-card:hover{border-color:rgba(212,175,119,0.4);}
-.webinar-date{text-align:center;flex-shrink:0;width:60px;}
-.webinar-day{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;}
-.webinar-month{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-.webinar-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:.4rem;}
-.webinar-desc{font-size:.72rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem;}
-.webinar-tag{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid var(--border);color:var(--gold);}
-.formations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.formation-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);transition:border-color .3s,transform .3s;cursor:none;}
-.formation-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.formation-level{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
-.formation-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
-.formation-desc{font-size:.74rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
-.formation-meta{display:flex;gap:1rem;font-size:.66rem;color:rgba(255,255,255,0.3);}
-
-/* ================================
-   CAREERS PAGE
-================================ */
-.careers-hero-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.culture-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.culture-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);transition:border-color .3s;}
-.culture-card:hover{border-color:rgba(212,175,119,0.4);}
-.jobs-list{display:flex;flex-direction:column;gap:1rem;}
-.job-item{border:1px solid var(--border);padding:2rem;background:var(--bg2);display:flex;justify-content:space-between;align-items:center;transition:border-color .3s;cursor:none;}
-.job-item:hover{border-color:rgba(212,175,119,0.4);}
-.job-left{flex:1;}
-.job-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.3rem;}
-.job-meta{font-size:.7rem;color:var(--muted);}
-.job-tags{display:flex;gap:.5rem;margin-top:.6rem;}
-.job-tag{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid var(--border);color:var(--gold);}
-.spontaneous-box{border:1px dashed rgba(212,175,119,0.4);padding:3rem;text-align:center;margin-top:2rem;}
-
-/* ================================
-   CONTACT PAGE
-================================ */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start;}
-.contact-details{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2.5rem;}
-.contact-detail{display:flex;align-items:center;gap:1rem;}
-.contact-detail-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.95rem;flex-shrink:0;}
-.contact-detail-label{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
-.contact-detail-val{font-size:.82rem;color:var(--white);}
-.contact-form-box{background:var(--bg2);border:1px solid var(--border);padding:3rem;}
-.form-group{margin-bottom:1.5rem;}
-.form-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem;}
-.form-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:.85rem 1rem;font-family:'DM Mono',monospace;font-size:.76rem;outline:none;transition:border-color .25s;}
-.form-input:focus{border-color:var(--gold);}
-.form-input::placeholder{color:var(--muted);}
-textarea.form-input{resize:vertical;min-height:130px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.form-submit{width:100%;background:var(--gold);color:var(--bg);border:none;padding:1.1rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:background .25s;}
-.form-submit:hover{background:var(--gold-light);}
-
-/* ================================
-   FOOTER
-================================ */
-.site-footer{padding:5rem 5rem 2.5rem;border-top:1px solid var(--border);background:var(--bg);}
-.footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;}
-.footer-brand-desc{font-size:.74rem;color:var(--muted);line-height:1.75;margin-top:1rem;max-width:260px;}
-.footer-col-title{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem;color:var(--white);}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
-.footer-links a{font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none;}
-.footer-links a:hover{color:var(--gold);}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem;}
-.footer-bottom-text{font-size:.62rem;color:var(--muted);}
-.footer-social{display:flex;gap:.8rem;}
-.social-btn{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.7rem;transition:all .2s;cursor:none;}
-.social-btn:hover{border-color:var(--gold);color:var(--gold);}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
-@keyframes float{0%{transform:translateY(0);opacity:0}10%{opacity:.8}90%{opacity:.3}100%{transform:translateY(-100vh);opacity:0}}
-@keyframes countUp{from{opacity:0}to{opacity:1}}
-
-/* PARTICLES */
-.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;animation:float linear infinite;opacity:0;pointer-events:none;}
-
-/* MOBILE */
-@media(max-width:900px){
-  nav{padding:1.2rem 1.5rem;}
-  .nav-links{display:none;}
-  section,.page-hero,.cta-strip,.site-footer{padding:5rem 1.5rem!important;}
-  .logos-bar{padding:2rem 1.5rem;}
-  h1{font-size:2.8rem!important;}
-  h2{font-size:2rem!important;}
-  .services-grid,.process-strip,.results-split,.testimonials-grid,.pricing-grid,
-  .faq-grid,.values-grid,.team-grid,.services-full-grid,.sectors-grid,.cases-grid,
-  .insights-grid,.webinars-grid,.formations-grid,.culture-grid,.contact-grid,
-  .footer-top,.approach-step,.academy-hero-split,.careers-hero-split,
-  .insights-hero-split{grid-template-columns:1fr!important;gap:2rem!important;}
-  .kpi-grid{grid-template-columns:1fr 1fr;}
-  .footer-bottom{flex-direction:column;text-align:center;}
-  .hero-stats{gap:2rem;}
-  .approach-step{grid-template-columns:1fr!important;}
-  .approach-step-left{text-align:left;}
+/* Responsive helpers */
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section, .hero { padding: 80px 1.5rem; }
+  .hero-metrics { gap: 1.5rem; flex-wrap: wrap; }
+  .pricing-grid, .two-col, .contact-grid, .footer-grid, .approach-grid { grid-template-columns: 1fr; }
+  .case-card { grid-template-columns: 1fr; }
+  .guarantee-block { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .insight-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+  .clients-logos { gap: 1.5rem; }
 }
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ========== NAV ========== -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Navigation -->
 <nav id="nav">
-  <a href="#" class="nav-logo" onclick="showPage('home')">
-    <div class="nav-logo-icon">P</div>
-    <span class="nav-logo-text">Pandora <span>AI</span></span>
+  <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+    <svg class="nav-logo-mark" viewBox="0 0 28 28" fill="none">
+      <path d="M14 2 L26 8 L26 20 L14 26 L2 20 L2 8 Z" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+      <path d="M14 7 L20 10.5 L20 17.5 L14 21 L8 17.5 L8 10.5 Z" fill="#C9A84C" opacity="0.2"/>
+      <circle cx="14" cy="14" r="2" fill="#C9A84C"/>
+    </svg>
+    Pandora AI
   </a>
   <ul class="nav-links">
-    <li><a href="#" onclick="showPage('about')" data-page="about">À propos</a></li>
-    <li><a href="#" onclick="showPage('services')" data-page="services">Services</a></li>
-    <li><a href="#" onclick="showPage('sectors')" data-page="sectors">Secteurs</a></li>
-    <li><a href="#" onclick="showPage('cases')" data-page="cases">Études de cas</a></li>
-    <li><a href="#" onclick="showPage('insights')" data-page="insights">Insights</a></li>
-    <li><a href="#" onclick="showPage('academy')" data-page="academy">Academy</a></li>
-    <li><a href="#" onclick="showPage('contact')" class="nav-btn" data-page="contact">Rendez-vous gratuit</a></li>
+    <li><a href="#" onclick="showPage('about'); return false;">À propos</a></li>
+    <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+    <li><a href="#" onclick="showPage('cases'); return false;">Cas clients</a></li>
+    <li><a href="#" onclick="showPage('approach'); return false;">Approche</a></li>
+    <li><a href="#" onclick="showPage('insights'); return false;">Insights</a></li>
+    <li><a href="#" onclick="showPage('careers'); return false;">Carrières</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('contact'); return false;">Audit gratuit</a></li>
   </ul>
 </nav>
 
-<!-- ========================================================
-     PAGE : HOME
-======================================================== -->
+<!-- ===== PAGE: HOME ===== -->
 <div id="page-home" class="page active">
 
-  <!-- HERO -->
-  <div class="page-hero page-hero-full" style="padding:0 5rem;">
-    <div id="particles" style="position:absolute;inset:0;overflow:hidden;"></div>
-    <div class="hero-bg-glow" style="background:radial-gradient(ellipse 60% 80% at 75% 40%,rgba(160,32,240,0.1),transparent 65%),radial-gradient(ellipse 40% 50% at 15% 70%,rgba(212,175,119,0.06),transparent 60%);"></div>
-    <div class="hero-grid-bg"></div>
-    <div id="page-home" style="display:contents;">
-    <div class="hero-content" style="position:relative;z-index:2;max-width:820px;padding-top:8rem;">
-      <div class="badge" style="opacity:0;animation:fadeUp .8s .1s forwards;">Cabinet IA Premium · Paris · ROI Garanti</div>
-      <h1>Transformez votre<br>entreprise avec<br>l'<em>Intelligence</em><br><span class="outline">Artificielle</span></h1>
-      <p class="hero-sub">Pandora AI accompagne les dirigeants dans l'adoption stratégique de l'IA — de l'audit à l'implémentation, avec un ROI mesurable et garanti dès les 90 premiers jours.</p>
-      <div class="hero-ctas">
-        <a href="#" class="btn btn-gold" onclick="showPage('contact')">Consultation gratuite →</a>
-        <a href="#" class="btn btn-ghost" onclick="showPage('services')">Nos services</a>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-line"></div>
+    <div class="hero-tag">Cabinet de conseil IA · Paris</div>
+    <h1 class="hero-title">L'intelligence artificielle<br>au service de votre <em>performance</em></h1>
+    <p class="hero-subtitle">Pandora AI accompagne les directions métier et IT des grandes entreprises dans leur transformation par l'IA — de l'audit à l'adoption durable, avec un engagement contractuel de résultat.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">
+        Réserver votre audit flash
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="btn-ghost" onclick="showPage('cases'); return false;">Voir nos références →</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric-item">
+        <div class="metric-num">80<span>+</span></div>
+        <div class="metric-label">Entreprises accompagnées</div>
       </div>
-      <div class="hero-stats">
-        <div><div class="stat-val">200+</div><div class="stat-label">Entreprises transformées</div></div>
-        <div><div class="stat-val">4×</div><div class="stat-label">ROI moyen constaté</div></div>
-        <div><div class="stat-val">+30%</div><div class="stat-label">Productivité gagnée</div></div>
-        <div><div class="stat-val">98%</div><div class="stat-label">Clients satisfaits</div></div>
+      <div class="metric-item">
+        <div class="metric-num">15<span></span></div>
+        <div class="metric-label">Experts passionnés</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">92<span>%</span></div>
+        <div class="metric-label">Taux de satisfaction client</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">90<span>j</span></div>
+        <div class="metric-label">Garantie ROI contractuelle</div>
       </div>
     </div>
+  </section>
+
+  <!-- Clients -->
+  <div class="clients-strip">
+    <div class="clients-label">Ils nous ont fait confiance pour leurs phases d'adoption et d'audit IA</div>
+    <div class="clients-logos">
+      <span class="client-name">NaTran</span>
+      <span class="client-name">LCL Banque</span>
+      <span class="client-name">TotalEnergies</span>
+      <span class="client-name">BNP Paribas</span>
+      <span class="client-name">Capgemini</span>
+      <span class="client-name">SNCF</span>
+      <span class="client-name">Société Générale</span>
+      <span class="client-name">Artefact</span>
     </div>
   </div>
 
-  <!-- LOGOS -->
-  <div class="logos-bar">
-    <p class="logos-bar-label">Ils nous font confiance</p>
-    <div class="logos-track">
-      <span class="logo-item">NaTran</span><span class="logo-item">LCL Banque</span>
-      <span class="logo-item">TotalEnergies</span><span class="logo-item">BNP Paribas</span>
-      <span class="logo-item">Capgemini</span><span class="logo-item">SNCF</span>
-      <span class="logo-item">Société Générale</span><span class="logo-item">Artefact</span>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section style="padding:7rem 5rem;background:var(--bg2);">
-    <div class="reveal text-center" style="margin-bottom:4rem;">
-      <div class="section-label">Ce que nous faisons</div>
-      <h2>6 leviers pour une<br>transformation <em>IA complète</em></h2>
-    </div>
-    <div class="services-grid reveal">
-      <div class="service-card"><div class="service-num">01</div><div class="service-icon">🎯</div><div class="service-title">Audit & Stratégie IA</div><div class="service-desc">Analyse complète de vos processus, identification des opportunités IA à fort impact et feuille de route personnalisée avec ROI prévisionnel.</div><div class="service-more" onclick="showPage('services')">En savoir plus →</div></div>
-      <div class="service-card"><div class="service-num">02</div><div class="service-icon">🤖</div><div class="service-title">Implémentation & Intégration</div><div class="service-desc">Déploiement de solutions IA (Copilot, ChatGPT Enterprise) intégrées à votre écosystème Microsoft 365, ERP et outils métiers existants.</div><div class="service-more" onclick="showPage('services')">En savoir plus →</div></div>
-      <div class="service-card"><div class="service-num">03</div><div class="service-icon">🎓</div><div class="service-title">Formation & Adoption</div><div class="service-desc">Programmes sur-mesure pour tous les niveaux. Champions digitaux, ateliers et guides pour ancrer l'IA dans vos pratiques quotidiennes.</div><div class="service-more" onclick="showPage('academy')">En savoir plus →</div></div>
-      <div class="service-card"><div class="service-num">04</div><div class="service-icon">🔄</div><div class="service-title">Conduite du Changement</div><div class="service-desc">Accompagnement humain de la transformation : gestion des résistances, communication interne et suivi de l'adoption par les KPIs.</div><div class="service-more" onclick="showPage('services')">En savoir plus →</div></div>
-      <div class="service-card"><div class="service-num">05</div><div class="service-icon">🛡️</div><div class="service-title">Gouvernance & EU AI Act</div><div class="service-desc">Chartes d'usage, politiques de gouvernance conformes au EU AI Act, RGPD et exigences sectorielles (banque, énergie, santé).</div><div class="service-more" onclick="showPage('services')">En savoir plus →</div></div>
-      <div class="service-card"><div class="service-num">06</div><div class="service-icon">📊</div><div class="service-title">Pilotage & ROI</div><div class="service-desc">Tableaux de bord Power BI dédiés, mesure du ROI, reporting aux parties prenantes et optimisation continue de votre investissement IA.</div><div class="service-more" onclick="showPage('services')">En savoir plus →</div></div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section style="padding:7rem 5rem;">
-    <div class="reveal text-center" style="margin-bottom:4rem;">
-      <div class="section-label">Notre méthode</div>
-      <h2>4 étapes vers votre<br><em>transformation réussie</em></h2>
-    </div>
-    <div class="process-strip reveal">
-      <div class="process-item"><div class="process-step-num">01</div><div class="process-step-title">Diagnostic</div><div class="process-step-desc">Audit de vos processus, identification des cas d'usage IA prioritaires, analyse des freins et opportunités.</div></div>
-      <div class="process-item"><div class="process-step-num">02</div><div class="process-step-title">Stratégie</div><div class="process-step-desc">Feuille de route IA sur 12 mois, priorisation des chantiers, estimation du ROI et plan de conduite du changement.</div></div>
-      <div class="process-item"><div class="process-step-num">03</div><div class="process-step-title">Déploiement</div><div class="process-step-desc">Implémentation agile, formation des équipes, contenus pédagogiques et mise en place de la gouvernance.</div></div>
-      <div class="process-item"><div class="process-step-num">04</div><div class="process-step-title">Optimisation</div><div class="process-step-desc">Suivi KPIs d'adoption, ajustements stratégiques, reporting ROI et accompagnement dans la durée.</div></div>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section style="padding:7rem 5rem;background:var(--bg2);">
-    <div class="results-split">
-      <div class="reveal">
-        <div class="section-label">Impact mesurable</div>
-        <h2>Des résultats <em>concrets</em><br>dès 30 jours</h2>
-        <p class="lead">Chaque transformation est pilotée par les données. Nos clients constatent des gains de productivité significatifs et un retour sur investissement rapide et mesurable.</p>
-        <a href="#" class="btn btn-gold" onclick="showPage('cases')">Voir nos études de cas →</a>
+  <!-- Services overview -->
+  <section>
+    <div class="section-tag">Nos services</div>
+    <h2 class="section-title">Une expertise complète,<br>de l'<em>audit</em> à l'adoption</h2>
+    <p class="section-lead">Six lignes de service complémentaires pour accompagner chaque étape de votre transformation IA, quelle que soit votre maturité.</p>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-title">Audit & Maturité IA</div>
+        <div class="card-text">Diagnostic complet de votre maturité IA en 5 jours. Score de 0 à 100, 3 recommandations actionnables immédiatement.</div>
+        <div class="card-detail">Dès 2 500€ HT — prix fixe</div>
       </div>
-      <div class="kpi-grid reveal">
-        <div class="kpi-box"><div class="kpi-val">+47%</div><div class="kpi-label">Productivité</div><div class="kpi-sub">Gain sur tâches répétitives</div></div>
-        <div class="kpi-box"><div class="kpi-val">4×</div><div class="kpi-label">ROI moyen</div><div class="kpi-sub">Retour à 6 mois</div></div>
-        <div class="kpi-box"><div class="kpi-val">−60%</div><div class="kpi-label">Temps de traitement</div><div class="kpi-sub">Processus manuels réduits</div></div>
-        <div class="kpi-box"><div class="kpi-val">92%</div><div class="kpi-label">Taux d'adoption</div><div class="kpi-sub">Utilisateurs actifs à 3 mois</div></div>
+      <div class="card">
+        <div class="card-title">Adoption Microsoft Copilot</div>
+        <div class="card-text">Programme Champions Digitaux éprouvé : de l'onboarding à l'autonomie complète de vos équipes sur Microsoft 365.</div>
+        <div class="card-detail">+40% de productivité mesurée</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Gouvernance & EU AI Act</div>
+        <div class="card-text">Mise en conformité réglementaire et déploiement d'un cadre de gouvernance IA robuste, aligné sur le règlement européen.</div>
+        <div class="card-detail">Certification EU AI Act</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Transformation Data</div>
+        <div class="card-text">Structuration de votre patrimoine de données pour alimenter vos projets IA. De la data lake à l'IA générative opérationnelle.</div>
+        <div class="card-detail">Power BI & Azure</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Formation & Académie</div>
+        <div class="card-text">Programmes de montée en compétences sur mesure : ateliers, webinaires et certifications pour tous les niveaux.</div>
+        <div class="card-detail">+500 collaborateurs formés</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Conseil Stratégique IA</div>
+        <div class="card-text">Accompagnement des comités de direction dans la définition d'une feuille de route IA réaliste et différenciante.</div>
+        <div class="card-detail">Retour sur investissement garanti</div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section style="padding:7rem 5rem;">
-    <div class="reveal text-center" style="margin-bottom:4rem;">
-      <div class="section-label">Témoignages</div>
-      <h2>Ce que disent<br>nos <em>clients</em></h2>
+  <!-- Approach preview -->
+  <section style="background: var(--paper-warm); margin: 0; padding: 80px 3rem;">
+    <div class="section-tag">Notre méthode</div>
+    <h2 class="section-title reveal">Quatre étapes vers<br>l'<em>excellence opérationnelle</em></h2>
+    <div class="approach-grid reveal">
+      <div class="approach-step">
+        <div class="approach-num">01 — Diagnostic</div>
+        <div class="approach-title">Audit de maturité</div>
+        <div class="approach-text">Cartographie exhaustive de vos processus, données et usages actuels. Identification des quick wins à fort ROI.</div>
+        <div class="approach-arrow">→</div>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">02 — Stratégie</div>
+        <div class="approach-title">Feuille de route</div>
+        <div class="approach-text">Co-construction d'une roadmap IA priorisée, budgétisée et alignée sur vos objectifs business.</div>
+        <div class="approach-arrow">→</div>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">03 — Déploiement</div>
+        <div class="approach-title">Mise en œuvre</div>
+        <div class="approach-text">Déploiement agile avec suivi quotidien. Formation des équipes et accompagnement au changement.</div>
+        <div class="approach-arrow">→</div>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">04 — Mesure</div>
+        <div class="approach-title">ROI & Optimisation</div>
+        <div class="approach-text">Tableau de bord Power BI temps réel. Ajustements continus. Engagement contractuel de performance sur 90 jours.</div>
+      </div>
     </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <div class="section-tag">Témoignages</div>
+    <h2 class="section-title reveal">Ce que disent<br>nos <em>clients</em></h2>
     <div class="testimonials-grid reveal">
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-quote-mark">"</div><div class="testi-text">Pandora AI a transformé notre façon de travailler en moins de 3 mois. L'adoption de Copilot est passée de 12% à 87% grâce à leur approche pédagogique unique et leur programme de champions digitaux.</div><div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Marie Rousseau</div><div class="testi-role">DSI — Groupe Énergie · 500 collaborateurs</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-quote-mark">"</div><div class="testi-text">La gouvernance IA mise en place nous a permis de déployer des outils IA dans un contexte bancaire très réglementé. Leur expertise en conformité EU AI Act et RGPD est remarquable.</div><div class="testi-author"><div class="testi-avatar">PL</div><div><div class="testi-name">Pierre Lefèvre</div><div class="testi-role">Directeur Innovation — Banque régionale</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-quote-mark">"</div><div class="testi-text">Les formations sont concrètes, engageantes et adaptées à nos métiers. Nos équipes utilisent maintenant l'IA au quotidien avec confiance. ROI atteint en 6 semaines seulement.</div><div class="testi-author"><div class="testi-avatar">SC</div><div><div class="testi-name">Sophie Chen</div><div class="testi-role">DRH — Cabinet de conseil · 200 personnes</div></div></div></div>
+      <div class="testimonial">
+        <div class="quote">Pandora AI a transformé notre façon de travailler en seulement trois mois. L'adoption de Copilot est passée de 12% à 74% dans nos équipes, avec un gain de temps réel mesurable chaque semaine.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">MA</div>
+          <div><div class="author-name">Marie-Anne Lefort</div><div class="author-role">DSI, NaTran (ex-GRTgaz)</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="quote">L'audit flash a été une révélation. En deux jours, Pandora AI avait identifié trois leviers d'optimisation que nous n'avions pas vus en deux ans d'exploration interne.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">PD</div>
+          <div><div class="author-name">Pierre Durand</div><div class="author-role">Directeur Digital, LCL Banque</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="quote">La garantie ROI n'est pas un argument commercial, c'est un vrai engagement. Nous avons atteint +18% de productivité mesurée à J+85. L'équipe Pandora est d'une rigueur exemplaire.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">CV</div>
+          <div><div class="author-name">Claire Vasseur</div><div class="author-role">VP Operations, TotalEnergies</div></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section style="padding:7rem 5rem;background:var(--bg2);">
-    <div class="reveal text-center" style="margin-bottom:4rem;">
-      <div class="section-label">Investissement</div>
-      <h2>Des offres adaptées à<br>chaque <em>ambition</em></h2>
-    </div>
+  <!-- Pricing -->
+  <section style="background: var(--paper-warm);">
+    <div class="section-tag">Tarifs transparents</div>
+    <h2 class="section-title reveal">Des offres claires,<br>sans <em>surprise</em></h2>
     <div class="pricing-grid reveal">
-      <div class="pricing-card"><div class="pricing-name">Starter</div><div class="pricing-price">2 500<sub>€</sub></div><div class="pricing-period">par projet · à partir de</div><ul class="pricing-features"><li>Audit IA initial (demi-journée)</li><li>Rapport de maturité IA</li><li>1 atelier de sensibilisation (2h)</li><li>Guide de démarrage personnalisé</li><li>Support email 30 jours</li></ul><a href="#" class="pricing-btn pricing-btn-outline" onclick="showPage('contact')">Démarrer →</a></div>
-      <div class="pricing-card featured"><div class="pricing-badge">Populaire</div><div class="pricing-name">Transformation</div><div class="pricing-price">8 500<sub>€</sub></div><div class="pricing-period">accompagnement 3 mois</div><ul class="pricing-features"><li>Audit & stratégie IA complète</li><li>Feuille de route 12 mois</li><li>Déploiement d'une solution IA</li><li>Formation équipes (jusqu'à 50 users)</li><li>Programme champions digitaux</li><li>Tableaux de bord Power BI ROI</li><li>Support dédié 3 mois</li></ul><a href="#" class="pricing-btn pricing-btn-gold" onclick="showPage('contact')">Choisir cette offre →</a></div>
-      <div class="pricing-card"><div class="pricing-name">Enterprise</div><div class="pricing-price" style="font-size:2.5rem;">Sur mesure</div><div class="pricing-period">accompagnement long terme</div><ul class="pricing-features"><li>Transformation IA complète</li><li>Gouvernance & conformité EU AI Act</li><li>Formation illimitée tous niveaux</li><li>Intégrations techniques sur-mesure</li><li>Pilotage ROI en continu</li><li>Équipe dédiée Pandora AI</li><li>Accès prioritaire nouvelles offres</li></ul><a href="#" class="pricing-btn pricing-btn-outline" onclick="showPage('contact')">Nous contacter →</a></div>
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">2 500€ <small style="font-size:1rem; color: var(--ink-muted)">HT</small></div>
+        <div class="pricing-note">Prix fixe — mission d'audit flash</div>
+        <ul class="pricing-features">
+          <li>Audit IA initial (demi-journée en présentiel ou visio)</li>
+          <li>Rapport de maturité IA — PDF 15 pages</li>
+          <li>Score de maturité de 0 à 100</li>
+          <li>1 atelier de sensibilisation (2h)</li>
+          <li>3 recommandations actionnables immédiatement</li>
+        </ul>
+        <a href="#" class="btn-pricing" onclick="showPage('contact'); return false;">Démarrer l'audit</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Le plus populaire</div>
+        <div class="pricing-name">Transformation</div>
+        <div class="pricing-price">Sur devis</div>
+        <div class="pricing-note">Programme complet 3 à 6 mois</div>
+        <ul class="pricing-features">
+          <li>Audit approfondi + feuille de route IA</li>
+          <li>Déploiement & adoption (Microsoft Copilot, Azure AI)</li>
+          <li>Formation équipes sur mesure</li>
+          <li>Tableau de bord Power BI de suivi ROI</li>
+          <li>Garantie contractuelle de performance 90 jours</li>
+          <li>Support dédié chef de projet senior</li>
+        </ul>
+        <a href="#" class="btn-pricing" onclick="showPage('contact'); return false;">Demander un devis</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Gouvernance & Conformité</div>
+        <div class="pricing-price">Sur devis</div>
+        <div class="pricing-note">EU AI Act & gouvernance IA</div>
+        <ul class="pricing-features">
+          <li>Audit de conformité EU AI Act complet</li>
+          <li>Cartographie des risques IA</li>
+          <li>Rédaction politique de gouvernance IA</li>
+          <li>Formation COMEX & Conseil d'administration</li>
+          <li>Accompagnement à la certification</li>
+        </ul>
+        <a href="#" class="btn-pricing" onclick="showPage('contact'); return false;">En savoir plus</a>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section style="padding:7rem 5rem;">
-    <div class="reveal" style="margin-bottom:4rem;">
-      <div class="section-label">Questions fréquentes</div>
-      <h2>Tout ce que vous<br>voulez <em>savoir</em></h2>
-    </div>
-    <div class="faq-grid reveal">
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Combien de temps dure une transformation IA ? <span class="faq-icon">+</span></div><div class="faq-a">Les premiers résultats sont visibles dès 30 jours. Une transformation complète s'étale généralement sur 3 à 6 mois selon la taille de l'organisation et l'ambition du projet.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Faut-il des compétences techniques ? <span class="faq-icon">+</span></div><div class="faq-a">Non. Nos formations sont conçues pour tous les profils, des non-techniciens aux équipes IT. Nous adaptons le niveau et le contenu à chaque groupe d'utilisateurs.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Quels outils IA déployez-vous ? <span class="faq-icon">+</span></div><div class="faq-a">Nous travaillons principalement sur Microsoft Copilot, ChatGPT Enterprise, Power Platform et des solutions IA sectorielles. Nous recommandons les outils les plus adaptés à vos besoins.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment mesurez-vous le ROI ? <span class="faq-icon">+</span></div><div class="faq-a">Nous définissons des KPIs précis dès le départ (temps gagné, coûts réduits, taux d'adoption) et les suivons via des tableaux de bord Power BI dédiés avec reporting mensuel.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Intervenez-vous dans les secteurs réglementés ? <span class="faq-icon">+</span></div><div class="faq-a">Oui. Nous avons une expertise spécifique dans la banque (PSSI) et l'énergie. Nous intégrons les contraintes réglementaires dès la phase stratégique.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Proposez-vous un suivi après la mission ? <span class="faq-icon">+</span></div><div class="faq-a">Absolument. Nos offres incluent un support post-déploiement et nous proposons des abonnements de suivi trimestriel pour garantir la pérennité de l'adoption IA.</div></div>
+  <section>
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title reveal">Questions fréquentes</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          En quoi consiste exactement la garantie ROI 90 jours ?
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Notre engagement contractuel de performance fonctionne en trois phases : définition commune des KPIs de productivité (temps gagné, tâches automatisées), mesure objective via tableau de bord Power BI, et engagement de résultat. Si le gain de productivité cible défini dans le contrat n'est pas atteint à l'issue des 90 premiers jours, le mois de support et d'optimisation suivant est offert. Les KPIs sont définis conjointement avant le démarrage de la mission.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Travaillez-vous avec des PME ou seulement de grandes entreprises ?
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Nos références principales concernent les grandes entreprises (CAC 40, ETI), mais notre offre Starter à 2 500€ HT est conçue pour être accessible aux PME qui souhaitent un premier diagnostic IA sérieux avant d'investir davantage. Nous adaptons notre approche à la taille et aux ressources de chaque client.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Combien de temps dure un projet type ?
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">L'audit flash Starter se déroule sur 2 à 5 jours. Un programme de transformation complet dure entre 3 et 6 mois selon la complexité organisationnelle et le périmètre fonctionnel. La phase d'adoption (formation et accompagnement au changement) représente généralement 60% de la durée totale — c'est là que se joue la réussite.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Êtes-vous partenaire Microsoft ?
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Oui, Pandora AI est partenaire Microsoft avec une expertise reconnue sur Microsoft 365 Copilot, Azure OpenAI Service et Power Platform. Notre équipe est certifiée sur l'ensemble de la suite Microsoft et collabore avec les équipes Microsoft France pour les déploiements à grande échelle.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Comment se passe la première prise de contact ?
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Après soumission du formulaire de contact, un de nos consultants seniors vous rappelle sous 24h ouvrées pour un échange de 30 minutes sans engagement. Cet appel nous permet de comprendre votre contexte, vos objectifs et de vous proposer l'approche la plus adaptée. La consultation initiale est entièrement gratuite.</div></div>
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <div class="cta-strip">
-    <div style="position:relative;z-index:1;">
-      <div class="section-label" style="justify-content:center;">Passez à l'action</div>
-      <h2>Prêt à <em>transformer</em><br>votre entreprise ?</h2>
-      <p class="lead" style="margin:1rem auto 3rem;max-width:480px;text-align:center;">Rejoignez les 200+ entreprises qui ont accéléré leur transformation IA avec Pandora AI.</p>
-      <div class="cta-btns">
-        <a href="#" class="btn btn-gold" onclick="showPage('contact')">Consultation gratuite →</a>
-        <a href="#" class="btn btn-ghost" onclick="showPage('approach')">Notre approche</a>
-      </div>
+  <!-- CTA band -->
+  <div class="cta-band">
+    <div class="section-tag" style="justify-content: center;">Prêt à démarrer ?</div>
+    <h2 class="section-title" style="text-align:center;">Votre transformation IA<br>commence par une <em>conversation</em></h2>
+    <p style="text-align:center; color: var(--ink-muted); margin-bottom: 2rem;">Consultation initiale gratuite · Résultats sous 90 jours · Engagement contractuel</p>
+    <div style="display:flex; justify-content:center; gap: 1rem; flex-wrap:wrap;">
+      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Réserver votre consultation gratuite</a>
+      <a href="#" class="btn-ghost" onclick="showPage('approach'); return false;">Découvrir notre approche →</a>
     </div>
   </div>
 
-</div><!-- end page-home -->
+</div>
 
-
-<!-- ========================================================
-     PAGE : ABOUT
-======================================================== -->
+<!-- ===== PAGE: ABOUT ===== -->
 <div id="page-about" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-bg-glow" style="background:radial-gradient(ellipse 50% 70% at 70% 50%,rgba(160,32,240,0.1),transparent 65%);"></div>
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:700px;">
-      <div class="badge">Notre histoire</div>
-      <h1>L'IA n'est plus un outil.<br>C'est votre <em>avantage</em><br>stratégique.</h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:520px;">Fondé en 2025 à Paris, Pandora AI passe de l'expérimentation à l'adoption massive en 90 jours maximum, avec un ROI garanti et une gouvernance éthique.</p>
-    </div>
-  </div>
-
-  <section style="padding:7rem 5rem;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;">
-      <div class="reveal">
-        <div class="section-label">Notre histoire</div>
-        <h2>Nés de la<br><em>conviction</em></h2>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:2rem;">75% de la réussite d'un projet IA repose sur la gouvernance humaine et la stratégie pédagogique — pas sur la technologie. Cette conviction, née lors du lancement Adopt AI au Grand Palais en 2025, est le cœur de tout ce que nous faisons chez Pandora AI.</p>
-        <div class="timeline-v">
-          <div class="timeline-item"><div class="timeline-year">2025 — Fondation</div><div class="timeline-title">Lancement officiel à l'événement Adopt AI</div><div class="timeline-desc">Grand Palais, Paris. Pandora AI naît de la conviction que 75% du succès IA repose sur la gouvernance et la pédagogie, non la technologie.</div></div>
-          <div class="timeline-item"><div class="timeline-year">2025 — Premiers clients</div><div class="timeline-title">NaTran & LCL : premières transformations</div><div class="timeline-desc">Adoption Copilot à 87%, +30% de productivité, programme champions digitaux. La méthode Pandora prouvée sur le terrain.</div></div>
-          <div class="timeline-item"><div class="timeline-year">2026 — Expansion</div><div class="timeline-title">200+ entreprises accompagnées</div><div class="timeline-desc">Développement de l'offre Academy, certification EU AI Act, ouverture aux secteurs santé et industrie.</div></div>
-          <div class="timeline-item"><div class="timeline-year">Aujourd'hui</div><div class="timeline-title">Le cabinet de référence IA premium en France</div><div class="timeline-desc">Équipe d'experts passionnés, 100% focus entreprises, ROI garanti en 90 jours.</div></div>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div class="section-label">Notre mission</div>
-        <h2>Rendre l'IA <em>rentable</em><br>& responsable</h2>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:2.5rem;">Nous rendons l'IA accessible, utile, responsable et immédiatement rentable — 10 à 30% de productivité sans changer vos systèmes, dès les 90 premiers jours.</p>
-        <div class="values-grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-          <div class="value-card"><div class="value-icon">⚖️</div><div class="value-title">Gouvernance éthique</div><div class="value-desc">Conformité EU AI Act, RGPD et chartes d'usage responsable incluses dans chaque mission.</div></div>
-          <div class="value-card"><div class="value-icon">📊</div><div class="value-title">ROI obsessionnel</div><div class="value-desc">Chaque action est mesurée. Nous ne livrons que ce qui génère un impact réel et chiffré.</div></div>
-          <div class="value-card"><div class="value-icon">👥</div><div class="value-title">Humain au centre</div><div class="value-desc">L'IA amplifie l'humain. Acculturation, formation et accompagnement sont notre cœur de métier.</div></div>
-          <div class="value-card"><div class="value-icon">🚀</div><div class="value-title">Vitesse & rigueur</div><div class="value-desc">Premiers résultats en 30 jours. Méthode Agile et pilotage en temps réel de chaque projet.</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:0 5rem 7rem;background:var(--bg2);padding-top:7rem;">
-    <div class="reveal text-center" style="margin-bottom:3rem;">
-      <div class="section-label">Pourquoi nous choisir</div>
-      <h2>Pandora AI vs<br>les <em>cabinets traditionnels</em></h2>
-    </div>
-    <table class="compare-table reveal">
-      <thead><tr><th>Critère</th><th class="col-pandora">Pandora AI</th><th class="col-other">Cabinets traditionnels</th></tr></thead>
-      <tbody>
-        <tr><td>ROI garanti en 90 jours</td><td class="col-pandora"><span class="check">✓</span> Engagement contractuel</td><td class="col-other"><span class="cross">✗</span> Non garanti</td></tr>
-        <tr><td>Expertise EU AI Act & RGPD</td><td class="col-pandora"><span class="check">✓</span> Intégrée dès le départ</td><td class="col-other"><span class="cross">✗</span> En option payante</td></tr>
-        <tr><td>Formation incluse</td><td class="col-pandora"><span class="check">✓</span> Tous les niveaux</td><td class="col-other"><span class="cross">✗</span> Module séparé</td></tr>
-        <tr><td>Premiers résultats</td><td class="col-pandora"><span class="check">✓</span> 30 jours</td><td class="col-other"><span class="cross">✗</span> 6-12 mois</td></tr>
-        <tr><td>Secteurs réglementés</td><td class="col-pandora"><span class="check">✓</span> Banque, énergie, santé</td><td class="col-other"><span class="cross">✗</span> Limité</td></tr>
-        <tr><td>Suivi adoption post-déploiement</td><td class="col-pandora"><span class="check">✓</span> Inclus 3 mois</td><td class="col-other"><span class="cross">✗</span> Facturation supplémentaire</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <div class="cta-strip"><div style="position:relative;z-index:1;"><h2>Prêt à écrire votre<br><em>prochain chapitre IA ?</em></h2><div class="cta-btns" style="margin-top:2rem;"><a href="#" class="btn btn-gold" onclick="showPage('contact')">Consultation gratuite →</a><a href="#" class="btn btn-ghost" onclick="showPage('team')">Notre équipe</a></div></div></div>
-</div>
-
-
-<!-- ========================================================
-     PAGE : TEAM
-======================================================== -->
-<div id="page-team" class="page">
-  <div class="page-hero" style="background:var(--bg2);text-align:center;">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
-      <div class="badge">Notre équipe</div>
-      <h1>Les cerveaux derrière<br>chaque <em>transformation</em></h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;">Des experts passionnés, issus des meilleures structures (Artefact, McKinsey, Microsoft, BNP) réunis autour d'une conviction commune.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="team-grid reveal">
-      <div class="team-card">
-        <div class="team-photo">S<div class="team-photo-badge">Fondateur</div></div>
-        <div class="team-info"><div class="team-name">Sabik Omar</div><div class="team-role">CEO & Lead Consultant IA</div><div class="team-bio">6 ans d'expérience en transformation digitale. Expert Copilot, gouvernance IA et conduite du changement. Certifié AI Security & Governance. Ancien NaTran (GRTgaz).</div><div class="team-stat"><span>+30%</span> de productivité observée en moyenne sur ses missions · <span>200+</span> utilisateurs formés</div></div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">A</div>
-        <div class="team-info"><div class="team-name">Aïsha Benmoussa</div><div class="team-role">Head of AI Governance</div><div class="team-bio">Juriste spécialisée EU AI Act et RGPD. 8 ans d'expérience en conformité des systèmes d'information dans les secteurs bancaire et énergétique.</div><div class="team-stat"><span>100%</span> des clients conformes EU AI Act · <span>50+</span> audits de conformité réalisés</div></div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">T</div>
-        <div class="team-info"><div class="team-name">Thomas Mercier</div><div class="team-role">Lead Data Engineer & ROI</div><div class="team-bio">Ancien Artefact et Capgemini. Spécialiste Power BI, pipelines données et mesure du ROI IA. Il construit les dashboards qui prouvent l'impact de chaque mission.</div><div class="team-stat"><span>4×</span> ROI moyen sur les projets pilotés · <span>80+</span> dashboards déployés</div></div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">L</div>
-        <div class="team-info"><div class="team-name">Laura Chen</div><div class="team-role">Head of Formation & UX</div><div class="team-bio">Experte en pédagogie digitale et expérience utilisateur. Conçoit les parcours de formation qui font passer l'adoption IA de 12% à 87% en 3 mois.</div><div class="team-stat"><span>50+</span> ateliers animés · <span>92%</span> taux d'adoption moyen post-formation</div></div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">M</div>
-        <div class="team-info"><div class="team-name">Marc Dubois</div><div class="team-role">Senior Consultant Transformation</div><div class="team-bio">15 ans en gestion de projets IT complexes (BNP, SNCF). Spécialiste conduite du changement et déploiement Agile dans les grandes organisations.</div><div class="team-stat"><span>15 ans</span> d'expérience grands comptes · <span>−60%</span> temps de traitement obtenu en moyenne</div></div>
-      </div>
-      <div class="team-card" style="border:1px dashed var(--border);background:transparent;display:flex;align-items:center;justify-content:center;min-height:420px;">
-        <div style="text-align:center;padding:2rem;">
-          <div style="font-size:3rem;margin-bottom:1rem;">+</div>
-          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;">Rejoignez l'équipe</div>
-          <div style="font-size:.74rem;color:var(--muted);margin-bottom:1.5rem;">Nous cherchons des visionnaires passionnés par l'IA.</div>
-          <a href="#" class="btn btn-ghost" onclick="showPage('careers')" style="font-size:.65rem;">Voir les offres →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-<!-- ========================================================
-     PAGE : SERVICES
-======================================================== -->
-<div id="page-services" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:650px;">
-      <div class="badge">Nos services</div>
-      <h1>6 leviers pour une<br>transformation <em>IA</em><br>complète</h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:500px;">De l'audit stratégique à la mesure du ROI, nous couvrons l'intégralité du spectre de la transformation IA en entreprise.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="services-full-grid reveal">
-      <div class="service-full-card"><div class="sfcard-num">01</div><div class="sfcard-icon">🎯</div><div class="sfcard-title">Audit & Stratégie IA</div><div class="sfcard-desc">Analyse complète de vos processus, cartographie des opportunités IA à fort impact et élaboration d'une feuille de route personnalisée avec ROI prévisionnel par chantier.</div><ul class="sfcard-benefits"><li>Cartographie complète des processus automatisables</li><li>Identification des 3 cas d'usage prioritaires à ROI rapide</li><li>Benchmark sectoriel et analyse concurrentielle IA</li><li>Feuille de route 12 mois avec jalons et KPIs</li></ul><div class="sfcard-result">→ Livrable : Rapport de maturité IA + Roadmap stratégique</div></div>
-      <div class="service-full-card"><div class="sfcard-num">02</div><div class="sfcard-icon">🤖</div><div class="sfcard-title">Implémentation & Intégration</div><div class="sfcard-desc">Déploiement de solutions IA (Copilot, ChatGPT Enterprise, outils sur-mesure) intégrées à votre écosystème Microsoft 365, ERP et outils métiers existants sans refonte technique.</div><ul class="sfcard-benefits"><li>Déploiement Copilot Microsoft 365 en environnement sécurisé</li><li>Intégration CRM, ERP et outils métiers via Power Platform</li><li>Automatisation des workflows répétitifs (Power Automate)</li><li>Architecture IA conforme RGPD et sécurité IT</li></ul><div class="sfcard-result">→ Résultat : −60% temps de traitement sur processus cibles</div></div>
-      <div class="service-full-card"><div class="sfcard-num">03</div><div class="sfcard-icon">🎓</div><div class="sfcard-title">Formation & Adoption</div><div class="sfcard-desc">Programmes de formation sur-mesure pour tous les niveaux, du collaborateur non-technique au DSI. Ateliers, guides, FAQ et programme de champions digitaux pour une adoption durable.</div><ul class="sfcard-benefits"><li>Formation adaptée par profil (utilisateur, manager, tech)</li><li>50+ ateliers présentiel & distanciel disponibles</li><li>Bibliothèque de ressources SharePoint dédiée</li><li>Programme champions digitaux pour relayer l'adoption</li></ul><div class="sfcard-result">→ Résultat : Adoption moyenne de 92% à 3 mois</div></div>
-      <div class="service-full-card"><div class="sfcard-num">04</div><div class="sfcard-icon">🔄</div><div class="sfcard-title">Conduite du Changement</div><div class="sfcard-desc">Accompagnement humain et stratégique de la transformation : gestion des résistances, communication interne, formation des managers et suivi de l'adoption par les KPIs.</div><ul class="sfcard-benefits"><li>Plan de communication interne sur-mesure</li><li>Gestion des résistances et identification des freins</li><li>Formation des managers au management de l'IA</li><li>Reporting d'adoption mensuel avec recommandations</li></ul><div class="sfcard-result">→ Résultat : +47% productivité des équipes accompagnées</div></div>
-      <div class="service-full-card"><div class="sfcard-num">05</div><div class="sfcard-icon">🛡️</div><div class="sfcard-title">Gouvernance & EU AI Act</div><div class="sfcard-desc">Mise en place de chartes d'usage responsable, politiques de gouvernance IA conformes au EU AI Act 2026 et aux exigences sectorielles des secteurs bancaire, énergétique et de santé.</div><ul class="sfcard-benefits"><li>Charte d'usage IA conforme EU AI Act & RGPD</li><li>Classification et évaluation des risques IA</li><li>Politique de sécurité des données IA (PSSI)</li><li>Formation des équipes à l'éthique et aux limites de l'IA</li></ul><div class="sfcard-result">→ Résultat : 100% de conformité réglementaire garantie</div></div>
-      <div class="service-full-card"><div class="sfcard-num">06</div><div class="sfcard-icon">📊</div><div class="sfcard-title">Pilotage & Mesure ROI</div><div class="sfcard-desc">Tableaux de bord Power BI dédiés au suivi de l'adoption IA, mesure précise du ROI en temps réel, reporting aux parties prenantes et optimisation continue de votre investissement.</div><ul class="sfcard-benefits"><li>Dashboard Power BI adoption & ROI en temps réel</li><li>KPIs personnalisés par département et par outil</li><li>Reporting mensuel aux dirigeants et parties prenantes</li><li>Recommandations d'optimisation continue</li></ul><div class="sfcard-result">→ Résultat : ROI moyen de 4× sur les projets pilotés</div></div>
-    </div>
-  </section>
-  <div class="cta-strip"><div style="position:relative;z-index:1;"><h2>Quel service correspond<br>à vos <em>enjeux ?</em></h2><div class="cta-btns" style="margin-top:2rem;"><a href="#" class="btn btn-gold" onclick="showPage('contact')">En discuter gratuitement →</a></div></div></div>
-</div>
-
-
-<!-- ========================================================
-     PAGE : SECTORS
-======================================================== -->
-<div id="page-sectors" class="page">
-  <div class="page-hero" style="background:var(--bg2);text-align:center;">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
-      <div class="badge">Nos secteurs</div>
-      <h1>L'IA adaptée à<br>votre <em>réalité métier</em></h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;">Chaque secteur a ses contraintes, ses réglementations et ses opportunités IA. Nous les maîtrisons toutes.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="sectors-grid reveal">
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#0a1628,#1a2a4a);">🏦</div><div class="sector-body"><div class="sector-name">Banque & Assurance</div><div class="sector-desc">Déploiement IA en environnement PSSI strict, conformité RGPD et détection des fraudes. Expérience LCL, BNP et banques régionales.</div><div class="sector-tags"><span class="sector-tag">PSSI</span><span class="sector-tag">RGPD</span><span class="sector-tag">Copilot</span><span class="sector-tag">Conformité</span></div></div></div>
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#0a1a0a,#1a3a1a);">⚡</div><div class="sector-body"><div class="sector-name">Énergie & Utilities</div><div class="sector-desc">Optimisation des opérations, maintenance prédictive et adoption digitale dans les infrastructures critiques. Expérience NaTran (GRTgaz), TotalEnergies.</div><div class="sector-tags"><span class="sector-tag">M365</span><span class="sector-tag">SharePoint</span><span class="sector-tag">Power BI</span><span class="sector-tag">Infra critique</span></div></div></div>
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#1a0a0a,#3a1a0a);">🏭</div><div class="sector-body"><div class="sector-name">Industrie & Manufacturing</div><div class="sector-desc">Automatisation des processus, contrôle qualité IA et optimisation supply chain. Gains de 30 à 50% sur les tâches répétitives.</div><div class="sector-tags"><span class="sector-tag">Automatisation</span><span class="sector-tag">Power Apps</span><span class="sector-tag">Prédictif</span></div></div></div>
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#0a1a1a,#0a2a2a);">🏥</div><div class="sector-body"><div class="sector-name">Santé & Pharma</div><div class="sector-desc">IA au service des professionnels de santé : optimisation administrative, aide à la décision clinique et conformité HDS (Hébergeur Données Santé).</div><div class="sector-tags"><span class="sector-tag">HDS</span><span class="sector-tag">RGPD santé</span><span class="sector-tag">Aide décision</span></div></div></div>
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#1a0a1a,#2a0a3a);">💼</div><div class="sector-body"><div class="sector-name">Conseil & Services</div><div class="sector-desc">Accélération des livrables, automatisation du reporting et augmentation de la capacité des équipes de conseil. ROI dès la première mission.</div><div class="sector-tags"><span class="sector-tag">ChatGPT Enterprise</span><span class="sector-tag">Copilot</span><span class="sector-tag">Reporting</span></div></div></div>
-      <div class="sector-card"><div class="sector-img" style="background:linear-gradient(135deg,#0a0a1a,#1a1a2a);">🏛️</div><div class="sector-body"><div class="sector-name">Secteur Public & Institutions</div><div class="sector-desc">Modernisation des services publics avec une IA éthique, transparente et conforme aux exigences de souveraineté numérique française.</div><div class="sector-tags"><span class="sector-tag">Cloud souverain</span><span class="sector-tag">EU AI Act</span><span class="sector-tag">ANSSI</span></div></div></div>
-    </div>
-  </section>
-</div>
-
-
-<!-- ========================================================
-     PAGE : CASE STUDIES
-======================================================== -->
-<div id="page-cases" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:650px;">
-      <div class="badge">Études de cas</div>
-      <h1>Des transformations<br><em>réelles.</em> Des résultats<br>exceptionnels.</h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:500px;">Chaque mission livrée, chaque ROI mesuré. La preuve par les chiffres.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="cases-filter reveal">
-      <button class="filter-btn active">Tous</button>
-      <button class="filter-btn">Énergie</button>
-      <button class="filter-btn">Banque</button>
-      <button class="filter-btn">Conseil</button>
-      <button class="filter-btn">Industrie</button>
-    </div>
-    <div class="cases-grid reveal">
-      <div class="case-card"><div class="case-header"><div class="case-sector-tag">Énergie · NaTran (ex-GRTgaz)</div><div class="case-title">Adoption Copilot Microsoft 365 à grande échelle</div><div class="case-subtitle">Déploiement IA en environnement critique — 200+ utilisateurs</div></div><div class="case-metrics"><div class="case-metric"><div class="case-metric-val">87%</div><div class="case-metric-label">Taux d'adoption</div></div><div class="case-metric"><div class="case-metric-val">+30%</div><div class="case-metric-label">Productivité</div></div><div class="case-metric"><div class="case-metric-val">90 j</div><div class="case-metric-label">Délai résultats</div></div></div><div class="case-body"><div class="case-quote">"L'adoption de Copilot est passée de 12% à 87% en 3 mois. Un ROI que nous n'espérions pas aussi rapidement."</div><div class="case-tags"><span class="case-tag">Copilot</span><span class="case-tag">SharePoint</span><span class="case-tag">Formation</span><span class="case-tag">Gouvernance IA</span></div></div></div>
-      <div class="case-card"><div class="case-header"><div class="case-sector-tag">Banque · LCL</div><div class="case-title">Modernisation IT & conformité PSSI</div><div class="case-subtitle">Transformation du support IT en contexte bancaire réglementé</div></div><div class="case-metrics"><div class="case-metric"><div class="case-metric-val">−30%</div><div class="case-metric-label">Incidents</div></div><div class="case-metric"><div class="case-metric-val">100%</div><div class="case-metric-label">Conformité PSSI</div></div><div class="case-metric"><div class="case-metric-val">6 sem</div><div class="case-metric-label">Délai résultats</div></div></div><div class="case-body"><div class="case-quote">"La qualité du support de proximité s'est nettement améliorée. Les équipes comprennent enfin les enjeux cybersécurité."</div><div class="case-tags"><span class="case-tag">PSSI</span><span class="case-tag">Cybersécurité</span><span class="case-tag">Formation N1</span></div></div></div>
-      <div class="case-card"><div class="case-header"><div class="case-sector-tag">Énergie · NaTran</div><div class="case-title">Plateforme collaborative RH — Power Apps</div><div class="case-subtitle">Digitalisation des processus frais, congés & entretiens</div></div><div class="case-metrics"><div class="case-metric"><div class="case-metric-val">−70%</div><div class="case-metric-label">Temps traitement</div></div><div class="case-metric"><div class="case-metric-val">95%</div><div class="case-metric-label">Satisfaction RH</div></div><div class="case-metric"><div class="case-metric-val">4 sem</div><div class="case-metric-label">Déploiement</div></div></div><div class="case-body"><div class="case-quote">"La lisibilité des processus internes s'est transformée. L'outil est utilisé spontanément sans formation forcée."</div><div class="case-tags"><span class="case-tag">Power Apps</span><span class="case-tag">SharePoint</span><span class="case-tag">UX Design</span></div></div></div>
-      <div class="case-card"><div class="case-header"><div class="case-sector-tag">Conseil · Cabinet international</div><div class="case-title">ChatGPT Enterprise — Augmentation des équipes conseil</div><div class="case-subtitle">Accélération des livrables et automatisation du reporting</div></div><div class="case-metrics"><div class="case-metric"><div class="case-metric-val">+47%</div><div class="case-metric-label">Capacité équipes</div></div><div class="case-metric"><div class="case-metric-val">4×</div><div class="case-metric-label">ROI</div></div><div class="case-metric"><div class="case-metric-val">3 mois</div><div class="case-metric-label">Délai résultats</div></div></div><div class="case-body"><div class="case-quote">"Nos consultants produisent 47% de livrables supplémentaires sans augmenter les effectifs. Un game-changer."</div><div class="case-tags"><span class="case-tag">ChatGPT Enterprise</span><span class="case-tag">Gouvernance IA</span><span class="case-tag">Formation</span></div></div></div>
-    </div>
-  </section>
-</div>
-
-
-<!-- ========================================================
-     PAGE : APPROACH
-======================================================== -->
-<div id="page-approach" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:650px;">
-      <div class="badge">Notre approche</div>
-      <h1>Une méthode prouvée,<br>pas une <em>boîte noire.</em></h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:500px;">4 étapes rigoureuses, des livrables clairs à chaque jalon, un ROI garanti en 90 jours ou nous continuons gratuitement.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="approach-timeline reveal">
-      <div class="approach-step"><div class="approach-step-left"><div class="approach-step-num">01</div><div class="approach-step-name">Semaines 1-2</div></div><div><div class="approach-step-title">Diagnostic & Audit</div><div class="approach-step-desc">Analyse approfondie de vos processus, systèmes existants et maturité IA. Identification des opportunités à fort ROI et des freins organisationnels. Benchmark sectoriel et cartographie des risques.</div><ul class="approach-deliverables"><li>Rapport de maturité IA (score 0-100)</li><li>Cartographie des 10 processus automatisables</li><li>Analyse des outils et systèmes existants</li><li>Identification des 3 cas d'usage prioritaires</li><li>Rapport de risques IA et réglementaires</li></ul></div></div>
-      <div class="approach-step"><div class="approach-step-left"><div class="approach-step-num">02</div><div class="approach-step-name">Semaines 3-4</div></div><div><div class="approach-step-title">Stratégie & Feuille de Route</div><div class="approach-step-desc">Co-construction de votre stratégie IA sur 12 mois avec vos équipes dirigeantes. Priorisation des chantiers par ROI, faisabilité et impact organisationnel. Plan de conduite du changement inclus.</div><ul class="approach-deliverables"><li>Feuille de route IA 12 mois (Gantt + jalons)</li><li>Business case détaillé avec ROI prévisionnel</li><li>Plan de gouvernance et charte d'usage IA</li><li>Plan de conduite du changement</li><li>Budget et ressources nécessaires</li></ul></div></div>
-      <div class="approach-step"><div class="approach-step-left"><div class="approach-step-num">03</div><div class="approach-step-name">Semaines 5-12</div></div><div><div class="approach-step-title">Déploiement Agile</div><div class="approach-step-desc">Implémentation en sprints de 2 semaines avec livraisons rapides et ajustements continus. Formation des équipes en parallèle du déploiement technique pour maximiser l'adoption dès le lancement.</div><ul class="approach-deliverables"><li>Déploiement de la solution IA choisie</li><li>Programme de formation sur-mesure (tous niveaux)</li><li>Site SharePoint ressources IA dédié</li><li>Programme champions digitaux opérationnel</li><li>Dashboard Power BI adoption en temps réel</li></ul></div></div>
-      <div class="approach-step"><div class="approach-step-left"><div class="approach-step-num">04</div><div class="approach-step-name">Mois 3 → ∞</div></div><div><div class="approach-step-title">Optimisation Continue</div><div class="approach-step-desc">Suivi continu des KPIs d'adoption, mesure précise du ROI, reporting mensuel aux dirigeants et ajustements stratégiques basés sur les données réelles d'utilisation.</div><ul class="approach-deliverables"><li>Reporting ROI mensuel (dashboard + présentation)</li><li>Optimisation des workflows IA sous-performants</li><li>Nouvelles formations selon les besoins identifiés</li><li>Veille IA et recommandations d'évolution</li><li>Bilan trimestriel avec les parties prenantes</li></ul></div></div>
-    </div>
-    <div class="guarantee-box reveal">
-      <div class="guarantee-icon">🏆</div>
-      <div class="guarantee-title">Notre <em>Garantie ROI</em></div>
-      <p class="guarantee-desc">Si nous n'atteignons pas au minimum <strong style="color:var(--gold)">+10% de productivité mesurable</strong> dans les 90 premiers jours de déploiement, nous continuons à vous accompagner gratuitement jusqu'à l'atteinte de cet objectif. Sans condition.</p>
-      <a href="#" class="btn btn-gold" style="margin-top:2rem;display:inline-flex;" onclick="showPage('contact')">Activer la garantie →</a>
-    </div>
-  </section>
-</div>
-
-
-<!-- ========================================================
-     PAGE : INSIGHTS
-======================================================== -->
-<div id="page-insights" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:600px;">
-      <div class="badge">Insights IA</div>
-      <h1>La pensée de<br>pointe sur l'<em>IA</em><br>entreprise</h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;">Analyses, guides pratiques et retours d'expérience des experts Pandora AI pour les dirigeants et DSI ambitieux.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="insights-hero-split reveal" style="margin-bottom:5rem;">
-      <div>
-        <div class="section-label">Article à la une</div>
-        <h2>EU AI Act 2026 :<br><em>Ce qui change</em><br>pour votre entreprise</h2>
-        <p style="font-size:.8rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;">Entrée en vigueur progressive, obligations selon la classe de risque, sanctions jusqu'à 35M€. Notre analyse complète pour vous préparer dès maintenant.</p>
-        <div class="insights-meta" style="margin-bottom:1.5rem;font-size:.68rem;color:var(--muted);display:flex;gap:1.5rem;"><span>📅 15 janvier 2026</span><span>⏱ 12 min de lecture</span><span>👁 4 230 vues</span></div>
-        <a href="#" class="btn btn-gold">Lire l'article →</a>
-      </div>
-      <div class="insights-featured">
-        <div class="insights-featured-img" style="height:300px;font-size:4rem;">⚖️</div>
-        <div class="insights-featured-body">
-          <div class="insights-cat">Gouvernance & Conformité</div>
-          <div class="insights-title">EU AI Act 2026 : checklist complète pour les entreprises françaises</div>
-          <div class="insights-excerpt">Obligations par niveau de risque, délais de mise en conformité, sanctions et recommandations pratiques de nos experts en gouvernance IA.</div>
-        </div>
-      </div>
-    </div>
-    <div class="insights-grid reveal">
-      <div class="insight-card"><div class="insight-card-img">🤖</div><div class="insight-card-body"><div class="insights-cat">ROI & Performance</div><div class="insights-title">Microsoft Copilot Enterprise : ROI réel après 6 mois</div><div class="insights-excerpt">Chiffres réels issus de nos missions, non les promesses marketing de Microsoft.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Mars 2026</span><span>8 min</span></div></div></div>
-      <div class="insight-card"><div class="insight-card-img">⚠️</div><div class="insight-card-body"><div class="insights-cat">Gouvernance</div><div class="insights-title">7 erreurs qui font échouer 80% des projets IA</div><div class="insights-excerpt">L'erreur n°1 : croire que la technologie suffit. Découvrez les 6 autres.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Févr. 2026</span><span>10 min</span></div></div></div>
-      <div class="insight-card"><div class="insight-card-img">🏆</div><div class="insight-card-body"><div class="insights-cat">Adoption</div><div class="insights-title">De 12% à 87% d'adoption : la méthode champions digitaux</div><div class="insights-excerpt">Notre retour d'expérience détaillé sur le déploiement Copilot chez NaTran.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Janv. 2026</span><span>7 min</span></div></div></div>
-      <div class="insight-card"><div class="insight-card-img">📊</div><div class="insight-card-body"><div class="insights-cat">Power BI</div><div class="insights-title">Construire un dashboard ROI IA en 48h</div><div class="insights-excerpt">Template Power BI + guide pas-à-pas pour piloter votre investissement IA.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Janv. 2026</span><span>5 min</span></div></div></div>
-      <div class="insight-card"><div class="insight-card-img">🎓</div><div class="insight-card-body"><div class="insights-cat">Formation</div><div class="insights-title">Former vos équipes à l'IA : le guide complet 2026</div><div class="insights-excerpt">Profils, formats, fréquence, indicateurs. Tout ce qu'il faut savoir.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Déc. 2025</span><span>9 min</span></div></div></div>
-      <div class="insight-card"><div class="insight-card-img">🔮</div><div class="insight-card-body"><div class="insights-cat">Tendances</div><div class="insights-title">IA agentique en entreprise : prêts pour 2027 ?</div><div class="insights-excerpt">Les agents IA autonomes arrivent. Comment s'y préparer dès maintenant.</div><div class="insights-meta" style="margin-top:.8rem;font-size:.62rem;color:var(--muted);display:flex;gap:1rem;"><span>Déc. 2025</span><span>6 min</span></div></div></div>
-    </div>
-    <div class="newsletter-box reveal">
-      <div class="section-label" style="justify-content:center;">Newsletter</div>
-      <h2>IA Executive <em>Digest</em></h2>
-      <p style="font-size:.8rem;color:var(--muted);max-width:400px;margin:0 auto;">Chaque semaine : les actualités IA qui comptent pour les dirigeants, analysées par nos experts. 3 200 abonnés.</p>
-      <div class="newsletter-input-row">
-        <input type="email" class="newsletter-input" placeholder="votre@entreprise.fr">
-        <a href="#" class="btn btn-gold">S'abonner →</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-<!-- ========================================================
-     PAGE : ACADEMY
-======================================================== -->
-<div id="page-academy" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div class="academy-hero-split" style="position:relative;z-index:2;width:100%;">
-      <div>
-        <div class="badge">Pandora Academy</div>
-        <h1>Apprenez de ceux<br>qui font l'IA<br><em>rentable</em><br>tous les jours.</h1>
-        <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:450px;margin-bottom:2rem;">Webinaires en direct, replays, formations inter-entreprises et programmes sur-mesure. L'excellence IA, accessible.</p>
-        <a href="#" class="btn btn-gold">Voir le calendrier →</a>
-      </div>
-      <div>
-        <div class="countdown-box">
-          <div class="countdown-label">🔴 Prochain webinaire en direct · 22 Avril 2026 — 11h00</div>
-          <div style="font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:1.5rem;">"EU AI Act : Préparez votre entreprise en 90 minutes"</div>
-          <div class="countdown-nums" id="countdown">
-            <div class="countdown-unit"><div class="countdown-num" id="cd-d">05</div><div class="countdown-unit-label">Jours</div></div>
-            <div class="countdown-unit"><div class="countdown-num" id="cd-h">14</div><div class="countdown-unit-label">Heures</div></div>
-            <div class="countdown-unit"><div class="countdown-num" id="cd-m">32</div><div class="countdown-unit-label">Minutes</div></div>
-            <div class="countdown-unit"><div class="countdown-num" id="cd-s">00</div><div class="countdown-unit-label">Secondes</div></div>
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Notre histoire</div>
+    <div class="two-col">
+      <div class="two-col-text">
+        <h1 class="section-title">Fondé sur la conviction que<br>l'humain est au <em>cœur</em> de l'IA</h1>
+        <p class="section-lead">75% de la réussite d'un projet IA repose sur la gouvernance humaine et la pédagogie, pas seulement sur la technologie. C'est le principe fondateur de Pandora AI.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2022 — Fondation</div>
+            <div class="timeline-title">Lancement du cabinet</div>
+            <div class="timeline-text">Pandora AI est fondé à Paris par Sabik Omar, avec des experts issus d'Artefact, Microsoft et du conseil en stratégie. Mission : rendre la transformation IA accessible et mesurable.</div>
           </div>
-          <a href="#" class="btn btn-gold" style="margin-top:1.5rem;display:block;text-align:center;">M'inscrire gratuitement →</a>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023 — Premières références</div>
+            <div class="timeline-title">Déploiements à grande échelle</div>
+            <div class="timeline-text">Accompagnement des premières transformations majeures chez NaTran (ex-GRTgaz) et dans le secteur bancaire (LCL). Programme Champions Digitaux pour +500 utilisateurs.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024 — Expansion sectorielle</div>
+            <div class="timeline-title">Énergie, industrie et finance</div>
+            <div class="timeline-text">Extension aux secteurs de l'énergie (TotalEnergies), de la finance (BNP Paribas, Société Générale) et du conseil (Capgemini). Portfolio de 40+ entreprises accompagnées.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025 — Structuration</div>
+            <div class="timeline-title">Méthodologie propriétaire</div>
+            <div class="timeline-text">Développement de la méthodologie "ROI Garanti" et certification EU AI Act. Équipe portée à 15 experts. Plus de 80 entreprises accompagnées.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="reveal" style="margin-bottom:3rem;"><div class="section-label">Agenda</div><h2>Prochains <em>webinaires</em></h2></div>
-    <div class="webinars-grid reveal">
-      <div class="webinar-card"><div class="webinar-date"><div class="webinar-day">22</div><div class="webinar-month">Avr.</div></div><div><div class="webinar-title">EU AI Act : Préparez votre entreprise</div><div class="webinar-desc">Les obligations clés, les délais et les actions concrètes à mener maintenant.</div><span class="webinar-tag">Gouvernance</span></div></div>
-      <div class="webinar-card"><div class="webinar-date"><div class="webinar-day">06</div><div class="webinar-month">Mai</div></div><div><div class="webinar-title">Copilot Microsoft 365 : 10 cas d'usage à ROI rapide</div><div class="webinar-desc">Démonstrations en direct des fonctionnalités qui génèrent le plus de gains.</div><span class="webinar-tag">Copilot</span></div></div>
-      <div class="webinar-card"><div class="webinar-date"><div class="webinar-day">20</div><div class="webinar-month">Mai</div></div><div><div class="webinar-title">Comment mesurer le ROI de l'IA en entreprise</div><div class="webinar-desc">Métriques, KPIs et dashboard Power BI : la méthode Pandora AI.</div><span class="webinar-tag">ROI & Data</span></div></div>
-      <div class="webinar-card"><div class="webinar-date"><div class="webinar-day">03</div><div class="webinar-month">Juin</div></div><div><div class="webinar-title">ChatGPT Enterprise vs Copilot : le match décisif</div><div class="webinar-desc">Comparatif objectif pour choisir la solution adaptée à votre organisation.</div><span class="webinar-tag">Stratégie</span></div></div>
-    </div>
-    <div class="reveal" style="margin-top:5rem;margin-bottom:3rem;"><div class="section-label">Catalogue formations</div><h2>Formations <em>sur-mesure</em><br>& inter-entreprises</h2></div>
-    <div class="formations-grid reveal">
-      <div class="formation-card"><div class="formation-level">Niveau Débutant</div><div class="formation-title">IA pour non-techniciens</div><div class="formation-desc">Comprendre l'IA, ses capacités, ses limites et ses risques. Formation pratique avec cas d'usage métiers concrets.</div><div class="formation-meta"><span>📅 1 journée</span><span>👥 6-15 personnes</span></div><a href="#" class="btn btn-ghost" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Demander un devis →</a></div>
-      <div class="formation-card" style="border-color:var(--gold);"><div class="formation-level" style="color:var(--purple-light);">Niveau Intermédiaire</div><div class="formation-title">Copilot Microsoft 365 — Maîtrise complète</div><div class="formation-desc">Toutes les fonctionnalités Copilot par métier (RH, Finance, Commercial, IT). Ateliers pratiques sur vos vrais documents.</div><div class="formation-meta"><span>📅 2 journées</span><span>👥 8-20 personnes</span></div><a href="#" class="btn btn-gold" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Demander un devis →</a></div>
-      <div class="formation-card"><div class="formation-level">Niveau Avancé</div><div class="formation-title">Gouvernance IA & EU AI Act</div><div class="formation-desc">Pour DSI, DPO et dirigeants. Conformité, classification des risques, charte d'usage et pilotage de la transformation.</div><div class="formation-meta"><span>📅 1 journée</span><span>👥 4-10 personnes</span></div><a href="#" class="btn btn-ghost" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Demander un devis →</a></div>
-      <div class="formation-card"><div class="formation-level">Programme Long</div><div class="formation-title">Champions Digitaux IA</div><div class="formation-desc">Former vos relais internes. 6 semaines pour créer vos ambassadeurs IA capables d'accompagner leurs collègues au quotidien.</div><div class="formation-meta"><span>📅 6 semaines</span><span>👥 10-30 champions</span></div><a href="#" class="btn btn-ghost" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Demander un devis →</a></div>
-      <div class="formation-card"><div class="formation-level">Certifiant</div><div class="formation-title">Prompt Engineering Avancé</div><div class="formation-desc">Maîtrisez l'art du prompt pour maximiser la qualité des outputs IA. Techniques avancées, cas d'usage sectoriels, bonnes pratiques.</div><div class="formation-meta"><span>📅 1 journée</span><span>👥 6-12 personnes</span></div><a href="#" class="btn btn-ghost" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Demander un devis →</a></div>
-      <div class="formation-card"><div class="formation-level">Sur-mesure</div><div class="formation-title">Programme personnalisé</div><div class="formation-desc">Votre formation IA selon vos métiers, vos outils et vos contraintes. Nous co-concevons avec vous un parcours unique.</div><div class="formation-meta"><span>📅 À définir</span><span>👥 Illimité</span></div><a href="#" class="btn btn-gold" style="margin-top:1rem;font-size:.65rem;" onclick="showPage('contact')">Nous contacter →</a></div>
+      <div>
+        <div style="background: var(--paper-warm); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 2rem;">
+          <div class="section-tag" style="margin-bottom: 1.5rem;">Nos valeurs</div>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; margin-bottom:0.4rem;">Résultat mesurable</div>
+              <div style="font-size:0.84rem; color:var(--ink-muted); line-height:1.65;">Chaque engagement inclut des KPIs définis contractuellement. Pas de consulting vague, pas de livrables creux.</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; margin-bottom:0.4rem;">Pédagogie au cœur</div>
+              <div style="font-size:0.84rem; color:var(--ink-muted); line-height:1.65;">L'adoption durable passe par la compréhension. Nous formons, nous n'imposons pas.</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; margin-bottom:0.4rem;">Indépendance technologique</div>
+              <div style="font-size:0.84rem; color:var(--ink-muted); line-height:1.65;">Nous recommandons les meilleures solutions pour votre contexte, sans dépendance commerciale à un éditeur.</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; margin-bottom:0.4rem;">Transparence absolue</div>
+              <div style="font-size:0.84rem; color:var(--ink-muted); line-height:1.65;">Prix fixes affichés, engagement contractuel, reporting hebdomadaire. Vous savez toujours où vous en êtes.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Comparison table -->
+        <div style="background: var(--ink); border-radius: var(--radius-lg); padding: 2rem; overflow-x:auto;">
+          <div style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1.2rem;">Pandora AI vs cabinets traditionnels</div>
+          <table style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px 0; color:rgba(201,168,76,0.5); font-weight:400; border-bottom:0.5px solid rgba(201,168,76,0.15);">Critère</th>
+                <th style="text-align:center; padding:8px; color:var(--gold); font-weight:500; border-bottom:0.5px solid rgba(201,168,76,0.15);">Pandora AI</th>
+                <th style="text-align:center; padding:8px 0; color:rgba(201,168,76,0.3); font-weight:400; border-bottom:0.5px solid rgba(201,168,76,0.15);">Cabinets trad.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:8px 0; color:rgba(201,168,76,0.6); border-bottom:0.5px solid rgba(201,168,76,0.08);">Engagement ROI contractuel</td><td style="text-align:center; color:var(--gold);">✓</td><td style="text-align:center; color:rgba(201,168,76,0.3);">Rare</td></tr>
+              <tr><td style="padding:8px 0; color:rgba(201,168,76,0.6); border-bottom:0.5px solid rgba(201,168,76,0.08);">Prix fixes transparents</td><td style="text-align:center; color:var(--gold);">✓</td><td style="text-align:center; color:rgba(201,168,76,0.3);">Variable</td></tr>
+              <tr><td style="padding:8px 0; color:rgba(201,168,76,0.6); border-bottom:0.5px solid rgba(201,168,76,0.08);">Adoption & formation incluses</td><td style="text-align:center; color:var(--gold);">✓</td><td style="text-align:center; color:rgba(201,168,76,0.3);">Option</td></tr>
+              <tr><td style="padding:8px 0; color:rgba(201,168,76,0.6); border-bottom:0.5px solid rgba(201,168,76,0.08);">Reporting Power BI temps réel</td><td style="text-align:center; color:var(--gold);">✓</td><td style="text-align:center; color:rgba(201,168,76,0.3);">Rare</td></tr>
+              <tr><td style="padding:8px 0; color:rgba(201,168,76,0.6);">Spécialisation IA exclusive</td><td style="text-align:center; color:var(--gold);">✓</td><td style="text-align:center; color:rgba(201,168,76,0.3);">Partielle</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 </div>
 
+<!-- ===== PAGE: SERVICES ===== -->
+<div id="page-services" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Nos services</div>
+    <h1 class="section-title">Six lignes d'expertise pour<br>votre <em>transformation IA</em></h1>
+    <p class="section-lead">De l'audit flash au programme de transformation complet, chaque service est conçu avec des livrables clairs et des métriques de succès définies en amont.</p>
 
-<!-- ========================================================
-     PAGE : CAREERS
-======================================================== -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem;">
+      <div style="background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem;">
+        <div class="section-tag">01 — Diagnostic</div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; margin-bottom:1rem;">Audit & Maturité IA</h3>
+        <p style="font-size:0.87rem; line-height:1.7; color:var(--ink-muted); margin-bottom:1.5rem;">Notre audit flash de 2 à 5 jours produit un diagnostic complet de votre maturité IA selon 6 dimensions : données, technologie, processus, compétences, gouvernance et culture. Vous repartez avec un score de 0 à 100 et un plan d'action priorisé.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="pill">Score de maturité</span><span class="pill">Rapport PDF 15p</span><span class="pill">3 recommandations</span><span class="pill">Atelier 2h</span>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--gold);">À partir de 2 500€ HT — prix fixe</div>
+      </div>
+      <div style="background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem;">
+        <div class="section-tag">02 — Adoption</div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; margin-bottom:1rem;">Microsoft Copilot & Power Platform</h3>
+        <p style="font-size:0.87rem; line-height:1.7; color:var(--ink-muted); margin-bottom:1.5rem;">Déploiement du programme Champions Digitaux éprouvé sur +500 utilisateurs. Formation personnalisée par métier, création d'une communauté interne d'ambassadeurs et mesure hebdomadaire des gains de productivité.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="pill">Champions Digitaux</span><span class="pill">Formation sur mesure</span><span class="pill">KPIs hebdomadaires</span>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--gold);">Résultat moyen : +40% productivité mesurée</div>
+      </div>
+      <div style="background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem;">
+        <div class="section-tag">03 — Conformité</div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; margin-bottom:1rem;">Gouvernance & EU AI Act</h3>
+        <p style="font-size:0.87rem; line-height:1.7; color:var(--ink-muted); margin-bottom:1.5rem;">Mise en conformité avec le règlement européen sur l'IA. Cartographie des risques, rédaction des politiques de gouvernance, formation des instances dirigeantes et accompagnement à la certification. Particulièrement critique pour les secteurs banque, assurance et santé.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="pill">EU AI Act</span><span class="pill">Cartographie risques</span><span class="pill">Politique IA</span>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--gold);">Certification conforme EU AI Act 2024</div>
+      </div>
+      <div style="background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem;">
+        <div class="section-tag">04 — Data</div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; margin-bottom:1rem;">Transformation Data & Analytics</h3>
+        <p style="font-size:0.87rem; line-height:1.7; color:var(--ink-muted); margin-bottom:1.5rem;">Structuration du patrimoine de données pour alimenter vos projets IA. Architecture data lake, intégration Azure AI, déploiement de modèles génératifs sur vos données propriétaires avec contrôle total de la confidentialité.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="pill">Azure OpenAI</span><span class="pill">Power BI</span><span class="pill">Data Governance</span>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--gold);">Architecture souveraine & sécurisée</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE: CASES ===== -->
+<div id="page-cases" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Études de cas</div>
+    <h1 class="section-title">Des résultats<br><em>mesurables</em>, pas des promesses</h1>
+    <p class="section-lead">Chaque mission est documentée avec des métriques avant/après. Voici quatre exemples représentatifs de notre portfolio.</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Énergie · NaTran (ex-GRTgaz)</div>
+          <div class="case-title">Programme d'adoption Microsoft Copilot pour 520 collaborateurs</div>
+          <div class="case-desc">Déploiement du programme Champions Digitaux sur l'ensemble des fonctions supports (Finance, RH, Juridique, Communication). Formation personnalisée par métier, création de 18 cas d'usage propriétaires et mise en place d'une communauté interne de 42 ambassadeurs. Résultat mesuré à J+90 via tableau de bord Power BI.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-value">+38%</div><div class="case-metric-label">Productivité</div></div>
+          <div class="case-metric"><div class="case-metric-value">74%</div><div class="case-metric-label">Taux adoption</div></div>
+          <div class="case-metric"><div class="case-metric-value">520</div><div class="case-metric-label">Utilisateurs</div></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Finance · LCL Banque</div>
+          <div class="case-title">Audit de maturité IA & feuille de route stratégique</div>
+          <div class="case-desc">Audit complet de la maturité IA sur 3 directions (Digital, Risques, Conformité). Identification de 12 cas d'usage prioritaires avec business case chiffré. Livraison d'une feuille de route sur 18 mois avec jalons contractuels. L'audit a révélé 3 leviers majeurs non identifiés en interne, dont l'automatisation du traitement des dossiers crédit.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-value">12</div><div class="case-metric-label">Cas d'usage</div></div>
+          <div class="case-metric"><div class="case-metric-value">5j</div><div class="case-metric-label">Durée audit</div></div>
+          <div class="case-metric"><div class="case-metric-value">18m</div><div class="case-metric-label">Roadmap</div></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Énergie · TotalEnergies</div>
+          <div class="case-title">Transformation data & déploiement IA générative sur données internes</div>
+          <div class="case-desc">Architecture et déploiement d'un assistant IA génératif sur Azure OpenAI Service, connecté à la base documentaire interne de la direction Operations. Traitement sécurisé des données propriétaires sans exposition externe. Formation de 85 utilisateurs power users. Gain de +18% de productivité mesuré à J+85.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-value">+18%</div><div class="case-metric-label">Productivité</div></div>
+          <div class="case-metric"><div class="case-metric-value">85</div><div class="case-metric-label">Power users</div></div>
+          <div class="case-metric"><div class="case-metric-value">J+85</div><div class="case-metric-label">Mesure ROI</div></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Banque · BNP Paribas</div>
+          <div class="case-title">Gouvernance IA & conformité EU AI Act</div>
+          <div class="case-desc">Mission de mise en conformité EU AI Act pour la ligne métier Asset Management. Cartographie complète des systèmes IA existants, classification des risques selon le règlement européen, rédaction de la politique de gouvernance IA et formation du Comité de Direction. Accompagnement à la certification sur 4 mois.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-value">100%</div><div class="case-metric-label">Conformité</div></div>
+          <div class="case-metric"><div class="case-metric-value">4m</div><div class="case-metric-label">Mission</div></div>
+          <div class="case-metric"><div class="case-metric-value">Certifié</div><div class="case-metric-label">EU AI Act</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE: APPROACH ===== -->
+<div id="page-approach" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Notre approche</div>
+    <h1 class="section-title">Une méthode éprouvée,<br>un engagement de <em>résultat</em></h1>
+    <p class="section-lead">Quatre étapes structurées, une philosophie constante : la technologie n'est qu'un outil. La réussite d'un projet IA repose à 75% sur l'humain.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); margin-bottom:4rem;">
+      <div style="background:var(--paper-card); padding:3rem;">
+        <div class="approach-num">01 — Diagnostic</div>
+        <div class="approach-title">Audit de maturité</div>
+        <div class="approach-text" style="font-size:0.9rem; margin-top:1rem;">Nous cartographions exhaustivement vos processus métier, votre patrimoine de données, vos outils actuels et le niveau de compétence de vos équipes. Cette phase produit votre score de maturité IA selon 6 dimensions et identifie les 3 quick wins à ROI immédiat.</div>
+        <div style="margin-top:1.5rem; font-size:0.78rem; color:var(--gold);">Durée : 2 à 5 jours · Livrable : Rapport PDF + Score</div>
+      </div>
+      <div style="background:var(--paper-card); padding:3rem;">
+        <div class="approach-num">02 — Stratégie</div>
+        <div class="approach-title">Co-construction de la feuille de route</div>
+        <div class="approach-text" style="font-size:0.9rem; margin-top:1rem;">En co-construction avec vos équipes métier et IT, nous définissons une roadmap IA priorisée sur 12 à 18 mois. Chaque initiative est budgétisée, assignée à un porteur interne et assortie de KPIs mesurables. Pas de vision PowerPoint : des engagements contractuels.</div>
+        <div style="margin-top:1.5rem; font-size:0.78rem; color:var(--gold);">Durée : 1 à 2 semaines · Livrable : Roadmap + Business cases</div>
+      </div>
+      <div style="background:var(--paper-card); padding:3rem;">
+        <div class="approach-num">03 — Déploiement</div>
+        <div class="approach-title">Mise en œuvre agile</div>
+        <div class="approach-text" style="font-size:0.9rem; margin-top:1rem;">Déploiement itératif par sprints de 2 semaines, avec un reporting hebdomadaire transparent. Formation des équipes concomitante au déploiement technique : les utilisateurs maîtrisent l'outil avant que la solution soit finalisée. Un chef de projet senior Pandora AI est dédié à votre mission.</div>
+        <div style="margin-top:1.5rem; font-size:0.78rem; color:var(--gold);">Durée : 1 à 4 mois · Livrable : Solution déployée + équipes formées</div>
+      </div>
+      <div style="background:var(--paper-card); padding:3rem;">
+        <div class="approach-num">04 — Mesure</div>
+        <div class="approach-title">ROI & Optimisation continue</div>
+        <div class="approach-text" style="font-size:0.9rem; margin-top:1rem;">Un tableau de bord Power BI est mis en place dès J+1 pour mesurer les gains réels en temps réel. Comparaison avant/après sur chaque KPI contractuel. Ajustements continus basés sur la data. Notre garantie de performance s'applique ici : résultats atteints ou support offert.</div>
+        <div style="margin-top:1.5rem; font-size:0.78rem; color:var(--gold);">En continu · Dashboard Power BI · Garantie 90 jours</div>
+      </div>
+    </div>
+
+    <div class="guarantee-block">
+      <div>
+        <div class="guarantee-sub">Engagement contractuel de performance</div>
+        <div class="guarantee-title">Notre garantie<br>ROI 90 jours</div>
+        <p style="font-size:0.86rem; line-height:1.7; color:rgba(201,168,76,0.6); margin-top:1.5rem;">Nous sommes les seuls à proposer un engagement contractuel de performance en France. Si le gain de productivité cible n'est pas atteint à J+90, le mois de support suivant est offert.</p>
+      </div>
+      <div class="guarantee-steps">
+        <div class="g-step">
+          <div class="g-step-num">01</div>
+          <div><div class="g-step-title">Définition des KPIs</div><div class="g-step-text">Nous définissons ensemble, avant signature, les indicateurs de performance : temps gagné par tâche, taux d'adoption, tâches automatisées. Ces KPIs sont inscrits dans le contrat.</div></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">02</div>
+          <div><div class="g-step-title">Mesure objective</div><div class="g-step-text">Un tableau de bord Power BI est accessible en temps réel à votre équipe. Toutes les mesures sont objectivées, exportables et auditables par vos équipes internes.</div></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">03</div>
+          <div><div class="g-step-title">Notre promesse</div><div class="g-step-text">Si le gain de productivité cible défini dans le contrat n'est pas atteint à l'issue des 90 premiers jours, le mois de support et d'optimisation suivant est entièrement offert.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE: INSIGHTS ===== -->
+<div id="page-insights" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Insights & Publications</div>
+    <h1 class="section-title">Nos analyses sur<br>l'<em>intelligence artificielle</em></h1>
+    <div class="insights-grid">
+      <div class="insight-card featured">
+        <div class="insight-img"><div class="insight-img-text">AI ACT</div></div>
+        <div class="insight-body" style="padding:2.5rem;">
+          <div class="insight-cat">Gouvernance · Article long</div>
+          <div class="insight-title">EU AI Act : ce que chaque DSI doit savoir avant le 2 août 2026</div>
+          <div class="insight-excerpt">Le règlement européen sur l'IA entre en application progressive. Quelles obligations pour votre entreprise ? Quel planning de mise en conformité ? Notre analyse opérationnelle avec checklist et plan d'action.</div>
+          <div class="insight-meta"><span>Sabik Omar · Fondateur</span><span>15 min de lecture</span><span>Janvier 2025</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-img"><div class="insight-img-text">ROI</div></div>
+        <div class="insight-body">
+          <div class="insight-cat">Adoption</div>
+          <div class="insight-title">Comment mesurer le ROI réel de Microsoft Copilot ?</div>
+          <div class="insight-excerpt">Trois méthodes pour objectiver les gains de productivité et construire un business case solide pour votre direction financière.</div>
+          <div class="insight-meta"><span>Marc Dubois</span><span>8 min</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-img"><div class="insight-img-text">DATA</div></div>
+        <div class="insight-body">
+          <div class="insight-cat">Architecture</div>
+          <div class="insight-title">Azure OpenAI en entreprise : sécurité et souveraineté des données</div>
+          <div class="insight-excerpt">Déployer un LLM sur vos données propriétaires sans les exposer à des tiers. Guide technique et retours d'expérience.</div>
+          <div class="insight-meta"><span>Équipe Pandora AI</span><span>10 min</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-img"><div class="insight-img-text">RH</div></div>
+        <div class="insight-body">
+          <div class="insight-cat">Change Management</div>
+          <div class="insight-title">Le programme Champions Digitaux : anatomie d'une adoption réussie</div>
+          <div class="insight-excerpt">Retour d'expérience sur le déploiement chez NaTran pour 520 collaborateurs. Méthode, indicateurs et enseignements.</div>
+          <div class="insight-meta"><span>Sabik Omar</span><span>12 min</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-img"><div class="insight-img-text">BANK</div></div>
+        <div class="insight-body">
+          <div class="insight-cat">Secteur bancaire</div>
+          <div class="insight-title">IA dans la banque de détail : cas d'usage et points de vigilance</div>
+          <div class="insight-excerpt">Analyse sectorielle des 8 cas d'usage IA les plus prometteurs dans la banque de détail française, avec matrice de risques.</div>
+          <div class="insight-meta"><span>Marc Dubois</span><span>9 min</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE: TEAM ===== -->
+<div id="page-team" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Notre équipe</div>
+    <h1 class="section-title">15 experts passionnés<br>à votre <em>service</em></h1>
+    <p class="section-lead">Une équipe réduite et séniorisée, sans sous-traitance. Chaque projet est piloté par un consultant senior avec une expérience opérationnelle prouvée.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"><div class="team-initials">SO</div></div>
+        <div class="team-info">
+          <div class="team-name">Sabik Omar</div>
+          <div class="team-role">CEO & Fondateur</div>
+          <div class="team-bio">8 ans en transformation digitale et adoption des outils Microsoft (Copilot, Power Platform). A piloté le programme Champions Digitaux pour +500 utilisateurs. Parcours : Consultant Senior chez Artefact, Responsable Digital chez NaTran.</div>
+          <div class="team-exp">Artefact · NaTran · Microsoft</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><div class="team-initials">MD</div></div>
+        <div class="team-info">
+          <div class="team-name">Marc Dubois</div>
+          <div class="team-role">Senior Consultant Transformation</div>
+          <div class="team-bio">15 ans d'expérience en gestion de projets IT complexes dans la banque (BNP Paribas) et le transport (SNCF). Rejoint Pandora AI en 2023 pour piloter les missions grande entreprise.</div>
+          <div class="team-exp">BNP Paribas · SNCF · Capgemini</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><div class="team-initials">SL</div></div>
+        <div class="team-info">
+          <div class="team-name">Sophie Laurent</div>
+          <div class="team-role">Experte Gouvernance IA</div>
+          <div class="team-bio">Juriste spécialisée en droit des données et IA, ancienne conseil chez la CNIL. Référente EU AI Act et conformité réglementaire. Accompagne les comités de direction des secteurs régulés.</div>
+          <div class="team-exp">CNIL · Secteur banque · Assurance</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><div class="team-initials">TR</div></div>
+        <div class="team-info">
+          <div class="team-name">Thomas Renard</div>
+          <div class="team-role">Architecte Solutions IA</div>
+          <div class="team-bio">Ingénieur Microsoft Azure certifié, spécialiste Azure OpenAI Service et architecture data souveraine. 10 ans d'expérience en déploiement de solutions cloud à grande échelle.</div>
+          <div class="team-exp">Microsoft Certified · Azure · OpenAI</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><div class="team-initials">AM</div></div>
+        <div class="team-info">
+          <div class="team-name">Amélie Martin</div>
+          <div class="team-role">Change Management & Formation</div>
+          <div class="team-bio">Ancienne directrice de la formation chez une entreprise du CAC 40. Spécialiste de l'adoption des outils IA et de la conduite du changement. Conçoit et anime tous les programmes de formation Pandora AI.</div>
+          <div class="team-exp">CAC 40 · 500+ collaborateurs formés</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE: CAREERS ===== -->
 <div id="page-careers" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div class="careers-hero-split" style="position:relative;z-index:2;width:100%;align-items:center;">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Carrières</div>
+    <h1 class="section-title">Rejoignez une équipe<br>qui <em>transforme</em> vraiment</h1>
+    <p class="section-lead">Pandora AI est une structure à taille humaine où chaque consultant a un impact réel. Pas de pyramide bureaucratique, pas de projets sans fin : des missions courtes, des résultats mesurables, de l'autonomie.</p>
+
+    <div class="two-col" style="margin-bottom:4rem;">
       <div>
-        <div class="badge">Rejoindre Pandora AI</div>
-        <h1>On ne cherche pas<br>des consultants.<br>On cherche des<br><em>visionnaires.</em></h1>
-        <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:440px;">Des passionnés d'IA qui veulent un impact réel, concret et mesurable sur les organisations qu'ils accompagnent.</p>
-      </div>
-      <div>
-        <div class="culture-grid">
-          <div class="culture-card"><div style="font-size:2rem;margin-bottom:.8rem;">🚀</div><h3>Impact réel</h3><p style="font-size:.74rem;color:var(--muted);line-height:1.7;">Chaque mission génère un ROI mesurable. Vous voyez l'effet de votre travail en semaines, pas en années.</p></div>
-          <div class="culture-card"><div style="font-size:2rem;margin-bottom:.8rem;">🧠</div><h3>Apprentissage continu</h3><p style="font-size:.74rem;color:var(--muted);line-height:1.7;">Veille IA quotidienne, formations internes, accès aux conférences. On investit dans vos compétences.</p></div>
-          <div class="culture-card"><div style="font-size:2rem;margin-bottom:.8rem;">🌍</div><h3>Flexibilité totale</h3><p style="font-size:.74rem;color:var(--muted);line-height:1.7;">Remote-first, horaires flexibles, missions choisies. Votre vie professionnelle s'adapte à votre vie.</p></div>
-          <div class="culture-card"><div style="font-size:2rem;margin-bottom:.8rem;">💰</div><h3>Rémunération premium</h3><p style="font-size:.74rem;color:var(--muted);line-height:1.7;">Salaire top du marché + intéressement aux résultats + participation aux missions les plus impactantes.</p></div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; margin-bottom:1.5rem;">Notre culture</h2>
+        <div style="display:grid; gap:1.2rem;">
+          <div style="padding:1.2rem; background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; margin-bottom:0.4rem;">Résultats > Présentéisme</div>
+            <div style="font-size:0.82rem; color:var(--ink-muted);">On mesure ce que vous avez accompli, pas le nombre d'heures passées au bureau. Remote-first avec des moments en présentiel choisis.</div>
+          </div>
+          <div style="padding:1.2rem; background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; margin-bottom:0.4rem;">Formation continue</div>
+            <div style="font-size:0.82rem; color:var(--ink-muted);">Budget formation de 3 000€/an, accès à toutes les certifications Microsoft et 1 journée par mois dédiée à la veille et à l'apprentissage.</div>
+          </div>
+          <div style="padding:1.2rem; background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; margin-bottom:0.4rem;">Impact direct</div>
+            <div style="font-size:0.82rem; color:var(--ink-muted);">Chaque consultant voit le résultat de son travail en quelques semaines. Pas de projets fantômes qui durent des années.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="reveal" style="margin-bottom:3rem;"><div class="section-label">Postes ouverts</div><h2>Rejoignez <em>l'équipe</em></h2></div>
-    <div class="jobs-list reveal">
-      <div class="job-item"><div class="job-left"><div class="job-title">Consultant Senior IA & Transformation Digitale</div><div class="job-meta">Paris · CDI · Temps plein</div><div class="job-tags"><span class="job-tag">Senior</span><span class="job-tag">Consulting</span><span class="job-tag">Microsoft 365</span></div></div><a href="#" class="btn btn-ghost" onclick="showPage('contact')" style="font-size:.65rem;flex-shrink:0;">Postuler →</a></div>
-      <div class="job-item"><div class="job-left"><div class="job-title">Expert Gouvernance IA & EU AI Act</div><div class="job-meta">Paris · CDI · Temps plein ou partiel</div><div class="job-tags"><span class="job-tag">Expert</span><span class="job-tag">Gouvernance</span><span class="job-tag">Conformité</span></div></div><a href="#" class="btn btn-ghost" onclick="showPage('contact')" style="font-size:.65rem;flex-shrink:0;">Postuler →</a></div>
-      <div class="job-item"><div class="job-left"><div class="job-title">Formateur IA & Facilitateur</div><div class="job-meta">Paris & distanciel · Freelance ou CDI</div><div class="job-tags"><span class="job-tag">Formation</span><span class="job-tag">Pédagogie</span><span class="job-tag">Copilot</span></div></div><a href="#" class="btn btn-ghost" onclick="showPage('contact')" style="font-size:.65rem;flex-shrink:0;">Postuler →</a></div>
-      <div class="job-item"><div class="job-left"><div class="job-title">Data Engineer & Spécialiste ROI IA</div><div class="job-meta">Paris · CDI · Temps plein</div><div class="job-tags"><span class="job-tag">Data</span><span class="job-tag">Power BI</span><span class="job-tag">Python</span></div></div><a href="#" class="btn btn-ghost" onclick="showPage('contact')" style="font-size:.65rem;flex-shrink:0;">Postuler →</a></div>
-    </div>
-    <div class="spontaneous-box reveal">
-      <div style="font-size:2rem;margin-bottom:1rem;">💌</div>
-      <h3>Candidature spontanée</h3>
-      <p style="font-size:.78rem;color:var(--muted);max-width:400px;margin:.8rem auto 1.5rem;line-height:1.7;">Votre profil ne correspond pas exactement à nos offres ? Envoyez-nous votre candidature, nous cherchons avant tout des personnes passionnées et compétentes.</p>
-      <a href="#" class="btn btn-gold" onclick="showPage('contact')">Envoyer ma candidature →</a>
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; margin-bottom:1.5rem;">Postes ouverts</h2>
+        <div class="job-card">
+          <div><div class="job-title">Consultant Senior Transformation IA</div><div class="job-meta"><span class="job-tag">CDI</span><span class="job-tag">Paris</span><span class="job-tag">5+ ans exp.</span></div></div>
+          <a href="#" class="btn-ghost" onclick="showPage('contact'); return false;">Postuler →</a>
+        </div>
+        <div class="job-card">
+          <div><div class="job-title">Architecte Azure OpenAI</div><div class="job-meta"><span class="job-tag">CDI</span><span class="job-tag">Paris / Remote</span><span class="job-tag">3+ ans exp.</span></div></div>
+          <a href="#" class="btn-ghost" onclick="showPage('contact'); return false;">Postuler →</a>
+        </div>
+        <div class="job-card">
+          <div><div class="job-title">Consultante Change Management</div><div class="job-meta"><span class="job-tag">CDI</span><span class="job-tag">Paris</span><span class="job-tag">3+ ans exp.</span></div></div>
+          <a href="#" class="btn-ghost" onclick="showPage('contact'); return false;">Postuler →</a>
+        </div>
+        <div class="job-card">
+          <div><div class="job-title">Expert Gouvernance & EU AI Act</div><div class="job-meta"><span class="job-tag">CDI</span><span class="job-tag">Paris</span><span class="job-tag">Juridique/IA</span></div></div>
+          <a href="#" class="btn-ghost" onclick="showPage('contact'); return false;">Postuler →</a>
+        </div>
+      </div>
     </div>
   </section>
 </div>
 
-
-<!-- ========================================================
-     PAGE : CONTACT
-======================================================== -->
+<!-- ===== PAGE: CONTACT ===== -->
 <div id="page-contact" class="page">
-  <div class="page-hero" style="background:var(--bg2);">
-    <div class="hero-grid-bg"></div>
-    <div style="position:relative;z-index:2;max-width:600px;">
-      <div class="badge">Prendre rendez-vous</div>
-      <h1>Votre transformation<br>commence <em>ici.</em></h1>
-      <p style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:480px;">Consultation initiale de 45 minutes gratuite. Nos experts analysent vos enjeux et vous proposent une approche personnalisée — sans engagement.</p>
-    </div>
-  </div>
-  <section style="padding:7rem 5rem;">
-    <div class="contact-grid reveal">
+  <section style="padding-top: 120px;">
+    <div class="section-tag">Nous contacter</div>
+    <div class="contact-grid">
       <div>
-        <div class="section-label">Nous contacter</div>
-        <h2>Parlons de<br>votre <em>projet IA</em></h2>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:2.5rem;">Décrivez-nous votre contexte en quelques mots. Notre équipe vous répond sous 24h avec une première analyse et une proposition adaptée à vos enjeux et votre secteur.</p>
-        <div class="contact-details">
-          <div class="contact-detail"><div class="contact-detail-icon">✉</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-val">contact@pandora-ai.fr</div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">✆</div><div><div class="contact-detail-label">Téléphone</div><div class="contact-detail-val">+33 06 05 98 58 07</div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">📍</div><div><div class="contact-detail-label">Adresse</div><div class="contact-detail-val">75018 Paris, France</div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">🕐</div><div><div class="contact-detail-label">Réponse garantie</div><div class="contact-detail-val">Sous 24 heures ouvrées</div></div></div>
+        <h1 class="section-title">Votre consultation<br>gratuite vous <em>attend</em></h1>
+        <p style="font-size:0.9rem; line-height:1.75; color:var(--ink-muted); margin-bottom:2rem;">Après soumission du formulaire, un consultant senior vous rappelle sous 24h ouvrées pour un échange de 30 minutes sans engagement. Nous comprenons votre contexte et vous proposons l'approche la plus adaptée.</p>
+        <div style="background:var(--paper-warm); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem; margin-bottom:2rem;">
+          <div style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Ce que comprend la consultation gratuite</div>
+          <div style="display:flex; flex-direction:column; gap:0.7rem;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.86rem;"><span style="color:var(--gold);">—</span> Échange de 30 min avec un consultant senior</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.86rem;"><span style="color:var(--gold);">—</span> Analyse rapide de votre maturité IA actuelle</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.86rem;"><span style="color:var(--gold);">—</span> Identification de 2 ou 3 pistes à impact immédiat</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.86rem;"><span style="color:var(--gold);">—</span> Proposition adaptée à votre budget et vos priorités</div>
+          </div>
         </div>
-        <div style="margin-top:3rem;padding:2rem;border:1px solid var(--border);background:var(--bg2);">
-          <div style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Ce que comprend la consultation gratuite</div>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;">
-            <li style="font-size:.76rem;color:var(--off);display:flex;align-items:center;gap:.6rem;"><span style="color:var(--gold);">◆</span>Analyse de votre maturité IA actuelle</li>
-            <li style="font-size:.76rem;color:var(--off);display:flex;align-items:center;gap:.6rem;"><span style="color:var(--gold);">◆</span>Identification de 3 opportunités IA à fort ROI</li>
-            <li style="font-size:.76rem;color:var(--off);display:flex;align-items:center;gap:.6rem;"><span style="color:var(--gold);">◆</span>Première estimation du potentiel de gain</li>
-            <li style="font-size:.76rem;color:var(--off);display:flex;align-items:center;gap:.6rem;"><span style="color:var(--gold);">◆</span>Recommandation d'approche personnalisée</li>
-          </ul>
+        <div style="font-size:0.84rem; color:var(--ink-muted);">
+          <div style="margin-bottom:0.5rem;"><strong style="color:var(--ink);">Adresse :</strong> 14 rue de Rivoli, 75004 Paris</div>
+          <div style="margin-bottom:0.5rem;"><strong style="color:var(--ink);">Email :</strong> contact@pandora-ai.fr</div>
+          <div><strong style="color:var(--ink);">Réponse garantie :</strong> sous 24h ouvrées</div>
         </div>
       </div>
-      <div class="contact-form-box">
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Prénom</label><input type="text" class="form-input" placeholder="Marie"></div>
-          <div class="form-group"><label class="form-label">Nom</label><input type="text" class="form-input" placeholder="Dupont"></div>
+      <div>
+        <div style="background:var(--paper-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem;">
+          <div class="form-group">
+            <label class="form-label">Prénom et nom *</label>
+            <input type="text" class="form-input" placeholder="Marie Dupont">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email professionnel *</label>
+            <input type="email" class="form-input" placeholder="m.dupont@entreprise.fr">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Entreprise & Fonction</label>
+            <input type="text" class="form-input" placeholder="DSI chez Société XYZ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Secteur d'activité</label>
+            <select class="form-select">
+              <option>— Sélectionner —</option>
+              <option>Banque & Finance</option>
+              <option>Énergie & Industrie</option>
+              <option>Santé</option>
+              <option>Conseil & Services</option>
+              <option>Transport & Logistique</option>
+              <option>Secteur public</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre besoin ou projet</label>
+            <textarea class="form-textarea" placeholder="Décrivez brièvement votre contexte : taille de l'équipe, outils en place, objectifs IA..."></textarea>
+          </div>
+          <button onclick="submitForm()" style="width:100%; padding:14px; background:var(--ink); color:var(--gold); border:none; border-radius:var(--radius); font-size:0.82rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:none; transition:background 0.2s;">
+            Réserver ma consultation gratuite →
+          </button>
+          <p style="font-size:0.72rem; color:var(--ink-muted); text-align:center; margin-top:1rem; line-height:1.5;">En soumettant ce formulaire, vous acceptez notre <a href="#" style="color:var(--gold); text-decoration:none;">politique de confidentialité</a>. Vos données ne sont jamais revendues. <a href="#" style="color:var(--gold); text-decoration:none;">Mentions légales</a>.</p>
         </div>
-        <div class="form-group"><label class="form-label">Email professionnel</label><input type="email" class="form-input" placeholder="m.dupont@entreprise.fr"></div>
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Entreprise</label><input type="text" class="form-input" placeholder="Nom de l'entreprise"></div>
-          <div class="form-group"><label class="form-label">Secteur</label><input type="text" class="form-input" placeholder="Banque, Énergie..."></div>
-        </div>
-        <div class="form-group"><label class="form-label">Taille de l'entreprise</label><select class="form-input" style="background:var(--bg);color:var(--white);"><option style="background:#0f0f18">Sélectionner</option><option style="background:#0f0f18">1-50 employés</option><option style="background:#0f0f18">50-200 employés</option><option style="background:#0f0f18">200-1000 employés</option><option style="background:#0f0f18">+1000 employés</option></select></div>
-        <div class="form-group"><label class="form-label">Votre projet IA</label><textarea class="form-input" placeholder="Décrivez votre besoin : contexte, enjeux, outils actuels, délais..."></textarea></div>
-        <div class="form-group"><label class="form-label">Budget envisagé</label><select class="form-input" style="background:var(--bg);color:var(--white);"><option style="background:#0f0f18">Sélectionner une fourchette</option><option style="background:#0f0f18">Moins de 5 000€</option><option style="background:#0f0f18">5 000€ – 15 000€</option><option style="background:#0f0f18">15 000€ – 50 000€</option><option style="background:#0f0f18">Plus de 50 000€</option></select></div>
-        <button class="form-submit">Envoyer ma demande — Réponse sous 24h →</button>
       </div>
     </div>
   </section>
 </div>
 
-
-<!-- ========== FOOTER (global) ========== -->
-<footer class="site-footer">
-  <div class="footer-top">
-    <div>
-      <a href="#" class="nav-logo" onclick="showPage('home')" style="display:inline-flex;margin-bottom:1rem;">
-        <div class="nav-logo-icon">P</div>
-        <span class="nav-logo-text">Pandora <span>AI</span></span>
-      </a>
-      <p class="footer-brand-desc">Cabinet de conseil et de formation spécialisé dans la transformation par l'Intelligence Artificielle. ROI garanti en 90 jours pour les entreprises ambitieuses.</p>
-      <div class="footer-social" style="margin-top:1.5rem;">
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">𝕏</a>
-        <a href="#" class="social-btn">yt</a>
-      </div>
+<!-- Footer (shown on all pages) -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Pandora AI</div>
+      <div class="footer-tagline">Cabinet de conseil en intelligence artificielle à Paris. Transformation, adoption et gouvernance IA pour les grandes entreprises.</div>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
-        <li><a href="#" onclick="showPage('services')">Audit & Stratégie IA</a></li>
-        <li><a href="#" onclick="showPage('services')">Implémentation</a></li>
-        <li><a href="#" onclick="showPage('services')">Formation & Adoption</a></li>
-        <li><a href="#" onclick="showPage('services')">Gouvernance EU AI Act</a></li>
-        <li><a href="#" onclick="showPage('services')">Pilotage ROI</a></li>
+        <li><a href="#" onclick="showPage('services'); return false;">Audit & Maturité IA</a></li>
+        <li><a href="#" onclick="showPage('services'); return false;">Adoption Microsoft Copilot</a></li>
+        <li><a href="#" onclick="showPage('services'); return false;">Gouvernance EU AI Act</a></li>
+        <li><a href="#" onclick="showPage('services'); return false;">Transformation Data</a></li>
+        <li><a href="#" onclick="showPage('services'); return false;">Formation & Académie</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Entreprise</div>
+      <div class="footer-col-title">Cabinet</div>
       <ul class="footer-links">
-        <li><a href="#" onclick="showPage('about')">À propos</a></li>
-        <li><a href="#" onclick="showPage('team')">Notre équipe</a></li>
-        <li><a href="#" onclick="showPage('approach')">Notre approche</a></li>
-        <li><a href="#" onclick="showPage('cases')">Études de cas</a></li>
-        <li><a href="#" onclick="showPage('careers')">Carrières</a></li>
+        <li><a href="#" onclick="showPage('about'); return false;">Notre histoire</a></li>
+        <li><a href="#" onclick="showPage('team'); return false;">L'équipe</a></li>
+        <li><a href="#" onclick="showPage('cases'); return false;">Études de cas</a></li>
+        <li><a href="#" onclick="showPage('insights'); return false;">Insights</a></li>
+        <li><a href="#" onclick="showPage('careers'); return false;">Rejoindre l'équipe</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Ressources</div>
+      <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="#" onclick="showPage('insights')">Insights & Blog</a></li>
-        <li><a href="#" onclick="showPage('academy')">Pandora Academy</a></li>
-        <li><a href="#" onclick="showPage('academy')">Webinaires</a></li>
-        <li><a href="#" onclick="showPage('sectors')">Nos secteurs</a></li>
-        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Légal</div>
-      <ul class="footer-links">
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Confidentialité</a></li>
-        <li><a href="#">CGV</a></li>
-        <li><a href="#">Cookies</a></li>
-        <li><a href="#">EU AI Act</a></li>
+        <li><a href="#">contact@pandora-ai.fr</a></li>
+        <li><a href="#">14 rue de Rivoli, Paris 4e</a></li>
+        <li><a href="#" onclick="showPage('contact'); return false;">Audit gratuit</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-bottom-text">© 2026 Pandora AI — Tous droits réservés · Cabinet de conseil IA · Paris, France</p>
-    <p class="footer-bottom-text">ROI garanti en 90 jours · EU AI Act compliant · RGPD</p>
+    <div class="footer-copy">© 2025 Pandora AI SAS — Tous droits réservés</div>
+    <div class="footer-legal">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">CGV</a>
+      <a href="#">Cookies</a>
+    </div>
   </div>
 </footer>
 
-
 <script>
-// CURSOR
-const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-document.addEventListener('mouseover',e=>{
-  if(e.target.closest('a,button,.service-card,.card,.kpi-box,.testi-card,.pricing-card,.case-card,.team-card,.insight-card,.formation-card,.webinar-card,.faq-item,.sector-card')){ring.style.width='60px';ring.style.height='60px';ring.style.opacity='1';}
-  else{ring.style.width='40px';ring.style.height='40px';ring.style.opacity='.6';}
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, [onclick]').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2)'; ring.style.transform = 'translate(-50%,-50%) scale(1.4)'; ring.style.opacity = '0.3'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.6'; });
 });
 
-// NAV SCROLL
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
-
-// PARTICLES (home only)
-const container=document.getElementById('particles');
-if(container){for(let i=0;i<25;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${7+Math.random()*12}s;animation-delay:${Math.random()*8}s;`;container.appendChild(p);}}
-
-// PAGE SYSTEM
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const target=document.getElementById('page-'+id);
-  if(target){target.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-  document.querySelectorAll('.nav-links a[data-page]').forEach(a=>a.classList.toggle('active-link',a.dataset.page===id));
-  // re-trigger reveals on new page
-  setTimeout(()=>{
-    target.querySelectorAll('.reveal').forEach(el=>{
-      el.classList.remove('visible');
-      revealObs.observe(el);
-    });
-  },100);
-}
-
-// REVEAL
-const revealObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.07});
-document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
-
-// FAQ
-function toggleFaq(el){
-  const isOpen=el.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
-  if(!isOpen)el.classList.add('open');
-}
-
-// FILTER BTNS
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    btn.closest('.cases-filter').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  });
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
 });
 
-// COUNTDOWN
-function updateCountdown(){
-  const target=new Date('2026-04-22T11:00:00');
-  const now=new Date();
-  const diff=target-now;
-  if(diff>0){
-    const d=Math.floor(diff/86400000);
-    const h=Math.floor((diff%86400000)/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    const el=id=>document.getElementById(id);
-    if(el('cd-d'))el('cd-d').textContent=String(d).padStart(2,'0');
-    if(el('cd-h'))el('cd-h').textContent=String(h).padStart(2,'0');
-    if(el('cd-m'))el('cd-m').textContent=String(m).padStart(2,'0');
-    if(el('cd-s'))el('cd-s').textContent=String(s).padStart(2,'0');
+// Page navigation
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Trigger reveals
+    setTimeout(triggerReveals, 100);
   }
 }
-setInterval(updateCountdown,1000);
-updateCountdown();
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+function triggerReveals() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => {
+    r.classList.remove('visible');
+    observer.observe(r);
+  });
+}
+
+// Form submit
+function submitForm() {
+  alert('Merci ! Un consultant Pandora AI vous contactera dans les 24 heures ouvrées. À très bientôt.');
+}
+
+// Init reveals
+window.addEventListener('load', triggerReveals);
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) el.classList.add('visible');
+  });
+});
 </script>
 </body>
 </html>
