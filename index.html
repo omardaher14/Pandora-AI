@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pandora AI — Cabinet de Conseil & Formation IA pour Entreprises</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjMGEwYTBjIi8+PHRleHQgeD0iMzIiIHk9IjQ0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIyNiIgZmlsbD0iI2M5YTg0YyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5QPC90ZXh0Pjwvc3ZnPg==">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#08080f; --bg2:#0e0e1a; --bg3:#141425;
+  --gold:#c9a84c; --gold-light:#e8c97a; --gold-dim:rgba(201,168,76,0.1);
+  --purple:#6c5ce7; --purple-dim:rgba(108,92,231,0.15);
+  --white:#f0ede8; --muted:#6a6880; --border:rgba(201,168,76,0.15);
+  --border2:rgba(108,92,231,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'DM Mono',monospace;font-weight:300;overflow-x:hidden;cursor:none;}
+
+/* CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+.cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(201,168,76,0.6);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.6;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;transition:all .4s;}
+nav.scrolled{background:rgba(8,8,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.nav-logo-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-style:italic;}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);letter-spacing:.06em;}
+.nav-logo-text span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-btn{background:var(--gold)!important;color:var(--bg)!important;padding:.55rem 1.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 5rem;position:relative;overflow:hidden;}
+.hero-particles{position:absolute;inset:0;overflow:hidden;}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;animation:float linear infinite;opacity:0;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 40%,rgba(108,92,231,0.12) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 20% 70%,rgba(201,168,76,0.07) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.hero-content{position:relative;z-index:2;max-width:780px;}
+.hero-badge{display:inline-flex;align-items:center;gap:.7rem;padding:.45rem 1rem;border:1px solid var(--border);background:var(--gold-dim);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .1s forwards;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:300;line-height:1.05;margin-bottom:1.8rem;opacity:0;animation:fadeUp .8s .25s forwards;}
+h1 em{font-style:italic;color:var(--gold-light);}
+h1 .outline{-webkit-text-stroke:1px var(--gold);color:transparent;}
+.hero-sub{font-family:'Syne',sans-serif;font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .4s forwards;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .55s forwards;}
+.btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.2rem;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:none;transition:all .3s;position:relative;overflow:hidden;}
+.btn-gold{background:var(--gold);color:var(--bg);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,168,76,0.3);}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.hero-stats{position:absolute;right:5rem;bottom:5rem;display:flex;gap:4rem;opacity:0;animation:fadeUp .8s .7s forwards;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);line-height:1;}
+.stat-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+.scroll-line-wrap{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;animation:fadeUp .8s 1s forwards;}
+.scroll-line-wrap span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollAnim 2s infinite;}
+
+/* LOGOS / CLIENTS */
+.logos-section{padding:3rem 5rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);}
+.logos-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2rem;}
+.logos-track{display:flex;justify-content:center;align-items:center;gap:4rem;flex-wrap:wrap;}
+.logo-item{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:rgba(255,255,255,0.2);letter-spacing:.12em;text-transform:uppercase;transition:color .3s;}
+.logo-item:hover{color:rgba(255,255,255,0.5);}
+
+/* SECTIONS */
+section{padding:8rem 5rem;}
+.section-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
+.section-label::before{content:'';width:24px;height:1px;background:var(--gold);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem;}
+h2 em{font-style:italic;color:var(--gold-light);}
+.lead{font-family:'Syne',sans-serif;font-size:1rem;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:3.5rem;}
+
+/* SERVICES */
+.services-section{background:var(--bg2);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);}
+.service-card{background:var(--bg2);padding:2.5rem;position:relative;overflow:hidden;cursor:none;transition:background .3s;}
+.service-card:hover{background:var(--bg3);}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,var(--gold),var(--purple));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold-dim);line-height:1;margin-bottom:1.5rem;}
+.service-icon{font-size:2rem;margin-bottom:1.2rem;}
+.service-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.8rem;}
+.service-desc{font-size:.78rem;color:var(--muted);line-height:1.75;}
+.service-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.5rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);transition:gap .2s;}
+.service-card:hover .service-link{gap:.8rem;}
+
+/* PROCESS */
+.process-section{}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.process-step{position:relative;padding:2rem;}
+.process-step::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--gold),transparent);}
+.process-num{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold-dim);line-height:1;margin-bottom:1rem;}
+.process-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.6rem;}
+.process-desc{font-size:.76rem;color:var(--muted);line-height:1.7;}
+
+/* RESULTS */
+.results-section{background:var(--bg2);position:relative;overflow:hidden;}
+.results-section::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(108,92,231,0.08),transparent 70%);pointer-events:none;}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.results-text h2{margin-bottom:1.2rem;}
+.results-numbers{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.result-box{border:1px solid var(--border);padding:1.8rem;background:var(--bg);position:relative;overflow:hidden;transition:border-color .3s;}
+.result-box:hover{border-color:var(--gold);}
+.result-box::after{content:'';position:absolute;bottom:0;right:0;width:80px;height:80px;background:radial-gradient(circle,var(--gold-dim),transparent 70%);}
+.result-val{font-family:'Cormorant Garamond',serif;font-size:3.2rem;color:var(--gold);line-height:1;}
+.result-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
+.result-desc{font-size:.74rem;color:rgba(255,255,255,0.4);margin-top:.3rem;}
+
+/* TESTIMONIALS */
+.testimonials-section{}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.testimonial-card{border:1px solid var(--border);padding:2rem;background:var(--bg2);position:relative;transition:border-color .3s;}
+.testimonial-card:hover{border-color:rgba(201,168,76,0.4);}
+.testimonial-quote{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);line-height:1;opacity:.3;margin-bottom:-.5rem;}
+.testimonial-text{font-size:.82rem;color:#b0ada8;line-height:1.8;margin-bottom:1.5rem;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:.8rem;}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--bg);}
+.testimonial-name{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;}
+.testimonial-role{font-size:.68rem;color:var(--muted);}
+.stars{color:var(--gold);font-size:.75rem;margin-bottom:.8rem;letter-spacing:.1em;}
+
+/* PRICING */
+.pricing-section{background:var(--bg2);}
+.pricing-header{text-align:center;margin-bottom:4rem;}
+.pricing-header .lead{margin:0 auto;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.pricing-card{border:1px solid var(--border);padding:2.5rem;background:var(--bg);position:relative;overflow:hidden;transition:transform .3s,border-color .3s;}
+.pricing-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,0.4);}
+.pricing-card.featured{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,0.05),var(--bg));}
+.pricing-badge{position:absolute;top:1.2rem;right:1.2rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;background:var(--gold);color:var(--bg);}
+.pricing-name{font-family:'Syne',sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;}
+.pricing-price{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--white);line-height:1;margin-bottom:.3rem;}
+.pricing-price span{font-size:1.2rem;color:var(--muted);}
+.pricing-period{font-size:.7rem;color:var(--muted);margin-bottom:2rem;}
+.pricing-features{list-style:none;margin-bottom:2.5rem;}
+.pricing-features li{font-size:.78rem;color:#b0ada8;padding:.5rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
+.pricing-features li::before{content:'◆';color:var(--gold);font-size:.45rem;flex-shrink:0;}
+.pricing-btn{display:block;text-align:center;padding:.85rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .25s;}
+.pricing-btn-outline{border:1px solid var(--border);color:var(--muted);}
+.pricing-btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.pricing-btn-gold{background:var(--gold);color:var(--bg);}
+.pricing-btn-gold:hover{background:var(--gold-light);}
+
+/* FAQ */
+.faq-section{}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px;}
+.faq-item{border:1px solid var(--border);padding:1.5rem;cursor:none;transition:border-color .25s;}
+.faq-item:hover{border-color:rgba(201,168,76,0.4);}
+.faq-item.open{border-color:var(--gold);}
+.faq-q{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-arrow{color:var(--gold);font-size:.8rem;transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-arrow{transform:rotate(45deg);}
+.faq-a{font-size:.78rem;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease,margin .3s;}
+.faq-item.open .faq-a{max-height:200px;margin-top:.8rem;}
+
+/* CTA SECTION */
+.cta-section{background:var(--bg2);text-align:center;padding:8rem 5rem;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(108,92,231,0.1),transparent 70%);}
+.cta-section h2{margin-bottom:1rem;}
+.cta-section .lead{margin:0 auto 3rem;}
+.cta-section .lead{max-width:500px;}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+/* CONTACT */
+.contact-section{padding:8rem 5rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.contact-info h2{margin-bottom:1.2rem;}
+.contact-info p{font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:2.5rem;}
+.contact-details{display:flex;flex-direction:column;gap:1.2rem;}
+.contact-detail{display:flex;align-items:center;gap:1rem;}
+.contact-detail-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.9rem;flex-shrink:0;}
+.contact-detail-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
+.contact-detail-val{font-size:.82rem;color:var(--white);}
+.contact-form{background:var(--bg2);border:1px solid var(--border);padding:2.5rem;}
+.form-group{margin-bottom:1.5rem;}
+.form-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem;}
+.form-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:.85rem 1rem;font-family:'DM Mono',monospace;font-size:.78rem;outline:none;transition:border-color .25s;}
+.form-input:focus{border-color:var(--gold);}
+.form-input::placeholder{color:var(--muted);}
+textarea.form-input{resize:vertical;min-height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-submit{width:100%;background:var(--gold);color:var(--bg);border:none;padding:1rem;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:background .25s;}
+.form-submit:hover{background:var(--gold-light);}
+
+/* FOOTER */
+footer{padding:4rem 5rem 2rem;border-top:1px solid var(--border);background:var(--bg);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;margin-top:1rem;max-width:280px;}
+.footer-col-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-links a{font-size:.76rem;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--border);}
+.footer-bottom p{font-size:.65rem;color:var(--muted);}
+.footer-social{display:flex;gap:1rem;}
+.social-link{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.75rem;transition:all .2s;cursor:none;}
+.social-link:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollAnim{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes float{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:.5}100%{transform:translateY(-100vh) translateX(40px);opacity:0}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links{display:none;}
+  section,.hero,.contact-section,.cta-section,.pricing-section,.logos-section{padding:5rem 1.5rem;}
+  h1{font-size:3rem;}
+  .services-grid,.process-grid,.testimonials-grid,.pricing-grid,.results-grid,.contact-grid,.footer-top{grid-template-columns:1fr;gap:2rem;}
+  .results-numbers{grid-template-columns:1fr 1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .hero-stats{position:static;margin-top:3rem;flex-wrap:wrap;gap:2rem;}
+  footer{padding:3rem 1.5rem 2rem;}
+  .footer-bottom{flex-direction:column;gap:1rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">P</div>
+    <span class="nav-logo-text">Pandora <span>AI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#processus">Processus</a></li>
+    <li><a href="#resultats">Résultats</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#contact" class="nav-btn">Consultation gratuite</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Cabinet de Conseil & Formation IA</div>
+    <h1>Transformez votre<br>entreprise avec<br>l'<em>Intelligence</em><br><span class="outline">Artificielle</span></h1>
+    <p class="hero-sub">Pandora AI accompagne les dirigeants et équipes dans l'adoption stratégique de l'IA — de l'audit à l'implémentation, avec un ROI mesurable dès les premières semaines.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold">Consultation gratuite →</a>
+      <a href="#services" class="btn btn-ghost">Découvrir nos services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">200+</div><div class="stat-label">Entreprises accompagnées</div></div>
+    <div><div class="stat-num">3×</div><div class="stat-label">ROI moyen constaté</div></div>
+    <div><div class="stat-num">98%</div><div class="stat-label">Clients satisfaits</div></div>
+  </div>
+  <div class="scroll-line-wrap"><span>Découvrir</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos-section">
+  <p class="logos-label">Ils nous font confiance</p>
+  <div class="logos-track">
+    <span class="logo-item">NaTran</span>
+    <span class="logo-item">LCL Banque</span>
+    <span class="logo-item">TotalEnergies</span>
+    <span class="logo-item">BNP Paribas</span>
+    <span class="logo-item">Capgemini</span>
+    <span class="logo-item">SNCF</span>
+    <span class="logo-item">Société Générale</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="reveal">
+    <div class="section-label">Ce que nous faisons</div>
+    <h2>Nos <em>services</em><br>d'excellence IA</h2>
+    <p class="lead">De l'audit stratégique à la formation de vos équipes, nous couvrons l'intégralité du spectre de la transformation IA en entreprise.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Audit & Stratégie IA</div>
+      <div class="service-desc">Analyse complète de vos processus, identification des opportunités IA à fort impact et élaboration d'une feuille de route personnalisée avec ROI prévisionnel.</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">🤖</div>
+      <div class="service-title">Implémentation & Intégration</div>
+      <div class="service-desc">Déploiement de solutions IA (Copilot, ChatGPT Enterprise, outils sur-mesure) intégrées à votre écosystème Microsoft 365, ERP et outils métiers existants.</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">🎓</div>
+      <div class="service-title">Formation & Adoption</div>
+      <div class="service-desc">Programmes de formation sur-mesure pour tous les niveaux. Ateliers, guides, tutoriels et programme de champions digitaux pour ancrer l'IA dans vos pratiques quotidiennes.</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">🔄</div>
+      <div class="service-title">Conduite du Changement</div>
+      <div class="service-desc">Accompagnement humain de la transformation : gestion des résistances, communication interne, formation des managers et suivi de l'adoption par les KPIs.</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">🛡️</div>
+      <div class="service-title">Gouvernance & Éthique IA</div>
+      <div class="service-desc">Mise en place de chartes d'usage, politiques de gouvernance IA conformes au EU AI Act, RGPD et aux exigences sectorielles (banque, énergie, santé).</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">📊</div>
+      <div class="service-title">Pilotage & Reporting ROI</div>
+      <div class="service-desc">Tableaux de bord Power BI dédiés au suivi de l'adoption IA, mesure du ROI, reporting aux parties prenantes et optimisation continue de votre investissement.</div>
+      <div class="service-link">En savoir plus →</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section id="processus">
+  <div class="reveal">
+    <div class="section-label">Comment ça marche</div>
+    <h2>Notre <em>processus</em><br>en 4 étapes</h2>
+    <p class="lead">Une méthode éprouvée pour garantir une transformation IA réussie, rapide et durable dans votre organisation.</p>
+  </div>
+  <div class="process-grid reveal">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-title">Diagnostic</div>
+      <div class="process-desc">Audit de vos processus, identification des cas d'usage IA prioritaires, analyse des freins et des opportunités. Livrable : rapport de maturité IA.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-title">Stratégie</div>
+      <div class="process-desc">Élaboration de votre feuille de route IA sur 12 mois, priorisation des chantiers, estimation du ROI et plan de conduite du changement.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-title">Déploiement</div>
+      <div class="process-desc">Implémentation agile des solutions IA, formation des équipes, création des contenus pédagogiques et mise en place de la gouvernance.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-title">Optimisation</div>
+      <div class="process-desc">Suivi continu des KPIs d'adoption, ajustements stratégiques, reporting ROI et accompagnement dans la durée avec notre équipe dédiée.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉSULTATS -->
+<section id="resultats" class="results-section">
+  <div class="results-grid">
+    <div class="results-text reveal">
+      <div class="section-label">Impact mesurable</div>
+      <h2>Des résultats <em>concrets</em><br>dès 30 jours</h2>
+      <p class="lead">Nos clients constatent des gains de productivité significatifs et un retour sur investissement rapide. Chaque transformation est pilotée par les données.</p>
+      <a href="#contact" class="btn btn-gold">Voir nos études de cas →</a>
+    </div>
+    <div class="results-numbers reveal">
+      <div class="result-box">
+        <div class="result-val">+47%</div>
+        <div class="result-label">Productivité</div>
+        <div class="result-desc">Gain moyen constaté sur les tâches répétitives</div>
+      </div>
+      <div class="result-box">
+        <div class="result-val">3×</div>
+        <div class="result-label">ROI moyen</div>
+        <div class="result-desc">Retour sur investissement à 6 mois</div>
+      </div>
+      <div class="result-box">
+        <div class="result-val">−60%</div>
+        <div class="result-label">Temps de traitement</div>
+        <div class="result-desc">Réduction des processus manuels</div>
+      </div>
+      <div class="result-box">
+        <div class="result-val">92%</div>
+        <div class="result-label">Taux d'adoption</div>
+        <div class="result-desc">Utilisateurs actifs après 3 mois</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="temoignages">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 4rem;">
+    <div class="section-label" style="justify-content:center">Ce qu'ils disent</div>
+    <h2>Témoignages de<br>nos <em>clients</em></h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">Pandora AI a transformé notre façon de travailler en moins de 3 mois. L'adoption de Copilot est passée de 12% à 87% grâce à leur approche pédagogique unique. Un ROI exceptionnel.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MR</div>
+        <div><div class="testimonial-name">Marie Rousseau</div><div class="testimonial-role">DSI — Groupe Énergie (500 collaborateurs)</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">La gouvernance IA mise en place par Pandora AI nous a permis de déployer des outils IA dans un contexte bancaire très réglementé. Leur expertise en conformité est remarquable.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">PL</div>
+        <div><div class="testimonial-name">Pierre Lefèvre</div><div class="testimonial-role">Directeur Innovation — Banque régionale</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">Les formations de Pandora AI sont concrètes, engageantes et adaptées à nos métiers. Nos équipes utilisent maintenant l'IA au quotidien. Je recommande sans hésitation.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SC</div>
+        <div><div class="testimonial-name">Sophie Chen</div><div class="testimonial-role">DRH — Cabinet de conseil (200 personnes)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section id="tarifs" class="pricing-section">
+  <div class="pricing-header reveal">
+    <div class="section-label" style="justify-content:center">Investissement</div>
+    <h2>Des offres adaptées à<br>chaque <em>ambition</em></h2>
+    <p class="lead">Consultation gratuite incluse pour définir l'offre la plus adaptée à vos enjeux et votre secteur d'activité.</p>
+  </div>
+  <div class="pricing-grid reveal">
+    <div class="pricing-card">
+      <div class="pricing-name">Starter</div>
+      <div class="pricing-price">2 500<span>€</span></div>
+      <div class="pricing-period">/ projet · à partir de</div>
+      <ul class="pricing-features">
+        <li>Audit IA initial (demi-journée)</li>
+        <li>Rapport de maturité IA</li>
+        <li>1 atelier de sensibilisation (2h)</li>
+        <li>Guide de démarrage personnalisé</li>
+        <li>Support email 30 jours</li>
+      </ul>
+      <a href="#contact" class="pricing-btn pricing-btn-outline">Démarrer →</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Populaire</div>
+      <div class="pricing-name">Transformation</div>
+      <div class="pricing-price">8 500<span>€</span></div>
+      <div class="pricing-period">/ projet · accompagnement 3 mois</div>
+      <ul class="pricing-features">
+        <li>Audit & stratégie IA complète</li>
+        <li>Feuille de route 12 mois</li>
+        <li>Déploiement d'une solution IA</li>
+        <li>Formation équipes (jusqu'à 50 users)</li>
+        <li>Programme champions digitaux</li>
+        <li>Tableaux de bord Power BI ROI</li>
+        <li>Support dédié 3 mois</li>
+      </ul>
+      <a href="#contact" class="pricing-btn pricing-btn-gold">Choisir cette offre →</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Enterprise</div>
+      <div class="pricing-price">Sur<span> mesure</span></div>
+      <div class="pricing-period">/ programme · accompagnement long terme</div>
+      <ul class="pricing-features">
+        <li>Transformation IA complète</li>
+        <li>Gouvernance & conformité IA</li>
+        <li>Formation illimitée (tous niveaux)</li>
+        <li>Intégrations techniques sur-mesure</li>
+        <li>Pilotage ROI en continu</li>
+        <li>Équipe dédiée Pandora AI</li>
+        <li>Accès prioritaire nouvelles offres</li>
+      </ul>
+      <a href="#contact" class="pricing-btn pricing-btn-outline">Nous contacter →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="reveal">
+    <div class="section-label">Questions fréquentes</div>
+    <h2>Tout ce que vous<br>voulez <em>savoir</em></h2>
+  </div>
+  <div class="faq-grid reveal">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Combien de temps dure une transformation IA ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Les premiers résultats sont visibles dès 30 jours. Une transformation complète s'étale généralement sur 3 à 6 mois selon la taille de l'organisation et l'ambition du projet.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Faut-il des compétences techniques préalables ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Non. Nos formations sont conçues pour tous les profils, des non-techniciens aux équipes IT. Nous adaptons le niveau et le contenu à chaque groupe d'utilisateurs.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Quels outils IA déployez-vous ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Nous travaillons principalement sur Microsoft Copilot, ChatGPT Enterprise, Power Platform, et des solutions IA sectorielles. Nous recommandons les outils les plus adaptés à vos besoins spécifiques.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Comment mesurez-vous le ROI ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Nous définissons des KPIs précis dès le départ (temps gagné, coûts réduits, adoption) et nous les suivons via des tableaux de bord Power BI dédiés avec reporting mensuel.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Intervenez-vous dans les secteurs réglementés ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Oui. Nous avons une expertise spécifique dans la banque (PSSI, conformité) et l'énergie. Nous intégrons les contraintes réglementaires dès la phase de stratégie.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Proposez-vous un suivi après la mission ? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Absolument. Nos offres incluent un support post-déploiement, et nous proposons des abonnements de suivi trimestriel pour garantir la pérennité de l'adoption.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div style="position:relative;z-index:1;">
+    <div class="section-label" style="justify-content:center">Passez à l'action</div>
+    <h2>Prêt à <em>transformer</em><br>votre entreprise ?</h2>
+    <p class="lead">Rejoignez les 200+ entreprises qui ont déjà accéléré leur transformation IA avec Pandora AI. La consultation initiale est gratuite.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-gold">Consultation gratuite →</a>
+      <a href="#tarifs" class="btn btn-ghost">Voir les offres</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="section-label">Parlons-en</div>
+      <h2>Contactez<br><em>Pandora AI</em></h2>
+      <p>Décrivez-nous votre projet en quelques mots. Notre équipe vous répond sous 24h avec une première analyse et une proposition adaptée à vos enjeux.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉</div>
+          <div><div class="contact-detail-label">Email</div><div class="contact-detail-val">contact@pandora-ai.fr</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✆</div>
+          <div><div class="contact-detail-label">Téléphone</div><div class="contact-detail-val">+33 06 05 98 58 07</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div><div class="contact-detail-label">Adresse</div><div class="contact-detail-val">75018 Paris, France</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div><div class="contact-detail-label">Réponse garantie</div><div class="contact-detail-val">Sous 24 heures ouvrées</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Prénom</label>
+          <input type="text" class="form-input" placeholder="Marie">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nom</label>
+          <input type="text" class="form-input" placeholder="Dupont">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email professionnel</label>
+        <input type="email" class="form-input" placeholder="m.dupont@entreprise.fr">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Entreprise & Secteur</label>
+        <input type="text" class="form-input" placeholder="Nom de votre entreprise — Secteur">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Votre projet IA</label>
+        <textarea class="form-input" placeholder="Décrivez votre besoin en quelques lignes : contexte, enjeux, délais souhaités..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Budget envisagé</label>
+        <select class="form-input" style="background:var(--bg);color:var(--white);">
+          <option value="" style="background:#0e0e1a">Sélectionner une fourchette</option>
+          <option style="background:#0e0e1a">Moins de 5 000€</option>
+          <option style="background:#0e0e1a">5 000€ – 15 000€</option>
+          <option style="background:#0e0e1a">15 000€ – 50 000€</option>
+          <option style="background:#0e0e1a">Plus de 50 000€</option>
+        </select>
+      </div>
+      <button class="form-submit">Envoyer ma demande →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="display:inline-flex;margin-bottom:.5rem;">
+        <div class="nav-logo-icon">P</div>
+        <span class="nav-logo-text">Pandora <span>AI</span></span>
+      </a>
+      <p>Cabinet de conseil et de formation spécialisé dans la transformation par l'Intelligence Artificielle. Nous rendons l'IA accessible, éthique et rentable pour toutes les entreprises.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Audit & Stratégie IA</a></li>
+        <li><a href="#services">Implémentation</a></li>
+        <li><a href="#services">Formation & Adoption</a></li>
+        <li><a href="#services">Gouvernance IA</a></li>
+        <li><a href="#services">Pilotage ROI</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Entreprise</div>
+      <ul class="footer-links">
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Notre équipe</a></li>
+        <li><a href="#">Études de cas</a></li>
+        <li><a href="#">Blog IA</a></li>
+        <li><a href="#">Partenaires</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Légal</div>
+      <ul class="footer-links">
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">CGV</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Pandora AI — Tous droits réservés · Paris, France</p>
+    <div class="footer-social">
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">𝕏</a>
+      <a href="#" class="social-link">yt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.addEventListener('mouseover',e=>{
+  if(e.target.closest('a,button,.service-card,.result-box,.testimonial-card,.faq-item,.pricing-card')){ring.style.width='60px';ring.style.height='60px';ring.style.opacity='1';}
+  else{ring.style.width='40px';ring.style.height='40px';ring.style.opacity='.6';}
+});
+
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+
+// PARTICLES
+const container=document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${6+Math.random()*10}s;animation-delay:${Math.random()*8}s;`;
+  container.appendChild(p);
+}
+
+// REVEAL on scroll
+const revealObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// FAQ
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+</script>
+</body>
+</html>
