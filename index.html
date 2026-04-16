@@ -403,327 +403,729 @@ footer{background:var(--ink);padding:5rem 3rem 2.5rem;border-top:1px solid rgba(
 
 
 <!-- ======================================================
+     STYLES HOME REDESIGN — Mistral-inspired editorial, dark luxury
+====================================================== -->
+<style>
+/* ── HERO EDITORIAL ── */
+.hero-v2{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0;position:relative;overflow:hidden;}
+.hero-v2-inner{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 160px);padding-top:64px;}
+.hero-v2-left{display:flex;flex-direction:column;justify-content:center;padding:80px 5vw 80px 5vw;position:relative;z-index:2;}
+.hero-v2-right{position:relative;overflow:hidden;border-left:.5px solid var(--border);}
+.hero-v2-canvas{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 60% 40%,rgba(201,168,76,.10) 0%,transparent 70%);}
+.hero-v2-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .7s .1s forwards;}
+.hero-v2-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s 1s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5);}50%{box-shadow:0 0 0 6px rgba(201,168,76,0);}}
+.hero-v2-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.4rem,5.5vw,6rem);font-weight:300;line-height:1.04;letter-spacing:-.02em;color:var(--ink);margin-bottom:2rem;opacity:0;animation:fadeUp .9s .25s forwards;}
+.hero-v2-h1 em{font-style:italic;color:var(--gold);}
+.hero-v2-sub{font-size:1rem;font-weight:400;line-height:1.75;color:var(--ink-muted);max-width:480px;margin-bottom:3rem;opacity:0;animation:fadeUp .9s .4s forwards;}
+.hero-v2-actions{display:flex;align-items:center;gap:1.5rem;opacity:0;animation:fadeUp .9s .55s forwards;}
+
+/* Animated hexagonal grid visual */
+.hero-orb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.hero-orb svg{width:90%;max-width:520px;opacity:.85;}
+
+/* ── METRICS BAR ── */
+.metrics-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:.5px solid var(--border);opacity:0;animation:fadeUp .9s .7s forwards;}
+.metric-cell{padding:2rem 3vw;border-right:.5px solid var(--border);transition:background .25s;}
+.metric-cell:last-child{border-right:none;}
+.metric-cell:hover{background:var(--paper-warm);}
+.metric-big{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;line-height:1;color:var(--ink);}
+.metric-big span{color:var(--gold);}
+.metric-desc{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-top:.4rem;}
+
+/* ── CLIENTS MARQUEE ── */
+.clients-v2{padding:32px 0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);overflow:hidden;position:relative;}
+.clients-v2::before,.clients-v2::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;}
+.clients-v2::before{left:0;background:linear-gradient(to right,var(--paper),transparent);}
+.clients-v2::after{right:0;background:linear-gradient(to left,var(--paper),transparent);}
+.marquee-track{display:flex;gap:4rem;align-items:center;animation:marquee 28s linear infinite;width:max-content;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-track:hover{animation-play-state:paused;}
+.marq-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:.06em;color:var(--ink-muted);opacity:.55;white-space:nowrap;transition:opacity .2s,color .2s;}
+.marq-name:hover{opacity:1;color:var(--gold);}
+.marq-sep{color:var(--border-strong);font-size:.7rem;}
+
+/* ── SERVICES EDITORIAL — Mistral style alternating ── */
+.services-editorial{padding:0;}
+.service-row{display:grid;grid-template-columns:1fr 1fr;min-height:480px;border-bottom:.5px solid var(--border);overflow:hidden;transition:background .3s;}
+.service-row:hover{background:rgba(201,168,76,.015);}
+.service-row.reverse{direction:rtl;}
+.service-row.reverse > *{direction:ltr;}
+.service-row-text{padding:60px 6vw;display:flex;flex-direction:column;justify-content:center;border-right:.5px solid var(--border);}
+.service-row.reverse .service-row-text{border-right:none;border-left:.5px solid var(--border);}
+.service-row-visual{position:relative;overflow:hidden;background:var(--paper-warm);}
+.service-row-visual-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:3rem;}
+.srv-eyebrow{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px;}
+.srv-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
+.srv-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:1.2rem;}
+.srv-h2 em{font-style:italic;color:var(--gold);}
+.srv-body{font-size:.95rem;line-height:1.75;color:var(--ink-muted);margin-bottom:2rem;max-width:460px;}
+.srv-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;}
+.srv-tag{font-size:.7rem;letter-spacing:.1em;padding:4px 12px;border:.5px solid var(--border);border-radius:20px;color:var(--ink-muted);}
+.srv-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s;}
+.srv-link:hover{gap:14px;}
+.srv-link svg{transition:transform .2s;}
+.srv-link:hover svg{transform:translateX(4px);}
+
+/* Visual SVG cards */
+.vis-card{background:var(--paper-card);border:1px solid var(--border);border-radius:6px;padding:1.5rem;width:100%;max-width:340px;}
+.vis-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;}
+.vis-card-title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.vis-dot{width:8px;height:8px;border-radius:50%;}
+.vis-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:.7rem;}
+.vis-label{font-size:.7rem;color:var(--ink-muted);width:80px;flex-shrink:0;}
+.vis-track{flex:1;height:4px;background:rgba(201,168,76,.1);border-radius:2px;overflow:hidden;}
+.vis-fill{height:100%;border-radius:2px;background:var(--gold);}
+.vis-pct{font-size:.68rem;color:var(--gold);width:32px;text-align:right;flex-shrink:0;}
+.vis-stat-row{display:flex;gap:1rem;margin-top:1.4rem;}
+.vis-stat{flex:1;text-align:center;padding:.8rem;background:rgba(201,168,76,.04);border-radius:4px;}
+.vis-stat-n{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);line-height:1;}
+.vis-stat-l{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:.2rem;}
+
+/* ── METHOD — Horizontal scroll steps ── */
+.method-v2{padding:100px 0;overflow:hidden;}
+.method-v2-head{padding:0 5vw;margin-bottom:4rem;}
+.method-steps-track{display:flex;gap:0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);}
+.method-step-v2{flex:1;padding:3rem 3vw;border-right:.5px solid var(--border);position:relative;transition:background .3s;}
+.method-step-v2:last-child{border-right:none;}
+.method-step-v2:hover{background:var(--paper-warm);}
+.method-step-v2::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.method-step-v2:hover::after{transform:scaleX(1);}
+.msv-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);opacity:.2;line-height:1;margin-bottom:1.5rem;}
+.msv-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--ink);margin-bottom:.8rem;}
+.msv-text{font-size:.84rem;line-height:1.7;color:var(--ink-muted);}
+.msv-duration{display:inline-flex;align-items:center;gap:6px;margin-top:1.2rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.7;}
+
+/* ── RESULTS + ROI ── */
+.results-v2{display:grid;grid-template-columns:1fr 1fr;border-top:.5px solid var(--border);}
+.results-left{padding:80px 5vw;border-right:.5px solid var(--border);}
+.results-right{padding:80px 5vw;background:var(--paper-warm);}
+.stat-grid-v2{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);margin-top:2.5rem;}
+.stat-cell{padding:1.8rem;background:var(--paper-card);}
+.stat-cell:nth-child(2n){background:var(--paper-warm);}
+.stat-big{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;}
+.stat-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-top:.4rem;}
+.stat-sub{font-size:.75rem;color:var(--ink-muted);margin-top:.2rem;opacity:.7;}
+
+/* ── TESTIMONIALS V2 — Featured quote style ── */
+.testi-v2{padding:100px 5vw;background:var(--paper-warm);border-top:.5px solid var(--border);}
+.testi-v2-inner{display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;}
+.testi-stack{display:flex;flex-direction:column;gap:1.5rem;}
+.testi-card-v2{padding:1.8rem;border:1px solid var(--border);border-radius:4px;background:var(--paper-card);transition:border-color .25s,transform .25s;}
+.testi-card-v2:hover{border-color:var(--border-strong);transform:translateX(4px);}
+.testi-card-v2.active{border-color:var(--gold);}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;line-height:1.65;color:var(--ink-muted);margin-bottom:1rem;}
+.testi-card-v2.active .testi-q{color:var(--ink);}
+.testi-auth{display:flex;align-items:center;gap:10px;}
+.testi-av{width:36px;height:36px;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gold);flex-shrink:0;}
+.testi-name{font-size:.82rem;font-weight:500;color:var(--ink);}
+.testi-role{font-size:.72rem;color:var(--ink-muted);}
+.testi-featured{position:relative;padding:4rem;}
+.testi-featured-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:300;font-style:italic;line-height:1.45;color:var(--ink);}
+.testi-featured-quote em{color:var(--gold);font-style:normal;}
+.testi-featured-mark{font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--gold);opacity:.08;position:absolute;top:1rem;left:3rem;line-height:1;}
+.testi-featured-auth{margin-top:2.5rem;padding-top:1.5rem;border-top:.5px solid var(--border);display:flex;align-items:center;gap:14px;}
+.testi-featured-av{width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);}
+
+/* ── PRICING V2 ── */
+.pricing-v2{padding:100px 5vw;border-top:.5px solid var(--border);}
+.pricing-v2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);margin-top:3.5rem;}
+.pv2-card{padding:2.5rem;background:var(--paper-card);border-right:1px solid var(--border);position:relative;transition:background .25s;}
+.pv2-card:last-child{border-right:none;}
+.pv2-card:hover{background:var(--paper-warm);}
+.pv2-card.featured{background:rgba(201,168,76,.04);}
+.pv2-level{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.pv2-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink);margin-bottom:.3rem;}
+.pv2-duration{font-size:.78rem;color:var(--ink-muted);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:.5px solid var(--border);}
+.pv2-feature{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:.84rem;line-height:1.5;color:var(--ink-muted);}
+.pv2-feature::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.55rem;}
+.pv2-cta{margin-top:2rem;display:block;text-align:center;padding:12px;border:1px solid var(--border-strong);border-radius:var(--radius);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:all .2s;cursor:none;}
+.pv2-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.pv2-card.featured .pv2-cta{border-color:var(--gold);color:var(--gold);}
+.pv2-badge{position:absolute;top:1.8rem;right:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:3px 10px;border-radius:20px;}
+
+/* ── FAQ V2 ── */
+.faq-v2{padding:100px 5vw;background:var(--paper-warm);border-top:.5px solid var(--border);}
+.faq-v2-inner{display:grid;grid-template-columns:1fr 2fr;gap:6rem;}
+
+/* ── CTA FINALE — Full bleed editorial ── */
+.cta-finale{padding:120px 5vw;border-top:.5px solid var(--border);position:relative;overflow:hidden;text-align:center;}
+.cta-finale-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.06) 0%,transparent 70%);}
+.cta-finale-eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:12px;}
+.cta-finale-eyebrow::before,.cta-finale-eyebrow::after{content:'';flex:1;max-width:60px;height:.5px;background:var(--border-strong);}
+.cta-finale-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:1.5rem;}
+.cta-finale-h2 em{font-style:italic;color:var(--gold);}
+.cta-finale-sub{font-size:1rem;color:var(--ink-muted);max-width:480px;margin:0 auto 3rem;line-height:1.75;}
+
+/* ── RESPONSIVE HOME V2 ── */
+@media(max-width:900px){
+  .hero-v2-inner{grid-template-columns:1fr;}
+  .hero-v2-right{display:none;}
+  .metrics-bar{grid-template-columns:1fr 1fr;}
+  .service-row,.service-row.reverse{grid-template-columns:1fr;direction:ltr;}
+  .service-row.reverse .service-row-text{border:none;}
+  .service-row-visual{min-height:260px;}
+  .service-row-text{padding:40px 5vw;}
+  .method-steps-track{flex-direction:column;}
+  .method-step-v2{border-right:none;border-bottom:.5px solid var(--border);}
+  .results-v2{grid-template-columns:1fr;}
+  .results-left{border-right:none;border-bottom:.5px solid var(--border);}
+  .testi-v2-inner{grid-template-columns:1fr;}
+  .pricing-v2-grid{grid-template-columns:1fr;}
+  .pv2-card{border-right:none;border-bottom:1px solid var(--border);}
+  .faq-v2-inner{grid-template-columns:1fr;}
+}
+</style>
+
+<!-- ======================================================
      PAGE: HOME
 ====================================================== -->
 <div id="page-home" class="page active">
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-line"></div>
-    <div class="hero-tag">Cabinet de conseil IA · Paris · ROI garanti contractuellement</div>
-    <h1 class="hero-title">L'intelligence artificielle<br>au service de votre <em>performance</em></h1>
-    <p class="hero-subtitle">Pandora AI accompagne les directions métier et IT dans leur transformation par l'IA — de l'audit à l'adoption durable. Engagement contractuel de résultat en 90 jours.</p>
-    <div class="hero-actions">
-      <a href="#" class="btn-primary" onclick="showPage('contact');return false;">
-        Réserver votre audit flash gratuit
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      </a>
-      <a href="#" class="btn-ghost" onclick="showPage('cases');return false;">Voir nos références →</a>
+
+  <!-- ═══ HERO V2 ═══ -->
+  <section class="hero-v2">
+    <div class="hero-v2-inner">
+      <!-- LEFT: texte éditorial -->
+      <div class="hero-v2-left">
+        <div class="hero-v2-eyebrow">
+          <span class="hero-v2-eyebrow-dot"></span>
+          Cabinet conseil IA · Paris · ROI garanti contractuellement
+        </div>
+        <h1 class="hero-v2-h1">
+          L'intelligence<br>artificielle<br>au service de votre<br><em>performance.</em>
+        </h1>
+        <p class="hero-v2-sub">Pandora AI accompagne les directions métier et IT dans leur transformation IA — de l'audit à l'adoption durable. Engagement contractuel de résultat en 90 jours.</p>
+        <div class="hero-v2-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">
+            Réserver l'audit gratuit
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" class="btn-ghost" onclick="showPage('cases');return false;">Voir les références →</a>
+        </div>
+      </div>
+      <!-- RIGHT: visual animé -->
+      <div class="hero-v2-right">
+        <div class="hero-v2-canvas"></div>
+        <div class="hero-orb">
+          <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Hexagonal network -->
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C9A84C" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="blur1"><feGaussianBlur stdDeviation="18"/></filter>
+            </defs>
+            <!-- Background glow -->
+            <ellipse cx="260" cy="260" rx="200" ry="200" fill="url(#glow)" filter="url(#blur1)"/>
+            <!-- Outer hexagon ring -->
+            <path d="M260 60 L420 155 L420 345 L260 440 L100 345 L100 155 Z" stroke="#C9A84C" stroke-width=".6" stroke-dasharray="4 6" opacity=".3"/>
+            <path d="M260 110 L380 175 L380 305 L260 370 L140 305 L140 175 Z" stroke="#C9A84C" stroke-width=".8" opacity=".2"/>
+            <path d="M260 155 L345 203 L345 299 L260 347 L175 299 L175 203 Z" stroke="#C9A84C" stroke-width="1" opacity=".35"/>
+            <!-- Central hexagon filled -->
+            <path d="M260 190 L308 217 L308 271 L260 298 L212 271 L212 217 Z" fill="rgba(201,168,76,0.06)" stroke="#C9A84C" stroke-width="1.2" opacity=".7"/>
+            <!-- Center dot -->
+            <circle cx="260" cy="244" r="8" fill="#C9A84C" opacity=".9"/>
+            <circle cx="260" cy="244" r="16" fill="none" stroke="#C9A84C" stroke-width=".6" opacity=".4"/>
+            <!-- Connector nodes -->
+            <circle cx="260" cy="110" r="5" fill="#C9A84C" opacity=".5"/>
+            <circle cx="380" cy="175" r="4" fill="#C9A84C" opacity=".4"/>
+            <circle cx="380" cy="305" r="4" fill="#C9A84C" opacity=".4"/>
+            <circle cx="260" cy="370" r="5" fill="#C9A84C" opacity=".5"/>
+            <circle cx="140" cy="305" r="4" fill="#C9A84C" opacity=".4"/>
+            <circle cx="140" cy="175" r="4" fill="#C9A84C" opacity=".4"/>
+            <!-- Radial lines from center -->
+            <line x1="260" y1="244" x2="260" y2="110" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <line x1="260" y1="244" x2="380" y2="175" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <line x1="260" y1="244" x2="380" y2="305" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <line x1="260" y1="244" x2="260" y2="370" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <line x1="260" y1="244" x2="140" y2="305" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <line x1="260" y1="244" x2="140" y2="175" stroke="#C9A84C" stroke-width=".5" opacity=".2"/>
+            <!-- Outer orbit ring -->
+            <circle cx="260" cy="244" r="180" stroke="#C9A84C" stroke-width=".4" stroke-dasharray="2 8" opacity=".15"/>
+            <!-- Floating metric labels -->
+            <rect x="60" y="200" width="56" height="28" rx="3" fill="rgba(201,168,76,0.07)" stroke="#C9A84C" stroke-width=".6" opacity=".7"/>
+            <text x="88" y="219" fill="#C9A84C" font-size="10" text-anchor="middle" font-family="Cormorant Garamond, serif" opacity=".8">80+</text>
+            <rect x="404" y="210" width="54" height="28" rx="3" fill="rgba(201,168,76,0.07)" stroke="#C9A84C" stroke-width=".6" opacity=".7"/>
+            <text x="431" y="229" fill="#C9A84C" font-size="10" text-anchor="middle" font-family="Cormorant Garamond, serif" opacity=".8">90j</text>
+            <rect x="210" y="390" width="100" height="28" rx="3" fill="rgba(201,168,76,0.07)" stroke="#C9A84C" stroke-width=".6" opacity=".7"/>
+            <text x="260" y="409" fill="#C9A84C" font-size="9" text-anchor="middle" font-family="Cormorant Garamond, serif" letter-spacing="1" opacity=".8">ROI GARANTI</text>
+            <!-- Animated pulse ring -->
+            <circle cx="260" cy="244" r="120" stroke="#C9A84C" stroke-width="1" opacity=".06" style="transform-origin:260px 244px;animation:expandRing 3s ease-out infinite;"/>
+            <circle cx="260" cy="244" r="120" stroke="#C9A84C" stroke-width="1" opacity=".06" style="transform-origin:260px 244px;animation:expandRing 3s ease-out 1.5s infinite;"/>
+          </svg>
+        </div>
+      </div>
     </div>
-    <div class="hero-metrics">
-      <div class="metric-item"><div class="metric-num">80<span>+</span></div><div class="metric-label">Entreprises accompagnées</div></div>
-      <div class="metric-item"><div class="metric-num">15<span></span></div><div class="metric-label">Experts dédiés</div></div>
-      <div class="metric-item"><div class="metric-num">+30<span>%</span></div><div class="metric-label">Productivité moyenne</div></div>
-      <div class="metric-item"><div class="metric-num">90<span>j</span></div><div class="metric-label">Garantie ROI contractuelle</div></div>
+
+    <!-- METRICS BAR — bannière bas de hero -->
+    <div class="metrics-bar">
+      <div class="metric-cell">
+        <div class="metric-big">80<span>+</span></div>
+        <div class="metric-desc">Entreprises accompagnées</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-big">15</div>
+        <div class="metric-desc">Experts dédiés</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-big">+30<span>%</span></div>
+        <div class="metric-desc">Productivité moyenne</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-big">90<span>j</span></div>
+        <div class="metric-desc">Garantie ROI contractuelle</div>
+      </div>
     </div>
   </section>
 
-  <div class="clients-strip">
-    <div class="clients-label">Ils nous ont fait confiance</div>
-    <div class="clients-logos">
-      <span class="client-name">Salesforce</span><span class="client-name">BDO</span><span class="client-name">ClubMed</span>
-      <span class="client-name">LinkedIn</span><span class="client-name">Sage</span><span class="client-name">Deezer</span>
-      <span class="client-name">Decathlon</span><span class="client-name">Baxter</span><span class="client-name">Microsoft</span>
-      <span class="client-name">NaTran</span><span class="client-name">LCL</span><span class="client-name">BNP Paribas</span>
+  <!-- ═══ CLIENTS MARQUEE ═══ -->
+  <div class="clients-v2">
+    <div class="marquee-track" id="marquee">
+      <span class="marq-name">Salesforce</span><span class="marq-sep">·</span>
+      <span class="marq-name">BDO</span><span class="marq-sep">·</span>
+      <span class="marq-name">ClubMed</span><span class="marq-sep">·</span>
+      <span class="marq-name">LinkedIn</span><span class="marq-sep">·</span>
+      <span class="marq-name">Sage</span><span class="marq-sep">·</span>
+      <span class="marq-name">Deezer</span><span class="marq-sep">·</span>
+      <span class="marq-name">Decathlon</span><span class="marq-sep">·</span>
+      <span class="marq-name">Baxter</span><span class="marq-sep">·</span>
+      <span class="marq-name">Microsoft</span><span class="marq-sep">·</span>
+      <span class="marq-name">NaTran</span><span class="marq-sep">·</span>
+      <span class="marq-name">LCL</span><span class="marq-sep">·</span>
+      <span class="marq-name">BNP Paribas</span><span class="marq-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marq-name">Salesforce</span><span class="marq-sep">·</span>
+      <span class="marq-name">BDO</span><span class="marq-sep">·</span>
+      <span class="marq-name">ClubMed</span><span class="marq-sep">·</span>
+      <span class="marq-name">LinkedIn</span><span class="marq-sep">·</span>
+      <span class="marq-name">Sage</span><span class="marq-sep">·</span>
+      <span class="marq-name">Deezer</span><span class="marq-sep">·</span>
+      <span class="marq-name">Decathlon</span><span class="marq-sep">·</span>
+      <span class="marq-name">Baxter</span><span class="marq-sep">·</span>
+      <span class="marq-name">Microsoft</span><span class="marq-sep">·</span>
+      <span class="marq-name">NaTran</span><span class="marq-sep">·</span>
+      <span class="marq-name">LCL</span><span class="marq-sep">·</span>
+      <span class="marq-name">BNP Paribas</span><span class="marq-sep">·</span>
     </div>
   </div>
 
-  <!-- Services -->
-  <section>
-    <div class="section-tag">Nos services</div>
-    <h2 class="section-title reveal">Formation IA entreprise<br>par <em>métier</em></h2>
-    <p class="section-lead reveal">Programmes sur-mesure pour propulser vos équipes dans l'ère de l'IA. Du diagnostic au ROI mesurable.</p>
-    <div class="card-grid reveal">
-      <div class="card">
-        <div class="card-num">01 — COMMERCIAUX</div>
-        <div class="card-title">IA pour Commerciaux & Sales</div>
-        <div class="card-text">Prospection, qualification, rédaction d'emails, analyse de compte et automatisation CRM. Vendre plus, plus intelligemment, avec +40% de productivité mesurée.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>3 niveaux · Hybride</span>
-          <a href="#" onclick="showPage('formation-sales');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">Voir le programme →</a>
+  <!-- ═══ SERVICES — style éditorial alternant à la Mistral ═══ -->
+  <div class="services-editorial">
+
+    <!-- Row 1 : texte gauche / visuel droite -->
+    <div class="service-row reveal">
+      <div class="service-row-text">
+        <div class="srv-eyebrow">Commerciaux & Sales</div>
+        <h2 class="srv-h2">Vendre plus,<br>plus <em>intelligemment.</em></h2>
+        <p class="srv-body">Prospection augmentée, qualification instantanée, rédaction d'emails et automatisation CRM. Vos équipes commerciales gagnent en moyenne +40% de productivité mesurée dès le premier mois.</p>
+        <div class="srv-tags">
+          <span class="srv-tag">ChatGPT</span>
+          <span class="srv-tag">Copilot CRM</span>
+          <span class="srv-tag">Email IA</span>
+          <span class="srv-tag">3 niveaux</span>
         </div>
+        <a href="#" class="srv-link" onclick="showPage('formation-sales');return false;">
+          Voir le programme Sales
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M7 1l6 4-6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
       </div>
-      <div class="card">
-        <div class="card-num">02 — MARKETING</div>
-        <div class="card-title">IA pour Marketing & Créatifs</div>
-        <div class="card-text">Création de contenu ×4, personnalisation à l'échelle, SEO augmenté et automatisation des workflows. Moins de temps de création, plus d'engagement.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>3 niveaux · 1 à 6 mois</span>
-          <a href="#" onclick="showPage('formation-marketing');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">Voir le programme →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-num">03 — DIRIGEANTS</div>
-        <div class="card-title">IA pour Dirigeants & COMEX</div>
-        <div class="card-text">Pilotez votre organisation à l'ère de l'intelligence artificielle. Comprendre ses limites, décider quand l'utiliser et l'intégrer comme avantage stratégique.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>Format Executive · 1-2 jours</span>
-          <a href="#" onclick="showPage('formation-dirigeants');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">Voir le programme →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-num">04 — AUDIT IA</div>
-        <div class="card-title">Audit IA & ROI concret</div>
-        <div class="card-text">Pas de rapport qui finit dans un tiroir. Un audit orienté action : identification des quick wins, chiffrage du ROI, et roadmap d'implémentation en 4 semaines.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>Dès 2 500€ HT · Prix fixe</span>
-          <a href="#" onclick="showPage('services');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">En savoir plus →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-num">05 — ADOPTION</div>
-        <div class="card-title">Adoption Microsoft Copilot</div>
-        <div class="card-text">Programme Champions Digitaux éprouvé : de l'onboarding à l'autonomie complète de vos équipes sur Microsoft 365 avec suivi Power BI du taux d'adoption.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>+74% taux d'adoption moyen</span>
-          <a href="#" onclick="showPage('formations');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">Découvrir →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-num">06 — GOUVERNANCE</div>
-        <div class="card-title">Gouvernance & EU AI Act</div>
-        <div class="card-text">Mise en conformité réglementaire et déploiement d'un cadre de gouvernance IA robuste, aligné sur le règlement européen entrant en vigueur en 2026.</div>
-        <div class="card-detail" style="display:flex;justify-content:space-between;margin-top:1rem;">
-          <span>Certification EU AI Act</span>
-          <a href="#" onclick="showPage('services');return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;">En savoir plus →</a>
+      <div class="service-row-visual">
+        <div class="service-row-visual-inner">
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-card-title">Productivité Sales · J+30</span>
+              <div class="vis-dot" style="background:var(--gold)"></div>
+            </div>
+            <div class="vis-bar-row"><span class="vis-label">Prospection</span><div class="vis-track"><div class="vis-fill" style="width:82%"></div></div><span class="vis-pct">+82%</span></div>
+            <div class="vis-bar-row"><span class="vis-label">Email rédac.</span><div class="vis-track"><div class="vis-fill" style="width:74%"></div></div><span class="vis-pct">+74%</span></div>
+            <div class="vis-bar-row"><span class="vis-label">Qualif. leads</span><div class="vis-track"><div class="vis-fill" style="width:60%"></div></div><span class="vis-pct">+60%</span></div>
+            <div class="vis-bar-row"><span class="vis-label">Prep. réunion</span><div class="vis-track"><div class="vis-fill" style="width:55%"></div></div><span class="vis-pct">+55%</span></div>
+            <div class="vis-stat-row">
+              <div class="vis-stat"><div class="vis-stat-n">+40%</div><div class="vis-stat-l">Productivité</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">3 niv.</div><div class="vis-stat-l">Parcours</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">95%</div><div class="vis-stat-l">Satisfaction</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Method preview -->
-  <section style="background:var(--paper-warm);margin:0;padding:80px 3rem;">
-    <div class="section-tag">Notre méthode ROI IA</div>
-    <h2 class="section-title reveal">3 phases pour un ROI<br>IA <em>garanti</em></h2>
-    <div class="approach-grid reveal">
-      <div class="approach-step" style="grid-column:span 1;">
-        <div class="approach-num">01 — PHASE 1</div>
-        <div class="approach-title">Diagnostic IA entreprise</div>
-        <div class="approach-text">Audit de vos processus clés, analyse de vos données, identification des cas d'usage IA prioritaires à fort ROI. Durée : 1 à 2 semaines.</div>
-        <div class="approach-arrow">→</div>
+    <!-- Row 2 : visuel gauche / texte droite (reverse) -->
+    <div class="service-row reverse reveal">
+      <div class="service-row-text">
+        <div class="srv-eyebrow">Marketing & Créatifs</div>
+        <h2 class="srv-h2">Créer ×4,<br>engager <em>davantage.</em></h2>
+        <p class="srv-body">Créez du contenu 4 fois plus vite, personnalisez à l'échelle et automatisez vos workflows créatifs. Moins de temps en production, plus d'impact et d'engagement pour vos campagnes.</p>
+        <div class="srv-tags">
+          <span class="srv-tag">Content IA</span>
+          <span class="srv-tag">SEO augmenté</span>
+          <span class="srv-tag">Midjourney</span>
+          <span class="srv-tag">1 à 6 mois</span>
+        </div>
+        <a href="#" class="srv-link" onclick="showPage('formation-marketing');return false;">
+          Voir le programme Marketing
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M7 1l6 4-6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
       </div>
-      <div class="approach-step">
-        <div class="approach-num">02 — PHASE 2</div>
-        <div class="approach-title">Formation IA opérationnelle</div>
-        <div class="approach-text">Formation intensive ChatGPT, Copilot et outils IA métier. Cas d'usage concrets, exercices pratiques, livrables réels. Durée : 1 à 3 mois.</div>
-        <div class="approach-arrow">→</div>
-      </div>
-      <div class="approach-step">
-        <div class="approach-num">03 — PHASE 3</div>
-        <div class="approach-title">Déploiement & ROI IA</div>
-        <div class="approach-text">Mise en production des solutions, accompagnement des utilisateurs, optimisation continue. Mesure de KPIs définis en amont. Durée : illimitée.</div>
-        <div class="approach-arrow">→</div>
-      </div>
-      <div class="approach-step">
-        <div class="approach-num">04 — EN CONTINU</div>
-        <div class="approach-title">Hub & Suivi communauté</div>
-        <div class="approach-text">Accès à notre plateforme de ressources IA, communauté d'entraide, hotline experts et veille technologique actualisée chaque semaine.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROI Calculator teaser -->
-  <section>
-    <div class="two-col">
-      <div>
-        <div class="section-tag">Résultats mesurés</div>
-        <h2 class="section-title reveal">Des résultats <em>concrets</em>,<br>pas des promesses</h2>
-        <p class="section-lead reveal">Ce qui différencie Pandora AI : un engagement sur des résultats concrets et mesurables dès le départ, inscrits dans le contrat.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" class="reveal">
-          <div style="padding:1.5rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;">+20%</div>
-            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-top:.3rem;">Productivité moyenne</div>
-            <div style="font-size:.74rem;color:var(--ink-muted);margin-top:.3rem;">sur les périmètres formés</div>
-          </div>
-          <div style="padding:1.5rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;">95%</div>
-            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-top:.3rem;">Satisfaction</div>
-            <div style="font-size:.74rem;color:var(--ink-muted);margin-top:.3rem;">des apprenants</div>
-          </div>
-          <div style="padding:1.5rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;">2h</div>
-            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-top:.3rem;">Gagnées / jour</div>
-            <div style="font-size:.74rem;color:var(--ink-muted);margin-top:.3rem;">par collaborateur formé</div>
-          </div>
-          <div style="padding:1.5rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;">40+</div>
-            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-top:.3rem;">Entreprises formées</div>
-            <div style="font-size:.74rem;color:var(--ink-muted);margin-top:.3rem;">6 secteurs d'activité</div>
+      <div class="service-row-visual">
+        <div class="service-row-visual-inner">
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-card-title">Impact Contenu · Avant / Après</span>
+              <div class="vis-dot" style="background:var(--gold)"></div>
+            </div>
+            <div class="vis-bar-row"><span class="vis-label">Production</span><div class="vis-track"><div class="vis-fill" style="width:76%"></div></div><span class="vis-pct">×4</span></div>
+            <div class="vis-bar-row"><span class="vis-label">Engagement</span><div class="vis-track"><div class="vis-fill" style="width:65%"></div></div><span class="vis-pct">+65%</span></div>
+            <div class="vis-bar-row"><span class="vis-label">SEO perf.</span><div class="vis-track"><div class="vis-fill" style="width:58%"></div></div><span class="vis-pct">+58%</span></div>
+            <div class="vis-bar-row"><span class="vis-label">Temps créa</span><div class="vis-track"><div class="vis-fill" style="width:70%;background:rgba(201,168,76,0.4)"></div></div><span class="vis-pct">-70%</span></div>
+            <div class="vis-stat-row">
+              <div class="vis-stat"><div class="vis-stat-n">×4</div><div class="vis-stat-l">Volume</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">3 niv.</div><div class="vis-stat-l">Parcours</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">6 mois</div><div class="vis-stat-l">Max</div></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="reveal">
-        <div class="section-tag">Calculateur ROI IA</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:1.5rem;">Estimez votre <em>ROI</em> en 30 secondes</h3>
-        <div class="roi-tool">
-          <div class="roi-inputs">
-            <div class="roi-input-group">
-              <label>Nombre de collaborateurs</label>
-              <input type="number" id="roi-users" value="50" oninput="calcROI()" min="1">
+    </div>
+
+    <!-- Row 3 : texte gauche / visuel droite -->
+    <div class="service-row reveal">
+      <div class="service-row-text">
+        <div class="srv-eyebrow">Dirigeants & COMEX</div>
+        <h2 class="srv-h2">Piloter l'ère IA<br>avec <em>clarté.</em></h2>
+        <p class="srv-body">Format Executive intensif. Comprendre les capacités et limites de l'IA, décider quand et comment l'intégrer, et faire de l'intelligence artificielle un vrai avantage stratégique durable.</p>
+        <div class="srv-tags">
+          <span class="srv-tag">Format Executive</span>
+          <span class="srv-tag">1–2 jours</span>
+          <span class="srv-tag">Stratégie IA</span>
+          <span class="srv-tag">Gouvernance</span>
+        </div>
+        <a href="#" class="srv-link" onclick="showPage('formation-dirigeants');return false;">
+          Voir le programme Dirigeants
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M7 1l6 4-6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <div class="service-row-visual">
+        <div class="service-row-visual-inner">
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-card-title">Programme COMEX · 2 jours</span>
+              <div class="vis-dot" style="background:var(--gold)"></div>
             </div>
-            <div class="roi-input-group">
-              <label>Salaire mensuel moyen (€)</label>
-              <input type="number" id="roi-salary" value="4000" oninput="calcROI()" min="1">
+            <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.5rem;">
+              <div style="padding:.7rem 1rem;background:rgba(201,168,76,.04);border-left:2px solid var(--gold);border-radius:2px;font-size:.78rem;color:var(--ink-muted);">Jour 1 — Maîtriser les capacités IA</div>
+              <div style="padding:.7rem 1rem;background:rgba(201,168,76,.04);border-left:2px solid rgba(201,168,76,.4);border-radius:2px;font-size:.78rem;color:var(--ink-muted);">Jour 1 — Évaluer les risques & opportunités</div>
+              <div style="padding:.7rem 1rem;background:rgba(201,168,76,.04);border-left:2px solid rgba(201,168,76,.2);border-radius:2px;font-size:.78rem;color:var(--ink-muted);">Jour 2 — Construire la roadmap IA</div>
+              <div style="padding:.7rem 1rem;background:rgba(201,168,76,.04);border-left:2px solid rgba(201,168,76,.2);border-radius:2px;font-size:.78rem;color:var(--ink-muted);">Jour 2 — Plan de gouvernance & EU AI Act</div>
             </div>
-            <div class="roi-input-group">
-              <label>% du temps sur tâches répétitives</label>
-              <input type="number" id="roi-percent" value="30" oninput="calcROI()" min="1" max="100">
-            </div>
-            <div class="roi-input-group">
-              <label>Gain IA estimé sur ces tâches (%)</label>
-              <input type="number" id="roi-gain" value="40" oninput="calcROI()" min="1" max="100">
+            <div class="vis-stat-row" style="margin-top:1.2rem;">
+              <div class="vis-stat"><div class="vis-stat-n">1-2j</div><div class="vis-stat-l">Format</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">10</div><div class="vis-stat-l">Max pers.</div></div>
             </div>
           </div>
-          <div class="roi-result">
-            <div class="roi-result-box"><div class="roi-val" id="roi-monthly">—</div><div class="roi-lbl">Économie / mois</div></div>
-            <div class="roi-result-box"><div class="roi-val" id="roi-annual">—</div><div class="roi-lbl">Économie / an</div></div>
-            <div class="roi-result-box"><div class="roi-val" id="roi-hours">—</div><div class="roi-lbl">Heures libérées / sem.</div></div>
-          </div>
-          <p style="font-size:.72rem;color:var(--ink-muted);margin-top:1rem;line-height:1.5;">Estimation indicative. Nos experts calculent un ROI précis lors de l'audit gratuit.</p>
-          <a href="#" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;" onclick="showPage('contact');return false;">Obtenir mon audit ROI gratuit →</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Testimonials -->
-  <section style="background:var(--paper-warm);">
+    <!-- Row 4 : visuel gauche / texte droite (reverse) -->
+    <div class="service-row reverse reveal">
+      <div class="service-row-text">
+        <div class="srv-eyebrow">Audit IA & Gouvernance</div>
+        <h2 class="srv-h2">L'audit qui débouche<br>sur du <em>réel.</em></h2>
+        <p class="srv-body">Pas de rapport qui finit dans un tiroir. Un audit orienté action : identification des quick wins, chiffrage du ROI et roadmap d'implémentation livrée en 4 semaines. Dès 2 500€ HT, prix fixe.</p>
+        <div class="srv-tags">
+          <span class="srv-tag">Audit IA</span>
+          <span class="srv-tag">EU AI Act</span>
+          <span class="srv-tag">Dès 2 500€ HT</span>
+          <span class="srv-tag">4 semaines</span>
+        </div>
+        <a href="#" class="srv-link" onclick="showPage('services');return false;">
+          Voir l'offre Audit
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M7 1l6 4-6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <div class="service-row-visual">
+        <div class="service-row-visual-inner">
+          <div class="vis-card">
+            <div class="vis-card-header">
+              <span class="vis-card-title">Livrable Audit · 4 semaines</span>
+              <div class="vis-dot" style="background:var(--gold)"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <div style="display:flex;align-items:center;gap:10px;padding:.6rem 0;border-bottom:.5px solid var(--border);">
+                <span style="color:var(--gold);font-size:.85rem;">✓</span>
+                <span style="font-size:.8rem;color:var(--ink-muted);">Cartographie des processus IA-compatibles</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:.6rem 0;border-bottom:.5px solid var(--border);">
+                <span style="color:var(--gold);font-size:.85rem;">✓</span>
+                <span style="font-size:.8rem;color:var(--ink-muted);">Identification des 5 quick wins prioritaires</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:.6rem 0;border-bottom:.5px solid var(--border);">
+                <span style="color:var(--gold);font-size:.85rem;">✓</span>
+                <span style="font-size:.8rem;color:var(--ink-muted);">Chiffrage ROI par cas d'usage</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:.6rem 0;">
+                <span style="color:var(--gold);font-size:.85rem;">✓</span>
+                <span style="font-size:.8rem;color:var(--ink-muted);">Roadmap 12 mois priorisée</span>
+              </div>
+            </div>
+            <div class="vis-stat-row">
+              <div class="vis-stat"><div class="vis-stat-n">4 sem.</div><div class="vis-stat-l">Délai</div></div>
+              <div class="vis-stat"><div class="vis-stat-n">Fixe</div><div class="vis-stat-l">Prix</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MÉTHODE — 4 étapes horizontales ═══ -->
+  <div class="method-v2">
+    <div class="method-v2-head">
+      <div class="section-tag">Notre méthode ROI IA</div>
+      <h2 class="section-title reveal">4 phases pour un ROI<br>IA <em>garanti</em></h2>
+    </div>
+    <div class="method-steps-track">
+      <div class="method-step-v2 reveal">
+        <div class="msv-num">01</div>
+        <div class="msv-title">Diagnostic entreprise</div>
+        <div class="msv-text">Audit de vos processus clés, analyse des données, identification des cas d'usage IA à fort ROI.</div>
+        <div class="msv-duration">⟶ 1 à 2 semaines</div>
+      </div>
+      <div class="method-step-v2 reveal">
+        <div class="msv-num">02</div>
+        <div class="msv-title">Formation opérationnelle</div>
+        <div class="msv-text">Formation intensive ChatGPT, Copilot et outils IA métier. Cas pratiques réels, exercices concrets.</div>
+        <div class="msv-duration">⟶ 1 à 3 mois</div>
+      </div>
+      <div class="method-step-v2 reveal">
+        <div class="msv-num">03</div>
+        <div class="msv-title">Déploiement & ROI</div>
+        <div class="msv-text">Mise en production des solutions, accompagnement des utilisateurs, mesure des KPIs définis en amont.</div>
+        <div class="msv-duration">⟶ Durée illimitée</div>
+      </div>
+      <div class="method-step-v2 reveal">
+        <div class="msv-num">04</div>
+        <div class="msv-title">Hub & Communauté</div>
+        <div class="msv-text">Accès à la plateforme ressources IA, communauté d'entraide, hotline experts et veille hebdomadaire.</div>
+        <div class="msv-duration">⟶ En continu</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RÉSULTATS + ROI CALC ═══ -->
+  <div class="results-v2">
+    <div class="results-left">
+      <div class="section-tag">Résultats mesurés</div>
+      <h2 class="section-title reveal">Des résultats <em>concrets</em>,<br>pas des promesses</h2>
+      <p class="section-lead reveal">Un engagement contractuel sur des résultats mesurables dès le départ. Ce qui nous différencie : votre ROI est inscrit dans le contrat.</p>
+      <div class="stat-grid-v2 reveal">
+        <div class="stat-cell">
+          <div class="stat-big">+20%</div>
+          <div class="stat-label">Productivité</div>
+          <div class="stat-sub">sur les périmètres formés</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-big">95%</div>
+          <div class="stat-label">Satisfaction</div>
+          <div class="stat-sub">des apprenants</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-big">2h</div>
+          <div class="stat-label">Gagnées / jour</div>
+          <div class="stat-sub">par collaborateur formé</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-big">80+</div>
+          <div class="stat-label">Entreprises formées</div>
+          <div class="stat-sub">6 secteurs d'activité</div>
+        </div>
+      </div>
+    </div>
+    <div class="results-right">
+      <div class="section-tag">Calculateur ROI IA</div>
+      <h3 class="section-title reveal" style="font-size:clamp(1.8rem,2.5vw,2.4rem);">Estimez votre <em>ROI</em><br>en 30 secondes</h3>
+      <div class="roi-tool reveal">
+        <div class="roi-inputs">
+          <div class="roi-input-group">
+            <label>Collaborateurs</label>
+            <input type="number" id="roi-users" value="50" oninput="calcROI()" min="1">
+          </div>
+          <div class="roi-input-group">
+            <label>Salaire moyen (€/mois)</label>
+            <input type="number" id="roi-salary" value="4000" oninput="calcROI()" min="1">
+          </div>
+          <div class="roi-input-group">
+            <label>% tâches répétitives</label>
+            <input type="number" id="roi-percent" value="30" oninput="calcROI()" min="1" max="100">
+          </div>
+          <div class="roi-input-group">
+            <label>Gain IA estimé (%)</label>
+            <input type="number" id="roi-gain" value="40" oninput="calcROI()" min="1" max="100">
+          </div>
+        </div>
+        <div class="roi-result">
+          <div class="roi-result-box"><div class="roi-val" id="roi-monthly">—</div><div class="roi-lbl">Économie / mois</div></div>
+          <div class="roi-result-box"><div class="roi-val" id="roi-annual">—</div><div class="roi-lbl">Économie / an</div></div>
+          <div class="roi-result-box"><div class="roi-val" id="roi-hours">—</div><div class="roi-lbl">Heures libérées / sem.</div></div>
+        </div>
+        <p style="font-size:.72rem;color:var(--ink-muted);margin-top:1rem;line-height:1.5;">Estimation indicative. Un ROI précis est calculé lors de l'audit gratuit.</p>
+        <a href="#" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;" onclick="showPage('contact');return false;">Obtenir mon audit ROI gratuit →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TÉMOIGNAGES V2 ═══ -->
+  <div class="testi-v2">
     <div class="section-tag">Ils nous font confiance</div>
-    <h2 class="section-title reveal">Ce que disent<br>nos <em>clients</em></h2>
-    <div class="testimonials-grid reveal">
-      <div class="testimonial">
-        <div class="testi-stars">★★★★★</div>
-        <div class="quote">Pandora AI a transformé notre façon de travailler en trois mois. L'adoption de Copilot est passée de 12% à 74% dans nos équipes, avec un gain de temps réel mesurable chaque semaine.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">MA</div>
-          <div><div class="author-name">Marie-Anne Lefort</div><div class="author-role">DSI, NaTran (ex-GRTgaz)</div></div>
+    <h2 class="section-title reveal" style="margin-bottom:3rem;">Ce que disent<br>nos <em>clients</em></h2>
+    <div class="testi-v2-inner">
+      <!-- Featured quote -->
+      <div class="testi-featured reveal">
+        <div class="testi-featured-mark">"</div>
+        <div class="testi-featured-quote">L'adoption de Copilot est passée de <em>12% à 74%</em> dans nos équipes en trois mois, avec un gain de temps réel mesurable chaque semaine.</div>
+        <div class="testi-featured-auth">
+          <div class="testi-featured-av">MA</div>
+          <div>
+            <div style="font-size:.9rem;font-weight:500;color:var(--ink);">Marie-Anne Lefort</div>
+            <div style="font-size:.76rem;color:var(--ink-muted);">DSI · NaTran (ex-GRTgaz)</div>
+          </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testi-stars">★★★★★</div>
-        <div class="quote">L'audit flash a été une révélation. En deux jours, Pandora AI avait identifié trois leviers d'optimisation que nous n'avions pas vus en deux ans d'exploration interne.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">PD</div>
-          <div><div class="author-name">Pierre Durand</div><div class="author-role">Directeur Digital, LCL Banque</div></div>
+      <!-- Stack -->
+      <div class="testi-stack reveal">
+        <div class="testi-card-v2 active">
+          <div class="testi-stars" style="color:var(--gold);font-size:.8rem;margin-bottom:.8rem;">★★★★★</div>
+          <div class="testi-q">L'audit flash a été une révélation. En deux jours, Pandora AI avait identifié trois leviers d'optimisation que nous n'avions pas vus en deux ans d'exploration interne.</div>
+          <div class="testi-auth">
+            <div class="testi-av">PD</div>
+            <div><div class="testi-name">Pierre Durand</div><div class="testi-role">Directeur Digital · LCL Banque</div></div>
+          </div>
         </div>
-      </div>
-      <div class="testimonial">
-        <div class="testi-stars">★★★★★</div>
-        <div class="quote">La garantie ROI n'est pas un argument commercial, c'est un vrai engagement. Nous avons atteint +18% de productivité mesurée à J+85. L'équipe Pandora est d'une rigueur exemplaire.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">CV</div>
-          <div><div class="author-name">Claire Vasseur</div><div class="author-role">VP Operations, TotalEnergies</div></div>
+        <div class="testi-card-v2">
+          <div class="testi-stars" style="color:var(--gold);font-size:.8rem;margin-bottom:.8rem;">★★★★★</div>
+          <div class="testi-q">La garantie ROI n'est pas un argument commercial, c'est un vrai engagement. Nous avons atteint +18% de productivité mesurée à J+85. Rigueur exemplaire.</div>
+          <div class="testi-auth">
+            <div class="testi-av">CV</div>
+            <div><div class="testi-name">Claire Vasseur</div><div class="testi-role">VP Operations · TotalEnergies</div></div>
+          </div>
+        </div>
+        <div class="testi-card-v2">
+          <div class="testi-stars" style="color:var(--gold);font-size:.8rem;margin-bottom:.8rem;">★★★★★</div>
+          <div class="testi-q">Pandora AI comprend les enjeux business avant de parler technologie. Résultat : un ROI atteint en 6 semaines et des équipes durablement transformées.</div>
+          <div class="testi-auth">
+            <div class="testi-av">JB</div>
+            <div><div class="testi-name">Jean-Baptiste Moreau</div><div class="testi-role">DG France · Baxter International</div></div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Pricing -->
-  <section>
+  <!-- ═══ PRICING V2 ═══ -->
+  <div class="pricing-v2">
     <div class="section-tag">Tarifs transparents</div>
     <h2 class="section-title reveal">Des offres claires,<br>sans <em>surprise</em></h2>
-    <div class="pricing-grid reveal">
-      <div class="pricing-card">
-        <div class="pricing-name">Start · 1 mois</div>
-        <div class="pricing-price">Sur devis</div>
-        <div class="pricing-note">Acculturation IA — premiers pas</div>
-        <ul class="pricing-features">
-          <li>Assessment benchmark & recommandations</li>
-          <li>Formation 1 jour (visio ou présentiel)</li>
-          <li>Identification des cas d'usage prioritaires</li>
-          <li>Plan d'action individuel personnalisé</li>
-          <li>Accès Hub ressources 1 mois</li>
-        </ul>
-        <a href="#" class="btn-pricing" onclick="showPage('contact');return false;">Demander un devis</a>
+    <div class="pricing-v2-grid reveal">
+      <div class="pv2-card">
+        <div class="pv2-level">Niveau 1</div>
+        <div class="pv2-name">Start</div>
+        <div class="pv2-duration">1 mois · Acculturation IA</div>
+        <div class="pv2-feature">Assessment benchmark & recommandations</div>
+        <div class="pv2-feature">Formation 1 jour (visio ou présentiel)</div>
+        <div class="pv2-feature">Identification des cas d'usage prioritaires</div>
+        <div class="pv2-feature">Plan d'action individuel personnalisé</div>
+        <div class="pv2-feature">Accès Hub ressources 1 mois</div>
+        <a href="#" class="pv2-cta" onclick="showPage('contact');return false;">Demander un devis</a>
       </div>
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Le plus populaire</div>
-        <div class="pricing-name">Core · 3 mois</div>
-        <div class="pricing-price">Sur devis</div>
-        <div class="pricing-note">Intégration dans les process</div>
-        <ul class="pricing-features">
-          <li>Assessment + Audit des processus internes</li>
-          <li>Création des pratiques sur mesure</li>
-          <li>Formation 1 jour + 2 ateliers pratiques</li>
-          <li>Prompting avancé maîtrisé</li>
-          <li>SEO et tâches optimisés avec l'IA</li>
-          <li>Hub KPIAs + communauté</li>
-        </ul>
-        <a href="#" class="btn-pricing" onclick="showPage('contact');return false;">Demander un devis</a>
+      <div class="pv2-card featured">
+        <div class="pv2-badge">Populaire</div>
+        <div class="pv2-level">Niveau 2</div>
+        <div class="pv2-name">Core</div>
+        <div class="pv2-duration">3 mois · Intégration dans les process</div>
+        <div class="pv2-feature">Assessment + Audit des processus internes</div>
+        <div class="pv2-feature">Création des pratiques sur mesure</div>
+        <div class="pv2-feature">Formation 1 jour + 2 ateliers pratiques</div>
+        <div class="pv2-feature">Prompting avancé maîtrisé</div>
+        <div class="pv2-feature">SEO et tâches optimisés avec l'IA</div>
+        <div class="pv2-feature">Hub KPIAs + communauté</div>
+        <a href="#" class="pv2-cta" onclick="showPage('contact');return false;">Demander un devis</a>
       </div>
-      <div class="pricing-card">
-        <div class="pricing-name">Boost · 6 mois</div>
-        <div class="pricing-price">Sur devis</div>
-        <div class="pricing-note">Industrialisation & leadership</div>
-        <ul class="pricing-features">
-          <li>Assessment + Audit complet</li>
-          <li>Templates & prompts sur mesure</li>
-          <li>Formation 1 jour + 3 ateliers pratiques</li>
-          <li>3 ateliers automation & workflows</li>
-          <li>Ambassadeurs IA formés</li>
-          <li>Culture IA ancrée dans l'équipe</li>
-          <li>Hub KPIAs + communauté + ressources</li>
-        </ul>
-        <a href="#" class="btn-pricing" onclick="showPage('contact');return false;">Demander un devis</a>
+      <div class="pv2-card">
+        <div class="pv2-level">Niveau 3</div>
+        <div class="pv2-name">Boost</div>
+        <div class="pv2-duration">6 mois · Industrialisation & leadership</div>
+        <div class="pv2-feature">Assessment + Audit complet</div>
+        <div class="pv2-feature">Templates & prompts sur mesure</div>
+        <div class="pv2-feature">Formation 1 jour + 3 ateliers pratiques</div>
+        <div class="pv2-feature">3 ateliers automation & workflows</div>
+        <div class="pv2-feature">Ambassadeurs IA formés & autonomes</div>
+        <div class="pv2-feature">Culture IA ancrée dans l'équipe</div>
+        <div class="pv2-feature">Hub KPIAs + communauté + ressources</div>
+        <a href="#" class="pv2-cta" onclick="showPage('contact');return false;">Demander un devis</a>
       </div>
     </div>
     <div style="text-align:center;margin-top:2rem;">
       <a href="#" class="btn-ghost" onclick="showPage('formations');return false;">Voir aussi notre programme Perform 12 mois →</a>
     </div>
-  </section>
+  </div>
 
-  <!-- FAQ -->
-  <section style="background:var(--paper-warm);">
-    <div class="section-tag">Questions fréquentes</div>
-    <h2 class="section-title reveal">FAQ Formation IA</h2>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">À qui s'adressent nos formations en entreprise ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">Nos formations s'adressent aux équipes métier (commerciaux, marketing, RH, finance), aux managers et aux dirigeants. Aucune compétence technique requise. Nous adaptons le contenu à chaque profil et chaque secteur d'activité.</div></div>
+  <!-- ═══ FAQ V2 ═══ -->
+  <div class="faq-v2">
+    <div class="faq-v2-inner">
+      <div>
+        <div class="section-tag">Questions fréquentes</div>
+        <h2 class="section-title reveal">FAQ<br><em>Formation IA</em></h2>
+        <p style="font-size:.9rem;line-height:1.75;color:var(--ink-muted);margin-top:1rem;">Toutes vos questions sur nos programmes, notre méthode et notre garantie ROI.</p>
+        <a href="#" class="btn-ghost" style="margin-top:2rem;display:inline-flex;" onclick="showPage('contact');return false;">Parler à un expert →</a>
       </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Quel ROI peut-on espérer avec une formation IA ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">En moyenne, nos clients constatent +20% de productivité et 2 heures gagnées par collaborateur et par jour. Le ROI typique est atteint en 3 à 6 semaines après la formation, bien avant la fin du programme.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Comment vous assurez-vous que les acquis sont appliqués ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">Notre méthode inclut des ateliers pratiques sur les vrais projets de vos équipes, un Hub KPIAs pour mesurer les progrès, et une communauté d'entraide post-formation. Nous suivons l'adoption via des indicateurs définis en amont.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Vos formations sont-elles adaptées à notre secteur d'activité ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">Oui. Avant chaque programme, nos experts analysent vos processus métier spécifiques et construisent des cas d'usage IA adaptés à votre réalité opérationnelle (banque, énergie, retail, conseil, industrie...).</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Combien de temps pour voir les résultats de l'IA ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">Les premiers gains sont visibles dès la première semaine de formation. Les résultats mesurables sur les KPIs s'observent généralement en 30 à 90 jours selon la complexité des processus ciblés.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Proposez-vous un suivi post-formation ? <span class="faq-icon"></span></div>
-        <div class="faq-answer"><div class="faq-answer-inner">Absolument. Tous nos programmes incluent un accès à notre Hub de ressources IA, une communauté d'entraide entre participants et une hotline d'experts. Les programmes Core et Boost incluent en plus des ateliers de suivi mensuel.</div></div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">À qui s'adressent nos formations en entreprise ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Nos formations s'adressent aux équipes métier (commerciaux, marketing, RH, finance), aux managers et aux dirigeants. Aucune compétence technique requise. Nous adaptons le contenu à chaque profil et chaque secteur d'activité.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Quel ROI peut-on espérer avec une formation IA ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">En moyenne, nos clients constatent +20% de productivité et 2 heures gagnées par collaborateur et par jour. Le ROI typique est atteint en 3 à 6 semaines après la formation.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Comment vous assurez-vous que les acquis sont appliqués ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Notre méthode inclut des ateliers pratiques sur les vrais projets de vos équipes, un Hub KPIAs pour mesurer les progrès, et une communauté d'entraide post-formation.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Vos formations sont-elles adaptées à notre secteur ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Oui. Avant chaque programme, nos experts analysent vos processus métier spécifiques et construisent des cas d'usage IA adaptés à votre réalité (banque, énergie, retail, conseil, industrie...).</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Combien de temps pour voir les résultats ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Les premiers gains sont visibles dès la première semaine de formation. Les résultats mesurables sur les KPIs s'observent généralement en 30 à 90 jours.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Proposez-vous un suivi post-formation ? <span class="faq-icon"></span></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolument. Tous nos programmes incluent un accès à notre Hub de ressources IA, une communauté d'entraide entre participants et une hotline d'experts.</div></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CTA -->
-  <div class="cta-band">
-    <div class="section-tag" style="justify-content:center;">Passez à l'action</div>
-    <h2 class="section-title reveal">Mesurez le ROI IA<br>de votre <em>entreprise</em></h2>
-    <p style="font-size:1rem;color:var(--ink-muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.7;">Échange gratuit de 30 minutes pour comprendre vos enjeux, identifier le programme adapté et vous projeter dans votre transformation IA.</p>
+  <!-- ═══ CTA FINALE — Grande typographie éditoriale ═══ -->
+  <div class="cta-finale">
+    <div class="cta-finale-bg"></div>
+    <div class="cta-finale-eyebrow">Passez à l'action</div>
+    <h2 class="cta-finale-h2 reveal">Mesurez le ROI IA<br>de votre <em>entreprise.</em></h2>
+    <p class="cta-finale-sub reveal">Échange gratuit de 30 minutes pour comprendre vos enjeux, identifier le programme adapté et projeter votre transformation IA.</p>
     <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
       <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Réserver un créneau →</a>
       <a href="#" class="btn-ghost" onclick="showPage('approach');return false;">Notre méthode</a>
     </div>
   </div>
+
 </div>
+
+<style>
+@keyframes expandRing{0%{r:80;opacity:.08;}100%{r:200;opacity:0;}}
+</style>
 
 
 <!-- ======================================================
@@ -1798,7 +2200,7 @@ footer{background:var(--ink);padding:5rem 3rem 2.5rem;border-top:1px solid rgba(
         <ul class="footer-links">
           <li><a href="mailto:contact@pandora-ai.fr">contact@pandora-ai.fr</a></li>
           <li><a href="tel:+33605985807">+33 06 05 98 58 07</a></li>
-          <li><a href="#">Boulevard ornano Paris 75018</a></li>
+          <li><a href="#">14 rue de Rivoli, Paris 4e</a></li>
         </ul>
       </div>
     </div>
