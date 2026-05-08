@@ -618,7 +618,7 @@ nav a.ac{color:#fff;background:var(--bl);box-shadow:0 8px 22px rgba(37,99,235,.3
 <div class="bnr" id="bnr">
   <div class="bnd"></div>
   <span>📅 Webinaire — ROI de l'IA : méthode pour les COMEX · <strong>Ven. 15 Mai 2026, 12h30</strong></span>
-  <a href="#" onclick="nav('webinaires');return false">S'inscrire →</a>
+  <a href="#" onclick="openM('wm');return false">S'inscrire →</a>
   <button class="bnx" id="bnx" aria-label="Fermer">✕</button>
 </div>
 <nav id="mnav" role="navigation" aria-label="Navigation principale">
@@ -1728,9 +1728,9 @@ function togglePQ(card, panelId) {
 <!-- TARIFS -->
 <section class="sec"><div class="ey rv">Tarifs transparents</div><h2 class="hd rv d1">Des offres claires, sans <em>surprise</em></h2>
 <div class="pg">
-  <div class="pc rv d1"><div class="pl">Niveau 1</div><div class="pn">Start</div><div class="pd">1 mois · Acculturation IA</div><ul class="pf"><li>Entretien individuel préalable &amp; assessment</li><li>Vidéos de préparation en amont (cas d'usage)</li><li>Formation 2 jours — présentiel Paris ou distanciel (3–8 pers.)</li><li>Les 4 modules complets sur vos vrais documents</li><li>Bibliothèque de prompts &amp; agents IA à copier-coller</li><li>Plan d'action individuel 90 jours</li><li class="xo">Audit des processus internes</li><li class="xo">Ateliers d'ancrage post-formation</li></ul><button class="btn bo" onclick="openM('cm')" style="width:100%;justify-content:center">Demander un devis</button></div>
+  <div class="pc rv d1"><div class="pl">Niveau 1</div><div class="pn">Start</div><div class="pd">1 mois · Acculturation IA</div><ul class="pf"><li>Entretien individuel préalable &amp; assessment</li><li>Vidéos de préparation en amont (cas d'usage)</li><li>Formation 2 jours — présentiel Paris ou distanciel (3–8 pers.)</li><li>Les 4 modules complets sur vos vrais documents</li><li>Bibliothèque de prompts &amp; agents IA à copier-coller</li><li>Plan d'action individuel 90 jours</li><li class="xo">Audit des processus internes</li><li class="xo">Ateliers d'ancrage post-formation</li></ul><button class="btn bo" onclick="openDevis('Start')" style="width:100%;justify-content:center">Demander un devis</button></div>
   <div class="pc pop rv d2"><div style="text-align:center;margin-bottom:12px"><span class="bdg" style="background:linear-gradient(135deg,var(--bl),#6366f1);color:#fff;font-size:.7rem">Populaire</span></div><div class="pl">Niveau 2</div><div class="pn">Core</div><div class="pd">3 mois · Intégration dans les process</div><ul class="pf"><li>Entretien + Assessment + Audit des processus</li><li>Création cas pratiques &amp; prompts sur mesure</li><li>Formation 2 jours (présentiel ou distanciel) + 2 ateliers ancrage</li><li>Prompting avancé maîtrisé sur vos vrais cas</li><li>Automatisation des tâches répétitives prioritaires</li><li>Hub KPIAs — dashboard gains hebdomadaires</li><li>Communauté + hotline experts inclus</li><li class="xo">Ateliers automation &amp; workflows no-code</li></ul><button class="btn bp2" onclick="openM('cm')" style="width:100%;justify-content:center">Demander un devis</button></div>
-  <div class="pc rv d3"><div class="pl">Niveau 3</div><div class="pn">Boost</div><div class="pd">6 mois · Industrialisation &amp; leadership</div><ul class="pf"><li>Entretien + Assessment + Audit complet</li><li>Stratégie créative IA &amp; templates sur mesure</li><li>Formation 2 jours (présentiel ou distanciel) + 2 ateliers ancrage</li><li>3 ateliers automation &amp; workflows no-code</li><li>Ambassadeurs IA formés et autonomes</li><li>Culture IA ancrée durablement dans l'équipe</li><li>Hub KPIAs + communauté + hotline illimitée</li></ul><button class="btn bo" onclick="openM('cm')" style="width:100%;justify-content:center">Demander un devis</button></div>
+  <div class="pc rv d3"><div class="pl">Niveau 3</div><div class="pn">Boost</div><div class="pd">6 mois · Industrialisation &amp; leadership</div><ul class="pf"><li>Entretien + Assessment + Audit complet</li><li>Stratégie créative IA &amp; templates sur mesure</li><li>Formation 2 jours (présentiel ou distanciel) + 2 ateliers ancrage</li><li>3 ateliers automation &amp; workflows no-code</li><li>Ambassadeurs IA formés et autonomes</li><li>Culture IA ancrée durablement dans l'équipe</li><li>Hub KPIAs + communauté + hotline illimitée</li></ul><button class="btn bo" onclick="openDevis('Start')" style="width:100%;justify-content:center">Demander un devis</button></div>
 </div>
 <p style="text-align:center;margin-top:18px"><button class="btn bg3" onclick="nav('parcours')">Voir aussi notre programme Perform 12 mois →</button></p>
 </section>
@@ -1745,7 +1745,7 @@ function togglePQ(card, panelId) {
   <div class="fi2"><button class="fbtn" aria-expanded="false">Vos formations sont-elles adaptées à notre secteur ?<div class="fic">+</div></button><div class="fbd"><p>Oui. Avant chaque programme, nos experts analysent vos processus métier et construisent des cas d'usage IA adaptés à votre réalité. Nous couvrons 12 secteurs dont le <strong>BTP</strong> (électricité, génie civil, architecture, HSE, facility management), la banque, l'énergie, la santé, le transport, le retail et le conseil. Chaque formateur travaille sur vos vrais documents — devis, AO, CCTPs, PPSPS, comptes-rendus chantier.</p></div></div>
   <div class="fi2"><button class="fbtn" aria-expanded="false">Combien de temps pour voir les résultats ?<div class="fic">+</div></button><div class="fbd"><p>Les premiers gains sont visibles <strong>dès le lendemain de la formation</strong> : les apprenants appliquent immédiatement ce qu'ils ont appris sur leurs vrais projets. Les résultats mesurables sur les KPIs s'observent en 2 à 4 semaines. Notre garantie ROI contractuelle court sur 90 jours.</p></div></div>
   <div class="fi2"><button class="fbtn" aria-expanded="false">Proposez-vous un suivi post-formation ?<div class="fic">+</div></button><div class="fbd"><p>Tous nos programmes incluent l'accès à notre Hub de ressources IA, une communauté d'entraide, une hotline d'experts et une veille IA hebdomadaire.</p></div></div>
-  <div class="fi2"><button class="fbtn" aria-expanded="false">Êtes-vous basés à Paris ? Intervenez-vous en région ?<div class="fic">+</div></button><div class="fbd"><p>Nous sommes basés Boulevard Ornano, Paris 75002. Nous intervenons en Île-de-France et dans toute la France (déplacement inclus), ainsi qu'en distanciel pour les équipes dispersées.</p></div></div>
+  <div class="fi2"><button class="fbtn" aria-expanded="false">Êtes-vous basés à Paris ? Intervenez-vous en région ?<div class="fic">+</div></button><div class="fbd"><p>Nous sommes basés 15 Rue de la Paix, 75002 Paris. Nous intervenons en Île-de-France et dans toute la France (déplacement inclus), ainsi qu'en distanciel pour les équipes dispersées.</p></div></div>
   <div class="fi2"><button class="fbtn" aria-expanded="false">Comment puis-je vous suivre sur LinkedIn ?<div class="fic">+</div></button><div class="fbd"><p>Rejoignez notre page LinkedIn <a href="https://www.linkedin.com/company/pandoraai/" target="_blank" rel="noopener" style="color:var(--bl);font-weight:700">Pandora AI</a> pour suivre nos publications hebdomadaires sur l'IA, nos retours d'expérience et nos prochains webinaires.</p></div></div>
 </div></section>
 
@@ -6562,7 +6562,7 @@ function toggleParc(card, detailId) {
   <h3 style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:12px">L'IA de votre secteur, <em style="background:linear-gradient(135deg,#60a5fa,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">chaque semaine</em></h3>
   <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 28px;font-size:.9rem">Insights BTP, santé, industrie, finance — adaptés à votre métier. 2 000+ professionnels déjà abonnés. Pas de spam : 1 email, 3 insights actionnables, chaque lundi.</p>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-    <button class="btn bw blg" onclick="openM('cm')">S'abonner à la veille IA →</button>
+    <button class="btn bw blg" onclick="openNewsletter()">S'abonner à la veille IA →</button>
     <a href="https://www.linkedin.com/company/pandoraai/" target="_blank" rel="noopener" class="btn blg" style="background:#0077b5;color:#fff;border:none">in Suivre sur LinkedIn</a>
   </div>
 </div>
@@ -6620,7 +6620,7 @@ function toggleParc(card, detailId) {
     <h1 class="hd" style="font-size:clamp(2.1rem,4.2vw,3.6rem);margin-top:12px;color:#fff;max-width:780px">Apprenez en <em>direct</em><br>avec nos experts.</h1>
     <p class="sub" style="color:rgba(255,255,255,.65);max-width:560px">Webinaires gratuits chaque mois sur les enjeux IA les plus brûlants. Pas de théorie inutile : cas pratiques, démonstrations live et Q&amp;A en direct. Repartez avec des outils applicables dès le lendemain.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-      <button class="btn bw blg" onclick="openM('cm')">S'inscrire au prochain webinaire →</button>
+      <button class="btn bw blg" onclick="openM('wm')">S'inscrire au prochain webinaire →</button>
       <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="navformations()">Voir les formations</button>
     </div>
   </div>
@@ -6652,8 +6652,8 @@ function toggleParc(card, detailId) {
         <div class="cdu"><span class="cdn" id="cd-s">00</span><span class="cdl">Sec.</span></div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-        <button class="btn bw blg" onclick="openM('cm')">Réserver ma place gratuite →</button>
-        <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="openM('cm')">Recevoir le replay si absent</button>
+        <button class="btn bw blg" onclick="openM('wm')">Réserver ma place gratuite →</button>
+        <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="openReplay()">Recevoir le replay si absent</button>
       </div>
     </div>
   </div>
@@ -6671,7 +6671,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">ROI de l'IA : méthode de calcul pour les COMEX</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 Décideurs &amp; DSI</span></div>
       </div>
-      <button class="btn bp2 bsm" onclick="openM('cm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bp2 bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d2">
       <div class="web-date-box"><div class="web-day">12</div><div class="web-month">Jun</div></div>
@@ -6680,7 +6680,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">Microsoft Copilot M365 : les meilleures pratiques 2026</div>
         <div class="web-meta"><span>🕐 12h30–14h00</span><span>🌐 Zoom</span><span>👥 Gratuit · 150 places</span><span>🎯 DSI &amp; IT Managers</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('cm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d3">
       <div class="web-date-box"><div class="web-day">03</div><div class="web-month">Jul</div></div>
@@ -6689,7 +6689,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">Agents IA en entreprise : déploiement sans risque</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 DSI &amp; Architectes</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('cm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d4">
       <div class="web-date-box"><div class="web-day">11</div><div class="web-month">Sep</div></div>
@@ -6698,7 +6698,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">EU AI Act &amp; entreprises françaises : obligations concrètes</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 DSI, DPO, Juristes</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('cm')" style="flex-shrink:0">Pré-inscription →</button>
+      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">Pré-inscription →</button>
     </div>
   </div>
 </section>
@@ -6708,7 +6708,7 @@ function toggleParc(card, detailId) {
   <div class="ey rv">Replays disponibles</div>
   <h2 class="hd rv d1">Rattrapez les sessions <em>passées</em></h2>
   <div class="rep-grid">
-    <div class="rep-card rv d1" onclick="openM('cm')">
+    <div class="rep-card rv d1" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#0f1b35,#1e3a5f)">
         <span style="position:relative;z-index:1">⚖️</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6719,7 +6719,7 @@ function toggleParc(card, detailId) {
         <div class="rep-meta">Sabik Omar · Janv. 2026 · 58 min · 1 000 vues</div>
       </div>
     </div>
-    <div class="rep-card rv d2" onclick="openM('cm')">
+    <div class="rep-card rv d2" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#1d4ed8,#6366f1)">
         <span style="position:relative;z-index:1">🤖</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6730,7 +6730,7 @@ function toggleParc(card, detailId) {
         <div class="rep-meta">Marc Dupuy · Mars 2026 · 45 min · 2 180 vues</div>
       </div>
     </div>
-    <div class="rep-card rv d3" onclick="openM('cm')">
+    <div class="rep-card rv d3" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#059669,#10b981)">
         <span style="position:relative;z-index:1">📈</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6741,7 +6741,7 @@ function toggleParc(card, detailId) {
         <div class="rep-meta">Sabik Omar · Fév. 2026 · 52 min · 1 000 vues</div>
       </div>
     </div>
-    <div class="rep-card rv d4" onclick="openM('cm')">
+    <div class="rep-card rv d4" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#d97706,#f59e0b)">
         <span style="position:relative;z-index:1">🏗️</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6752,7 +6752,7 @@ function toggleParc(card, detailId) {
         <div class="rep-meta">Marc Dupuy · Avr. 2026 · 48 min · 970 vues</div>
       </div>
     </div>
-    <div class="rep-card rv d5" onclick="openM('cm')">
+    <div class="rep-card rv d5" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
         <span style="position:relative;z-index:1">🎯</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6763,7 +6763,7 @@ function toggleParc(card, detailId) {
         <div class="rep-meta">Équipe Pandora AI · Janv. 2026 · 41 min · 1 430 vues</div>
       </div>
     </div>
-    <div class="rep-card rv d6" onclick="openM('cm')">
+    <div class="rep-card rv d6" onclick="openReplay()">
       <div class="rep-thumb" style="background:linear-gradient(135deg,#0891b2,#06b6d4)">
         <span style="position:relative;z-index:1">🏥</span>
         <div class="rep-overlay"><div class="rep-play-btn">▶</div></div>
@@ -6775,7 +6775,7 @@ function toggleParc(card, detailId) {
       </div>
     </div>
   </div>
-  <p style="text-align:center;margin-top:28px;font-size:.84rem;color:var(--mu)">Accès gratuit aux replays après inscription — <button class="btn bsm bo" onclick="openM('cm')" style="margin-left:8px">Recevoir tous les replays →</button></p>
+  <p style="text-align:center;margin-top:28px;font-size:.84rem;color:var(--mu)">Accès gratuit aux replays après inscription — <button class="btn bsm bo" onclick="openReplay()" style="margin-left:8px">Recevoir tous les replays →</button></p>
 </section>
 
 <!-- ─── FORMATIONS INTER-ENTREPRISES ─── -->
@@ -6833,7 +6833,7 @@ function toggleParc(card, detailId) {
       <h2 class="hd hd-w" style="max-width:100%;text-align:center;margin:12px auto">Ne ratez plus aucun<br><em>webinaire Pandora AI.</em></h2>
       <p class="sub sub-w" style="margin:14px auto;text-align:center">Agenda des prochains webinaires, replays exclusifs, études de cas et veille IA hebdomadaire. Désabonnement en 1 clic.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-        <button class="btn bw blg" onclick="openM('cm')">S'inscrire à la newsletter →</button>
+        <button class="btn bw blg" onclick="openNewsletter()">S'inscrire à la newsletter →</button>
         <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="navinsights()">Lire nos Insights</button>
       </div>
     </div>
@@ -7077,7 +7077,7 @@ function toggleParc(card, detailId) {
   <div style="position:relative;z-index:1">
     <div class="ey" style="color:rgba(255,255,255,.55)">Prendre rendez-vous</div>
     <h1 class="hd" style="font-size:clamp(2.1rem,4.2vw,3.6rem);margin-top:12px;color:#fff;max-width:780px">Discutons de votre <em>projet IA.</em></h1>
-    <p class="sub" style="color:rgba(255,255,255,.65);max-width:560px">Échange gratuit de 30 minutes. Aucun engagement, réponse garantie sous 24h. Basés Boulevard Ornano, Paris 75002.</p>
+    <p class="sub" style="color:rgba(255,255,255,.65);max-width:560px">Échange gratuit de 30 minutes. Aucun engagement, réponse garantie sous 24h. Basés 15 Rue de la Paix, 75002 Paris.</p>
     <div class="co-hero-kpis">
       <div class="co-hero-kpi"><div class="co-hero-kpiv">30 min</div><div class="co-hero-kpil">Échange gratuit</div></div>
       <div class="co-hero-kpi"><div class="co-hero-kpiv">24h</div><div class="co-hero-kpil">Délai de réponse garanti</div></div>
@@ -7147,25 +7147,27 @@ function toggleParc(card, detailId) {
       </div>
       <div style="margin-top:18px;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:24px;text-align:center" class="rv d4">
         <div style="font-size:2rem;margin-bottom:10px">🗺️</div>
-        <div style="font-weight:700;color:var(--nv);margin-bottom:6px">Boulevard Ornano, Paris 75002</div>
-        <div style="font-size:.82rem;color:var(--tx2)">Métro : Simplon (ligne 4) · Porte de Clignancourt (ligne 4)</div>
-        <a href="https://www.google.com/maps/search/Boulevard+Ornano+Paris+18" target="_blank" rel="noopener" class="btn bo bsm" style="margin-top:14px;display:inline-flex">Voir sur Google Maps →</a>
+        <div style="font-weight:700;color:var(--nv);margin-bottom:6px">15 Rue de la Paix, 75002 Paris</div>
+        <div style="font-size:.82rem;color:var(--tx2)">Métro : Quatre-Septembre (ligne 3) · Opéra (lignes 3, 7, 8)</div>
+        <a href="https://www.google.com/maps/search/15+Rue+de+la+Paix+Paris+75002" target="_blank" rel="noopener" class="btn bo bsm" style="margin-top:14px;display:inline-flex">Voir sur Google Maps →</a>
       </div>
     </div>
     <div>
       <div id="csucc" class="succ"><h4>✓ Demande envoyée !</h4><p>Notre équipe vous contacte sous 24h ouvrées.</p></div>
       <form id="cform" novalidate>
         <div class="fr">
-          <div class="fg"><label for="c-p">Prénom *</label><input type="text" id="c-p" class="fi" placeholder="Marie" required autocomplete="given-name"></div>
-          <div class="fg"><label for="c-n">Nom *</label><input type="text" id="c-n" class="fi" placeholder="Dupont" required autocomplete="family-name"></div>
+          <div class="fg"><label for="c-p">Prénom *</label><input type="text" id="c-p" name="prenom" class="fi" placeholder="Marie" required autocomplete="given-name"></div>
+          <div class="fg"><label for="c-n">Nom *</label><input type="text" id="c-n" name="nom" class="fi" placeholder="Dupont" required autocomplete="family-name"></div>
         </div>
-        <div class="fg"><label for="c-e">Email professionnel *</label><input type="email" id="c-e" class="fi" placeholder="m.dupont@entreprise.fr" required autocomplete="email"></div>
-        <div class="fg"><label for="c-s">Entreprise &amp; Fonction</label><input type="text" id="c-s" class="fi" placeholder="Ex: DG chez Acme Corp" autocomplete="organization"></div>
+        <div class="fg"><label for="c-e">Email professionnel *</label><input type="email" id="c-e" name="email" class="fi" placeholder="m.dupont@entreprise.fr" required autocomplete="email"></div>
+        <div class="fg"><label for="c-s">Entreprise &amp; Fonction</label><input type="text" id="c-s" name="entreprise_fonction" class="fi" placeholder="Ex: DG chez Acme Corp" autocomplete="organization"></div>
         <div class="fr">
-          <div class="fg"><label for="c-sec">Secteur</label><select id="c-sec" class="fsel"><option value="">— Sélectionner —</option><option>BTP — Électricité &amp; Génie Électrique</option><option>BTP — Génie Civil &amp; Infrastructure</option><option>BTP — Architecture &amp; MOE</option><option>BTP — HSE &amp; Sécurité Chantier</option><option>BTP — Promotion Immobilière</option><option>BTP — Facility Management</option><option>Banque &amp; Finance</option><option>Énergie &amp; Industrie</option><option>Santé &amp; Pharma</option><option>Conseil &amp; Services</option><option>Transport &amp; Logistique</option><option>Retail &amp; Distribution</option><option>Tech &amp; Startups</option><option>Immobilier</option><option>RH &amp; Recrutement</option><option>Juridique &amp; Compliance</option><option>Secteur public</option><option>Autre</option></select></div>
-          <div class="fg"><label for="c-t">Taille équipe</label><select id="c-t" class="fsel"><option value="">— Sélectionner —</option><option>1–10</option><option>10–50</option><option>50–200</option><option>200–500</option><option>500+</option></select></div>
+          <div class="fg"><label for="c-sec">Secteur</label><select id="c-sec" name="secteur" class="fsel"><option value="">— Sélectionner —</option><option>BTP — Électricité &amp; Génie Électrique</option><option>BTP — Génie Civil &amp; Infrastructure</option><option>BTP — Architecture &amp; MOE</option><option>BTP — HSE &amp; Sécurité Chantier</option><option>BTP — Promotion Immobilière</option><option>BTP — Facility Management</option><option>Banque &amp; Finance</option><option>Énergie &amp; Industrie</option><option>Santé &amp; Pharma</option><option>Conseil &amp; Services</option><option>Transport &amp; Logistique</option><option>Retail &amp; Distribution</option><option>Tech &amp; Startups</option><option>Immobilier</option><option>RH &amp; Recrutement</option><option>Juridique &amp; Compliance</option><option>Secteur public</option><option>Autre</option></select></div>
+          <div class="fg"><label for="c-t">Taille équipe</label><select id="c-t" name="taille_equipe" class="fsel"><option value="">— Sélectionner —</option><option>1–10</option><option>10–50</option><option>50–200</option><option>200–500</option><option>500+</option></select></div>
         </div>
-        <div class="fg"><label for="c-b">Votre besoin</label><textarea id="c-b" class="fta" placeholder="Décrivez brièvement votre projet de transformation IA..." rows="4"></textarea></div>
+        <div class="fg"><label for="c-b">Votre besoin</label><textarea id="c-b" name="besoin" class="fta" placeholder="Décrivez brièvement votre projet de transformation IA..." rows="4"></textarea></div>
+        <input type="hidden" name="_subject" value="Nouvelle demande de consultation — Pandora AI">
+        <input type="hidden" name="_replyto" id="c-replyto">
         <button type="submit" class="btn bp2 blg" style="width:100%;justify-content:center">Réserver ma consultation gratuite →</button>
         <p class="fnote">En soumettant ce formulaire, vous acceptez notre politique de confidentialité. Vos données ne sont jamais revendues.</p>
       </form>
@@ -7204,6 +7206,33 @@ function toggleParc(card, detailId) {
 </div>
 </div></main>
 
+<!-- ══════════ MODAL WEBINAIRE ══════════ -->
+<div class="mov" id="wm" role="dialog" aria-modal="true" aria-labelledby="wm-t" onclick="if(event.target===this)closeM('wm')">
+  <div class="mo" style="max-width:520px">
+    <button class="mc" onclick="closeM('wm')" aria-label="Fermer">✕</button>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+      <div class="bnd"></div>
+      <span style="font-size:.75rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.09em">En direct · <span id="wm-date">Vendredi 15 Mai 2026 · 12h30</span></span>
+    </div>
+    <h2 id="wm-t" style="font-family:'Fraunces',serif;font-size:1.35rem;font-weight:800;color:var(--nv);margin:8px 0 4px" id="wm-title">ROI de l'IA : méthode pour les COMEX</h2>
+    <p style="font-size:.82rem;color:var(--tx2);margin-bottom:20px">🌐 Zoom · Gratuit · Lien envoyé par email après inscription</p>
+    <div id="wsucc" class="succ"><h4>✓ Inscription confirmée !</h4><p>Vous recevrez le lien Zoom par email avant le webinaire.</p></div>
+    <form id="wform" novalidate>
+      <div class="fr">
+        <div class="fg"><label for="w-p">Prénom *</label><input type="text" id="w-p" name="prenom" class="fi" placeholder="Marie" required autocomplete="given-name"></div>
+        <div class="fg"><label for="w-n">Nom *</label><input type="text" id="w-n" name="nom" class="fi" placeholder="Dupont" required autocomplete="family-name"></div>
+      </div>
+      <div class="fg"><label for="w-e">Email professionnel *</label><input type="email" id="w-e" name="email" class="fi" placeholder="m.dupont@entreprise.fr" required autocomplete="email"></div>
+      <div class="fg"><label for="w-s">Entreprise</label><input type="text" id="w-s" name="entreprise" class="fi" placeholder="Acme Corp" autocomplete="organization"></div>
+      <div class="fg"><label for="w-r">Votre rôle</label><select id="w-r" name="role" class="fsel"><option value="">— Sélectionner —</option><option>Dirigeant / COMEX</option><option>DSI / CTO</option><option>DAF / CFO</option><option>DRH</option><option>Directeur Marketing</option><option>Directeur Commercial</option><option>Manager / Responsable</option><option>Consultant</option><option>Autre</option></select></div>
+      <input type="hidden" id="w-webinaire" name="webinaire" value="ROI de l'IA - 15 Mai 2026">
+      <input type="hidden" name="_subject" value="Inscription webinaire — Pandora AI">
+      <button type="submit" class="btn bp2" style="width:100%;justify-content:center;margin-top:4px">Réserver ma place gratuite →</button>
+      <p class="fnote" style="margin-top:10px">✓ Gratuit · ✓ Lien Zoom envoyé par email · ✓ Replay disponible si absent</p>
+    </form>
+  </div>
+</div>
+
 <!-- ══════════ MODALS ══════════ -->
 <div class="mov" id="cm" role="dialog" aria-modal="true" aria-labelledby="cm-t" onclick="if(event.target===this)closeM('cm')">
   <div class="mo">
@@ -7212,11 +7241,12 @@ function toggleParc(card, detailId) {
     <p style="font-size:.875rem;color:var(--tx2);margin-bottom:18px">Échange gratuit de 30 minutes · Réponse sous 24h</p>
     <div id="msucc" class="succ"><h4>✓ Demande envoyée !</h4><p>Notre équipe vous contacte sous 24h ouvrées.</p></div>
     <form id="mform" novalidate>
-      <div class="fr"><div class="fg"><label for="m-p">Prénom *</label><input type="text" id="m-p" class="fi" placeholder="Marie" required></div><div class="fg"><label for="m-n">Nom *</label><input type="text" id="m-n" class="fi" placeholder="Dupont" required></div></div>
-      <div class="fg"><label for="m-e">Email professionnel *</label><input type="email" id="m-e" class="fi" placeholder="m.dupont@entreprise.fr" required></div>
-      <div class="fg"><label for="m-s">Entreprise</label><input type="text" id="m-s" class="fi" placeholder="Acme Corp"></div>
-      <div class="fg"><label for="m-obj">Objectif</label><select id="m-obj" class="fsel"><option value="">— Sélectionner —</option><option>Formation équipe (Sales / Marketing / Dirigeants)</option><option>Audit IA &amp; ROI</option><option>Parcours sur-mesure</option><option>Webinaire / Conférence</option><option>Autre</option></select></div>
-      <div class="fg"><label for="m-b">Votre besoin (optionnel)</label><textarea id="m-b" class="fta" placeholder="Décrivez brièvement votre projet IA, la taille de votre équipe, vos enjeux..." rows="3"></textarea></div>
+      <div class="fr"><div class="fg"><label for="m-p">Prénom *</label><input type="text" id="m-p" name="prenom" class="fi" placeholder="Marie" required></div><div class="fg"><label for="m-n">Nom *</label><input type="text" id="m-n" name="nom" class="fi" placeholder="Dupont" required></div></div>
+      <div class="fg"><label for="m-e">Email professionnel *</label><input type="email" id="m-e" name="email" class="fi" placeholder="m.dupont@entreprise.fr" required></div>
+      <div class="fg"><label for="m-s">Entreprise</label><input type="text" id="m-s" name="entreprise" class="fi" placeholder="Acme Corp"></div>
+      <div class="fg"><label for="m-obj">Objectif</label><select id="m-obj" name="objectif" class="fsel"><option value="">— Sélectionner —</option><option>Formation équipe (Sales / Marketing / Dirigeants)</option><option>Audit IA &amp; ROI</option><option>Parcours sur-mesure</option><option>Webinaire / Conférence</option><option>Autre</option></select></div>
+      <div class="fg"><label for="m-b">Votre besoin (optionnel)</label><textarea id="m-b" name="besoin" class="fta" placeholder="Décrivez brièvement votre projet IA, la taille de votre équipe, vos enjeux..." rows="3"></textarea></div>
+      <input type="hidden" name="_subject" value="Nouvelle consultation gratuite — Pandora AI">
       <button type="submit" class="btn bp2" style="width:100%;justify-content:center">Réserver ma consultation gratuite →</button>
       <p class="fnote">Données confidentielles · Jamais revendues</p>
     </form>
@@ -7328,7 +7358,7 @@ function toggleParc(card, detailId) {
     </div>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn bp2" onclick="goToProgrammeSales()">Réserver ma place →</button>
+      <button class="btn bp2" onclick="openFormation('IA pour Commerciaux &amp; Sales')">Réserver ma place →</button>
       <button class="btn bo" onclick="closeM('prog-sales');nav('formations');setTimeout(()=>showFormation('sales'),200)">Voir les 3 niveaux →</button>
     </div>
   </div>
@@ -7419,7 +7449,7 @@ function toggleParc(card, detailId) {
     </div>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn bp2" onclick="goToProgrammeMarketing()">Réserver ma place →</button>
+      <button class="btn bp2" onclick="openFormation('IA pour Marketing')">Réserver ma place →</button>
       <button class="btn bo" onclick="closeM('prog-marketing');nav('formations');setTimeout(()=>showFormation('marketing'),200)">Voir les 3 niveaux →</button>
     </div>
   </div>
@@ -7622,13 +7652,13 @@ function toggleParc(card, detailId) {
     <div class="fcol"><h4>Contact</h4><ul>
       <li><a href="mailto:contactpandoraai@gmail.com">contactpandoraai@gmail.com</a></li>
       <li><a href="tel:+33605985807">+33 06 05 98 58 07</a></li>
-      <li><a onclick="nav('contact')">Boulevard Ornano, Paris 75002</a></li>
+      <li><a onclick="nav('contact')">15 Rue de la Paix, 75002 Paris</a></li>
       <li><a href="https://www.linkedin.com/company/pandoraai/" target="_blank" rel="noopener">LinkedIn Pandora AI</a></li>
       <li><a onclick="nav('insights')">Blog &amp; Insights</a></li>
     </ul></div>
   </div>
   <div class="fbot">
-    <p>© 2026 Pandora AI SAS — Tous droits réservés · Boulevard Ornano, Paris 75002, France</p>
+    <p>© 2026 Pandora AI SAS — Tous droits réservés · 15 Rue de la Paix, 75002 Paris, France</p>
     <div style="display:flex;gap:18px">
       <a href="#">Mentions légales</a>
       <a href="#">Confidentialité</a>
@@ -7754,19 +7784,125 @@ document.addEventListener('keydown',e=>{
     if(mob&&mob.classList.contains('open')){mob.classList.remove('open');if(ham)ham.setAttribute('aria-expanded','false');}
   }
 });
-// FORMS
+// FORMS — envoi réel via Formspree
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdablprk';
+
+function collectFormData(f){
+  const data={};
+  f.querySelectorAll('input,select,textarea').forEach(el=>{
+    // Utiliser name= si disponible (requis par Formspree), sinon id
+    const key = el.name || el.id;
+    if(key && el.value) data[key] = el.value;
+  });
+  // Synchro _replyto pour que Formspree puisse répondre directement
+  const emailEl = f.querySelector('input[type=email]');
+  if(emailEl && emailEl.value) data['_replyto'] = emailEl.value;
+  return data;
+}
+
+function showFormSuccess(f, sid){
+  f.style.display='none';
+  const s=document.getElementById(sid);if(s)s.classList.add('show');
+}
+
+function showFormError(btn, origText){
+  btn.textContent='Erreur — Réessayez';
+  btn.style.background='#ef4444';
+  btn.disabled=false;
+  setTimeout(()=>{btn.textContent=origText;btn.style.background='';},3000);
+}
+
 function bindF(fid,sid){
   const f=document.getElementById(fid);if(!f)return;
-  f.addEventListener('submit',e=>{
+  f.addEventListener('submit',async e=>{
     e.preventDefault();
     const em=f.querySelector('input[type=email]');
     if(!em||!em.value.includes('@')){if(em){em.style.borderColor='#ef4444';em.focus();setTimeout(()=>em.style.borderColor='',2000);}return;}
-    f.style.display='none';
-    const s=document.getElementById(sid);if(s)s.classList.add('show');
+    const btn=f.querySelector('button[type=submit]');
+    const origText=btn?btn.textContent:'';
+    if(btn){btn.textContent='Envoi en cours…';btn.disabled=true;}
+    const data=collectFormData(f);
+    data['_form_id']=fid;
+    data['_source']=window.location.href;
+    try{
+      const res=await fetch(FORMSPREE_ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+      });
+      if(res.ok){
+        showFormSuccess(f,sid);
+      } else {
+        if(btn) showFormError(btn,origText);
+      }
+    }catch(err){
+      if(btn) showFormError(btn,origText);
+    }
   });
 }
-bindF('mform','msucc');bindF('cform','csucc');
-function subNL(btn){const i=btn.previousElementSibling;if(!i.value.includes('@')){i.style.borderColor='#ef4444';i.focus();setTimeout(()=>i.style.borderColor='',2000);return;}btn.textContent='✓ Inscrit !';btn.style.background='#ecfdf5';btn.style.color='#065f46';btn.disabled=true;}
+bindF('mform','msucc');bindF('cform','csucc');bindF('wform','wsucc');
+
+// Ouvre la modale contact avec objectif pré-sélectionné
+function openWithObj(val){
+  openM('cm');
+  setTimeout(()=>{
+    const sel=document.getElementById('m-obj');
+    if(sel){
+      for(let i=0;i<sel.options.length;i++){
+        if(sel.options[i].text.includes(val)){sel.selectedIndex=i;break;}
+      }
+    }
+  },100);
+}
+function openReplay(){
+  openWithObj('Webinaire');
+  setTimeout(()=>{
+    const tb=document.getElementById('m-b');
+    if(tb&&!tb.value) tb.placeholder="Je souhaite recevoir les replays des webinaires Pandora AI.";
+  },150);
+}
+function openNewsletter(){
+  openWithObj('Autre');
+  setTimeout(()=>{
+    const tb=document.getElementById('m-b');
+    if(tb&&!tb.value) tb.placeholder="Je souhaite m'inscrire à la newsletter IA hebdomadaire de Pandora AI.";
+  },150);
+}
+
+// Pré-remplissage du select objectif selon le contexte du formulaire
+function openFormation(type){
+  openWithObj('Formation');
+  setTimeout(()=>{
+    const tb=document.getElementById('m-b');
+    if(tb&&!tb.value) tb.placeholder="Formation souhaitée : "+type+". Veuillez préciser la taille de votre équipe et vos objectifs.";
+  },150);
+}
+function openDevis(type){
+  openWithObj('Parcours');
+  setTimeout(()=>{
+    const tb=document.getElementById('m-b');
+    if(tb&&!tb.value) tb.placeholder="Parcours souhaité : "+type+". Veuillez préciser le nombre de participants et votre secteur.";
+  },150);
+}
+
+async function subNL(btn){
+  const i=btn.previousElementSibling;
+  if(!i||!i.value.includes('@')){if(i){i.style.borderColor='#ef4444';i.focus();setTimeout(()=>i.style.borderColor='',2000);}return;}
+  const origText=btn.textContent;
+  btn.textContent='Envoi…';btn.disabled=true;
+  try{
+    const res=await fetch(FORMSPREE_ENDPOINT,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({email:i.value,_form_id:'newsletter',_source:window.location.href})
+    });
+    if(res.ok){btn.textContent='✓ Inscrit !';btn.style.background='#ecfdf5';btn.style.color='#065f46';}
+    else{btn.textContent='Erreur';btn.style.background='#ef4444';setTimeout(()=>{btn.textContent=origText;btn.style.background='';btn.disabled=false;},3000);}
+  }catch(err){
+    btn.textContent='Erreur';btn.style.background='#ef4444';
+    setTimeout(()=>{btn.textContent=origText;btn.style.background='';btn.disabled=false;},3000);
+  }
+}
 // FAQ
 document.addEventListener('click',e=>{
   const btn=e.target.closest('.fbtn');if(!btn)return;
