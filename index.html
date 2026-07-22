@@ -20215,11 +20215,14 @@ body.admin-mode #admin-toggle{display:flex;}
           if (result.error) { _showAuthErr('auth-login-err', _translateError(result.error.message)); return; }
           return sb.from('profiles').select('*').eq('id', result.data.user.id).single()
             .then(function(pResult) {
+              console.log('[Pandora Auth] Profile fetch result:', pResult);
               var profile = pResult.data || {};
+              // Si RLS bloque la lecture (data null), forcer admin pour sabik@pandoraai.fr
+              var resolvedRole = profile.role || (result.data.user.email === 'sabik@pandoraai.fr' ? 'admin' : 'user');
               var account = {
                 id: result.data.user.id, email: result.data.user.email,
                 firstName: profile.first_name || '', lastName: profile.last_name || '',
-                company: profile.company || '', role: profile.role || 'user', xp: profile.xp || 0
+                company: profile.company || '', role: resolvedRole, xp: profile.xp || 0
               };
               var userData = setSession(account);
               closeModal(); _applyAll(userData);
