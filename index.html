@@ -17484,7 +17484,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div class="ey rv">Notre histoire</div>
       <h2 class="hd rv d1" style="max-width:100%">De la frustration à <em>la solution</em></h2>
       <p style="font-size:.95rem;color:var(--tx2);line-height:1.8;margin-top:18px" class="rv d2">Pandora AI est née d'une frustration simple : trop d'entreprises investissaient dans l'IA sans résultats mesurables. Trop de formations théoriques, pas assez de terrain. Trop de promesses, pas assez d'engagements.</p>
-      <p style="font-size:.95rem;color:var(--tx2);line-height:1.8;margin-top:14px" class="rv d3">Notre conviction : <strong>C'est en forgeant qu'on devient forgeron : avec l’IA aussi, on progresse en l’utilisant vraiment.</strong> Sabik Omar et son équipe ont décidé de faire autrement : mesurer le ROI contractuellement, travailler sur les vrais projets des clients, et ne jamais quitter une mission sans résultats vérifiables.</p>
+      <p style="font-size:.95rem;color:var(--tx2);line-height:1.8;margin-top:14px" class="rv d3">Notre conviction : <strong>C'est en forgeant qu'on devient forgeron : avec l'IA aussi, on progresse en l'utilisant vraiment.</strong> Sabik Omar et son équipe ont décidé de faire autrement : mesurer le ROI contractuellement, travailler sur les vrais projets des clients, et ne jamais quitter une mission sans résultats vérifiables.</p>
       <p style="font-size:.95rem;color:var(--tx2);line-height:1.8;margin-top:14px" class="rv d4">Aujourd'hui, Pandora AI a formé plus de <strong>150+ professionnels</strong> dans plus de 10 entreprises — avec une seule obsession : votre performance mesurable.</p>
       <div class="li-widget rv d4" style="margin-top:24px">
         <div class="li-icon">in</div>
@@ -17594,7 +17594,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="value-card rv d2"><span class="value-icon">🤝</span><h3>Partenariat, pas prestation</h3><p>Nous nous impliquons comme si c'était notre propre entreprise. La réussite de nos clients est notre seule mesure de succès — d'où la garantie ROI contractuelle unique sur le marché.</p></div>
     <div class="value-card rv d3"><span class="value-icon">🔬</span><h3>Rigueur scientifique</h3><p>Chaque recommandation est basée sur des données. Pas de tendances sans preuves. Pas de promesses sans méthodologie.</p></div>
     <div class="value-card rv d1"><span class="value-icon">🌱</span><h3>IA responsable</h3><p>Nous formons nos clients à utiliser l'IA de manière éthique, sécurisée et conforme — EU AI Act, RGPD, droits d'auteur.</p></div>
-    <div class="value-card rv d2"><span class="value-icon">⚡</span><h3>Vitesse d'exécution</h3><p>C'est en forgeant qu'on devient forgeron : avec l’IA aussi, on progresse en l’utilisant vraiment. Les premiers résultats arrivent dès le lendemain de la formation.</p></div>
+    <div class="value-card rv d2"><span class="value-icon">⚡</span><h3>Vitesse d'exécution</h3><p>C'est en forgeant qu'on devient forgeron : avec l'IA aussi, on progresse en l'utilisant vraiment. Les premiers résultats arrivent dès le lendemain de la formation.</p></div>
     <div class="value-card rv d3"><span class="value-icon">🧠</span><h3>Amélioration continue</h3><p>L'IA évolue chaque semaine. Notre équipe se forme en permanence pour que vos formations restent à la pointe.</p></div>
   </div>
 </section>
@@ -21187,7 +21187,7 @@ body.admin-mode #admin-toggle{display:flex;}
     { id:'typescript', icon:'🔷', name:'TypeScript Avancé', desc:'Generics, Conditional Types, infer, Mapped Types — maîtrise complète du système de types', badge:'Recommandé', recommended:true },
     { id:'react',      icon:'⚛️',  name:'React 19 & Next.js', desc:'Server Components, Suspense, Actions, App Router — le stack frontend 2025', badge:'Populaire', recommended:false },
     { id:'fullstack',  icon:'🚀',  name:'Full-Stack TypeScript', desc:'tRPC, Prisma, NestJS — de la DB à l\'UI 100% type-safe', badge:'Senior', recommended:false },
-    { id:'ai',         icon:'🤖',  name:'IA & LLM Engineering', desc:'Prompting avancé, RAG, agents, fine-tuning — construire avec l'IA', badge:'Tendance', recommended:false },
+    { id:'ai', icon:'🤖', name:'IA & LLM Engineering', desc:"Prompting avancé, RAG, agents, fine-tuning — construire avec l'IA", badge:'Tendance', recommended:false },
   ];
 
   function updateDots(step) {
@@ -21542,7 +21542,7 @@ body.admin-mode #admin-toggle{display:flex;}
       ctx.lessonsCompleted = (userData.lessonsCompleted || []).length;
       ctx.quizzesCompleted = userData.quizzesCompleted || {};
     } catch(e) {
-      ctx.userName = 'l'étudiant'; ctx.level = 'intermédiaire';
+      ctx.userName = userData.name || "l'étudiant"; ctx.level = 'intermédiaire';
     }
     // Current module state
     try {
