@@ -669,6 +669,14 @@ body.admin-mode #bnr { top: 102px; }
 .adm-edit-inner { background: #fff; border-radius: 20px; padding: 32px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; transform: translateY(12px) scale(.97); transition: transform .25s; }
 #adm-edit-modal.open .adm-edit-inner { transform: none; }
 .adm-edit-inner h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 800; color: var(--nv); margin-bottom: 18px; }
+
+/* ── PREMIUM GATE STYLES ── */
+body:not(.user-mode):not(.admin-mode) a[data-nav="plateforme"]::after {
+  content: ' 🔒'; font-size:.75em; opacity:.5;
+}
+#auth-overlay { transition: opacity .22s ease; }
+#auth-overlay:not(.open) { opacity:0; pointer-events:none; }
+#auth-overlay.open { opacity:1; pointer-events:all; }
 </style>
 </head>
 <body>
@@ -677,7 +685,7 @@ body.admin-mode #bnr { top: 102px; }
 <div class="bnr" id="bnr">
   <div class="bnd"></div>
   <span>📅 Webinaire — ROI de l'IA : méthode pour les COMEX · <strong>Ven. 15 Mai 2026, 12h30</strong></span>
-  <a href="#" onclick="openM('wm');return false">S'inscrire →</a>
+  <a href="#" onclick="gateAction('webinar',function(){openM('wm');});return false">S'inscrire →</a>
   <button class="bnx" id="bnx" aria-label="Fermer">✕</button>
 </div>
 <nav id="mnav" role="navigation" aria-label="Navigation principale">
@@ -704,7 +712,7 @@ body.admin-mode #bnr { top: 102px; }
     <li><a href="#" data-nav="cas" onclick="nav('cas');return false">Cas clients</a></li>
     <li><a href="#" data-nav="insights" onclick="nav('insights');return false">Insights</a></li>
     <li><a href="#" data-nav="webinaires" onclick="nav('webinaires');return false">Webinaires</a></li>
-    <li><a href="#" data-nav="plateforme" onclick="nav('plateforme');return false">Plateforme</a></li>
+    <li><a href="#" data-nav="plateforme" onclick="gateAction('platform',function(){nav('plateforme')});return false">Plateforme</a></li>
   </ul>
   <div style="display:flex;gap:10px;align-items:center">
     <a href="https://www.linkedin.com/company/pandoraai/" target="_blank" rel="noopener" title="Pandora AI sur LinkedIn" style="width:34px;height:34px;border-radius:8px;background:#0077b5;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem;text-decoration:none;transition:all .2s;flex-shrink:0" onmouseover="this.style.background='#005f94'" onmouseout="this.style.background='#0077b5'">in</a>
@@ -732,7 +740,7 @@ body.admin-mode #bnr { top: 102px; }
   <a href="#" onclick="nav('cas');cM();return false">Cas clients</a>
   <a href="#" onclick="nav('insights');cM();return false">Insights</a>
   <a href="#" onclick="nav('webinaires');cM();return false">Webinaires</a>
-  <a href="#" onclick="nav('plateforme');cM();return false">Plateforme</a>
+  <a href="#" onclick="gateAction('platform',function(){nav('plateforme');cM();});return false">Plateforme</a>
   <a href="#" onclick="nav('apropos');cM();return false">À propos</a>
   <a href="#" onclick="nav('contact');cM();return false" style="color:var(--nv);font-weight:700">Contact</a>
   <a href="#" onclick="openM('cm');cM();return false" style="color:var(--bl);font-weight:700">Audit gratuit →</a>
@@ -6627,7 +6635,7 @@ function toggleParc(card, detailId) {
   <h3 style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:12px">L'IA de votre secteur, <em style="background:linear-gradient(135deg,#60a5fa,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">chaque semaine</em></h3>
   <p style="color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 28px;font-size:.9rem">Insights BTP, santé, industrie, finance — adaptés à votre métier. 2 000+ professionnels déjà abonnés. Pas de spam : 1 email, 3 insights actionnables, chaque lundi.</p>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-    <button class="btn bw blg" onclick="openNewsletter()">S'abonner à la veille IA →</button>
+    <button class="btn bw blg" onclick="gateAction('resource',function(){openNewsletter();})">S'abonner à la veille IA →</button>
     <a href="https://www.linkedin.com/company/pandoraai/" target="_blank" rel="noopener" class="btn blg" style="background:#0077b5;color:#fff;border:none">in Suivre sur LinkedIn</a>
   </div>
 </div>
@@ -6685,7 +6693,7 @@ function toggleParc(card, detailId) {
     <h1 class="hd" style="font-size:clamp(2.1rem,4.2vw,3.6rem);margin-top:12px;color:#fff;max-width:780px">Apprenez en <em>direct</em><br>avec nos experts.</h1>
     <p class="sub" style="color:rgba(255,255,255,.65);max-width:560px">Webinaires gratuits chaque mois sur les enjeux IA les plus brûlants. Pas de théorie inutile : cas pratiques, démonstrations live et Q&amp;A en direct. Repartez avec des outils applicables dès le lendemain.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-      <button class="btn bw blg" onclick="openM('wm')">S'inscrire au prochain webinaire →</button>
+      <button class="btn bw blg" onclick="gateAction('webinar',function(){openM('wm');})">S'inscrire au prochain webinaire →</button>
       <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="navformations()">Voir les formations</button>
     </div>
   </div>
@@ -6717,8 +6725,8 @@ function toggleParc(card, detailId) {
         <div class="cdu"><span class="cdn" id="cd-s">00</span><span class="cdl">Sec.</span></div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-        <button class="btn bw blg" onclick="openM('wm')">Réserver ma place gratuite →</button>
-        <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="openReplay()">Recevoir le replay si absent</button>
+        <button class="btn bw blg" onclick="gateAction('webinar',function(){openM('wm');})">Réserver ma place gratuite →</button>
+        <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="gateAction('resource',function(){openReplay();})">Recevoir le replay si absent</button>
       </div>
     </div>
   </div>
@@ -6736,7 +6744,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">ROI de l'IA : méthode de calcul pour les COMEX</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 Décideurs &amp; DSI</span></div>
       </div>
-      <button class="btn bp2 bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bp2 bsm" onclick="gateAction('webinar',function(){openM('wm');})" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d2">
       <div class="web-date-box"><div class="web-day">12</div><div class="web-month">Jun</div></div>
@@ -6745,7 +6753,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">Microsoft Copilot M365 : les meilleures pratiques 2026</div>
         <div class="web-meta"><span>🕐 12h30–14h00</span><span>🌐 Zoom</span><span>👥 Gratuit · 150 places</span><span>🎯 DSI &amp; IT Managers</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bo bsm" onclick="gateAction('webinar',function(){openM('wm');})" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d3">
       <div class="web-date-box"><div class="web-day">03</div><div class="web-month">Jul</div></div>
@@ -6754,7 +6762,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">Agents IA en entreprise : déploiement sans risque</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 DSI &amp; Architectes</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">S'inscrire →</button>
+      <button class="btn bo bsm" onclick="gateAction('webinar',function(){openM('wm');})" style="flex-shrink:0">S'inscrire →</button>
     </div>
     <div class="web-item rv d4">
       <div class="web-date-box"><div class="web-day">11</div><div class="web-month">Sep</div></div>
@@ -6763,7 +6771,7 @@ function toggleParc(card, detailId) {
         <div class="web-title">EU AI Act &amp; entreprises françaises : obligations concrètes</div>
         <div class="web-meta"><span>🕐 12h30–13h30</span><span>🌐 Zoom</span><span>👥 Gratuit · 200 places</span><span>🎯 DSI, DPO, Juristes</span></div>
       </div>
-      <button class="btn bo bsm" onclick="openM('wm')" style="flex-shrink:0">Pré-inscription →</button>
+      <button class="btn bo bsm" onclick="gateAction('webinar',function(){openM('wm');})" style="flex-shrink:0">Pré-inscription →</button>
     </div>
   </div>
 </section>
@@ -6840,7 +6848,7 @@ function toggleParc(card, detailId) {
       </div>
     </div>
   </div>
-  <p style="text-align:center;margin-top:28px;font-size:.84rem;color:var(--mu)">Accès gratuit aux replays après inscription — <button class="btn bsm bo" onclick="openReplay()" style="margin-left:8px">Recevoir tous les replays →</button></p>
+  <p style="text-align:center;margin-top:28px;font-size:.84rem;color:var(--mu)">Accès gratuit aux replays après inscription — <button class="btn bsm bo" onclick="gateAction('resource',function(){openReplay();})" style="margin-left:8px">Recevoir tous les replays →</button></p>
 </section>
 
 <!-- ─── FORMATIONS INTER-ENTREPRISES ─── -->
@@ -6898,7 +6906,7 @@ function toggleParc(card, detailId) {
       <h2 class="hd hd-w" style="max-width:100%;text-align:center;margin:12px auto">Ne ratez plus aucun<br><em>webinaire Pandora AI.</em></h2>
       <p class="sub sub-w" style="margin:14px auto;text-align:center">Agenda des prochains webinaires, replays exclusifs, études de cas et veille IA hebdomadaire. Désabonnement en 1 clic.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-        <button class="btn bw blg" onclick="openNewsletter()">S'inscrire à la newsletter →</button>
+        <button class="btn bw blg" onclick="gateAction('resource',function(){openNewsletter();})">S'inscrire à la newsletter →</button>
         <button class="btn blg" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="navinsights()">Lire nos Insights</button>
       </div>
     </div>
@@ -19936,6 +19944,7 @@ body.admin-mode #admin-toggle{display:flex;}
       </div>
       <div style="display:flex;gap:6px;margin-top:10px">
         <button class="adm-btn adm-btn-blue" style="flex:1" onclick="admRefreshMembers()">🔄 Actualiser</button>
+      <button class="adm-btn" style="flex:1;background:#f0fdf4;color:#166534;border:1px solid #bbf7d0" onclick="admExportMembers()">⬇ Export CSV</button>
         <button class="adm-btn adm-btn-yellow" style="flex:1" onclick="admExportMembers()">📥 Export CSV</button>
       </div>
     </div>
@@ -20030,8 +20039,8 @@ body.admin-mode #admin-toggle{display:flex;}
   // 0. CONFIGURATION SUPABASE
   //    ↓↓↓ REMPLACE CES DEUX VALEURS PAR CELLES DE TON PROJET ↓↓↓
   // ──────────────────────────────────────────────────────────────────
-  var SUPABASE_URL      = 'VOTRE_SUPABASE_URL';
-  var SUPABASE_ANON_KEY = 'VOTRE_SUPABASE_ANON_KEY';
+  var SUPABASE_URL      = 'https://bbrfmhqmanafdyaxmlvh.supabase.co';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJicmZtaHFtYW5hZmR5YXhtbHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyNDY3MTIsImV4cCI6MjA5OTgyMjcxMn0.ISQAddHRTViUdE84bmxuyyKMVkoUt0V9EzcWn4ejZc4';
 
   var SUPABASE_READY = (
     SUPABASE_URL !== 'VOTRE_SUPABASE_URL' &&
@@ -21847,25 +21856,57 @@ body.admin-mode #admin-toggle{display:flex;}
 (function() {
   'use strict';
 
-  // ── Mettre à jour les KPIs admin avec le vrai nombre de membres ──
+  // ── Mettre à jour les KPIs admin (Supabase ou local) ──
   function updateAdminKPIs() {
+    var setKpis = function(count) {
+      var el1 = document.getElementById('adm-stat-inscrits');
+      var el2 = document.getElementById('adm-stat-members');
+      if (el1) el1.textContent = count;
+      if (el2) el2.textContent = count;
+    };
     try {
-      var users = JSON.parse(localStorage.getItem('pandora_users') || '[]');
-      var el = document.getElementById('adm-stat-inscrits');
-      // On peut ajouter la liste membres dans le KPI
-      var membersKpi = document.getElementById('adm-stat-members');
-      if (membersKpi) membersKpi.textContent = users.length;
+      var sb = window.AUTH && window.AUTH.getSupabase && window.AUTH.getSupabase();
+      if (sb) {
+        sb.from('profiles').select('id', { count: 'exact', head: true })
+          .then(function(r) { if (!r.error) setKpis(r.count || 0); })
+          .catch(function() { setKpis(JSON.parse(localStorage.getItem('pandora_users') || '[]').length); });
+      } else {
+        setKpis(JSON.parse(localStorage.getItem('pandora_users') || '[]').length);
+      }
     } catch(e) {}
   }
 
   // ── Gate premium : ouvrir modal auth si non connecté, sinon exécuter l'action ──
+  window._pendingGateAction = null;
   window.gateAction = function(context, action) {
     if (window.AUTH && window.AUTH.getSession()) {
       if (typeof action === 'function') action();
     } else {
+      window._pendingGateAction = action || null;
       if (window.AUTH) window.AUTH.openModal(context, 'register');
     }
   };
+
+  // Observer fermeture modal → déclencher l'action en attente
+  (function() {
+    function _tryPending() {
+      if (window._pendingGateAction && window.AUTH && window.AUTH.getSession()) {
+        var fn = window._pendingGateAction;
+        window._pendingGateAction = null;
+        setTimeout(fn, 200);
+      }
+    }
+    var overlay = document.getElementById('auth-overlay');
+    if (overlay) {
+      new MutationObserver(function(muts) {
+        muts.forEach(function(m) {
+          if (m.attributeName === 'class' && !overlay.classList.contains('open')) {
+            _tryPending();
+          }
+        });
+      }).observe(overlay, { attributes: true });
+    }
+  })();
 
   // ── Patch des boutons S'inscrire webinaire (platform side) ──
   document.querySelectorAll('.event-register').forEach(function(btn) {
